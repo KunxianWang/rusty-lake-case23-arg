@@ -6,7 +6,8 @@
 
 ## 当前状态
 
-- 完成故事与玩法大纲 V1
+- 完成故事与玩法大纲 V2
+- 完成完整剧情圣经和结构化 `story/` 故事工程
 - 尚未进入网页开发
 - 下一步：正史事实表、网站地图、线索矩阵和第一阶段原型
 
@@ -17,10 +18,23 @@
 ├── AGENTS.md
 ├── README.md
 ├── docs/
+│   ├── complete-story.md
 │   └── rusty-lake-case23-outline.md
+├── story/
+│   ├── characters/
+│   ├── chapters/
+│   ├── continuity/
+│   ├── plot/
+│   └── story.md
 ├── src/
 └── assets/
 ```
+
+## 设计文档入口
+
+- [完整剧情圣经](docs/complete-story.md)
+- [玩法与页面大纲](docs/rusty-lake-case23-outline.md)
+- [结构化故事工程](story/story.md)
 
 ## 设计原则
 
@@ -33,4 +47,3 @@
 ## 免责声明
 
 这是非商业、非官方的粉丝创作项目，与 Rusty Lake 官方团队无关。Rusty Lake、Cube Escape 及相关角色和世界观归其权利人所有。项目后续不应直接复制原作美术、音乐、商标或付费素材。
-
