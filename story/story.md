@@ -58,6 +58,7 @@ tense: mixed
 
 - 完整剧情：[../docs/complete-story.md](../docs/complete-story.md)
 - 玩法大纲：[../docs/rusty-lake-case23-outline.md](../docs/rusty-lake-case23-outline.md)
+- 完整游戏流程：[../docs/full-game-flow.md](../docs/full-game-flow.md)
 - 主线结构：[plot/arcs/case-23-investigation.md](plot/arcs/case-23-investigation.md)
 - 历史时间线：[plot/timeline.md](plot/timeline.md)
 - 当前连续性：[continuity/state.md](continuity/state.md)
