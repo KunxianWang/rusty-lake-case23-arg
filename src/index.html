@@ -1,0 +1,5071 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="锈湖地方档案数字化计划——23号案非官方单页网页调查游戏">
+  <title>Rusty Lake Archive: Case 23 :: Complete Investigation</title>
+  <style>
+    :root {
+      --page-bg: #080b0a;
+      --shell-bg: #101613;
+      --panel-bg: #151d19;
+      --panel-deep: #0d1210;
+      --bar-bg: #25342d;
+      --bar-dark: #17211d;
+      --line: #425149;
+      --line-soft: #2b3832;
+      --text: #c7c9bd;
+      --text-dim: #89958c;
+      --text-faint: #657068;
+      --link: #a9c4b5;
+      --link-hover: #e2d6b8;
+      --rust: #9a573c;
+      --rust-dark: #5f3024;
+      --warning: #c48364;
+      --paper: #cfbf98;
+      --paper-light: #e0d2ae;
+      --paper-dark: #88704b;
+      --paper-ink: #29271f;
+      --paper-red: #7b271e;
+      --focus: #e0be6b;
+      --content-width: 1120px;
+      --ui-font: Tahoma, Verdana, Arial, sans-serif;
+      --serif-font: Georgia, "Times New Roman", serif;
+      --mono-font: "Courier New", Courier, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family: var(--ui-font);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 50% -15%, rgba(75, 101, 86, 0.18), transparent 36rem),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 4px),
+        #080b0a;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 0.5rem;
+      left: 0.5rem;
+      transform: translateY(-180%);
+      padding: 0.55rem 0.8rem;
+      border: 1px solid var(--focus);
+      background: #111;
+      color: #fff;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-shell {
+      width: min(calc(100% - 24px), var(--content-width));
+      margin: 18px auto 28px;
+      border: 1px solid #536159;
+      background: var(--shell-bg);
+      box-shadow:
+        0 0 0 1px #050706,
+        0 20px 70px rgba(0, 0, 0, 0.55);
+    }
+
+    .utility-bar {
+      display: flex;
+      min-height: 25px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 3px 8px;
+      border-bottom: 1px solid #35423c;
+      background: #0b100e;
+      color: var(--text-dim);
+      font-size: 0.7rem;
+    }
+
+    .utility-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .utility-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+    }
+
+    .masthead {
+      position: relative;
+      display: grid;
+      min-height: 126px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+      overflow: hidden;
+      border-bottom: 1px solid #59645d;
+      background:
+        linear-gradient(90deg, rgba(8, 13, 11, 0.98) 0%, rgba(13, 22, 18, 0.9) 52%, rgba(17, 28, 23, 0.5) 100%),
+        #111a16;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 21px 24px;
+    }
+
+    .archive-mark {
+      position: relative;
+      flex: 0 0 72px;
+      width: 72px;
+      height: 72px;
+      border: 1px solid #829187;
+      background: #111815;
+      box-shadow:
+        inset 0 0 0 4px #25352d,
+        inset 0 0 0 5px #5b6d62;
+    }
+
+    .archive-mark::before,
+    .archive-mark::after {
+      content: "";
+      position: absolute;
+      border: 1px solid #91a097;
+    }
+
+    .archive-mark::before {
+      inset: 18px;
+      transform: rotate(45deg);
+      background: #1c2923;
+    }
+
+    .archive-mark::after {
+      inset: 28px;
+      border-color: #b26748;
+      background: #0a0d0c;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-kicker {
+      margin: 0 0 3px;
+      color: #7d8f84;
+      font-family: var(--mono-font);
+      font-size: 0.67rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand h1 {
+      margin: 0;
+      color: #d0d3c7;
+      font-family: var(--serif-font);
+      font-size: clamp(1.45rem, 3vw, 2.15rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 1.08;
+      text-shadow: 0 2px 2px #000;
+    }
+
+    .brand-cn {
+      margin: 5px 0 0;
+      color: #9da99f;
+      font-family: var(--serif-font);
+      font-size: 0.88rem;
+      letter-spacing: 0.24em;
+    }
+
+    .lake-banner {
+      position: relative;
+      min-height: 126px;
+      overflow: hidden;
+      border-left: 1px solid #35443c;
+      background:
+        linear-gradient(to bottom, #1e3029 0%, #263b31 35%, #111b17 36%, #0b1110 63%, #1c2924 64%, #0a0e0d 100%);
+      opacity: 0.83;
+    }
+
+    .lake-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 56% 30%, rgba(205, 216, 199, 0.22) 0 4%, transparent 4.5%),
+        repeating-linear-gradient(180deg, transparent 0 7px, rgba(189, 205, 194, 0.06) 8px 9px),
+        linear-gradient(153deg, transparent 0 36%, #101814 36.5% 47%, transparent 47.5%),
+        linear-gradient(207deg, transparent 0 42%, #0c120f 42.5% 54%, transparent 54.5%);
+      filter: contrast(1.15);
+    }
+
+    .lake-banner::after {
+      content: "RUSTY LAKE COUNTY · ARCHIVE MIRROR 03";
+      position: absolute;
+      right: 10px;
+      bottom: 8px;
+      padding: 3px 5px;
+      border: 1px solid rgba(143, 161, 150, 0.35);
+      background: rgba(5, 8, 7, 0.72);
+      color: #89988f;
+      font-family: var(--mono-font);
+      font-size: 0.57rem;
+      letter-spacing: 0.08em;
+    }
+
+    .status-strip {
+      display: flex;
+      min-height: 29px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 4px 9px;
+      border-bottom: 1px solid #614337;
+      background: #2a1915;
+      color: #c79882;
+      font-size: 0.72rem;
+    }
+
+    .status-strip strong {
+      color: #e0b097;
+      font-family: var(--mono-font);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .primary-nav {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      border-bottom: 1px solid #5b6961;
+      background: #18221e;
+    }
+
+    .primary-nav a {
+      min-width: 0;
+      padding: 8px 6px 7px;
+      border-right: 1px solid #3e4d45;
+      background: linear-gradient(#2c3b34, #1b2822);
+      color: #c4cdc5;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      text-shadow: 0 1px #000;
+      text-transform: uppercase;
+    }
+
+    .primary-nav a:last-child {
+      border-right: 0;
+    }
+
+    .primary-nav a:hover,
+    .primary-nav a[aria-current="page"] {
+      background: #3c4b43;
+      color: #fff4dc;
+    }
+
+    .primary-nav small {
+      display: block;
+      margin-top: 1px;
+      color: #829087;
+      font-size: 0.58rem;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 195px minmax(0, 1fr) 220px;
+      gap: 8px;
+      padding: 8px;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.008) 0 1px, transparent 1px 6px),
+        #0d1310;
+    }
+
+    .column {
+      min-width: 0;
+    }
+
+    .panel {
+      margin-bottom: 8px;
+      border: 1px solid var(--line);
+      background: var(--panel-bg);
+      box-shadow: inset 0 0 0 1px #0a0e0c;
+    }
+
+    .panel:last-child {
+      margin-bottom: 0;
+    }
+
+    .panel-title {
+      display: flex;
+      min-height: 28px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 5px 7px;
+      border-bottom: 1px solid #536159;
+      background: linear-gradient(#304039, #1c2923);
+      color: #d3d5c9;
+      font-size: 0.72rem;
+      letter-spacing: 0.045em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .panel-title .section-code {
+      color: #76867d;
+      font-family: var(--mono-font);
+      font-size: 0.58rem;
+      letter-spacing: 0;
+    }
+
+    .panel-body {
+      padding: 8px;
+      color: #adb4ac;
+      font-size: 0.74rem;
+    }
+
+    .panel-body.flush {
+      padding: 0;
+    }
+
+    .panel-body p {
+      margin: 0 0 0.65rem;
+    }
+
+    .panel-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .category-list,
+    .plain-list,
+    .updates-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .category-list li {
+      border-bottom: 1px dotted #39473f;
+    }
+
+    .category-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .category-list a {
+      display: grid;
+      grid-template-columns: 11px minmax(0, 1fr) auto;
+      gap: 4px;
+      align-items: center;
+      padding: 5px 3px;
+      color: #aebdb4;
+      text-decoration: none;
+    }
+
+    .category-list a:hover {
+      background: #202c26;
+      color: #e4dac1;
+    }
+
+    .category-list .arrow {
+      color: #a66146;
+      font-family: var(--mono-font);
+    }
+
+    .category-list .count {
+      color: #6e7d74;
+      font-family: var(--mono-font);
+      font-size: 0.63rem;
+    }
+
+    .mini-label {
+      display: inline-block;
+      margin-bottom: 4px;
+      padding: 1px 4px;
+      border: 1px solid #46544c;
+      background: #0f1512;
+      color: #8fa097;
+      font-family: var(--mono-font);
+      font-size: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    .search-panel {
+      border-color: #5a6b61;
+    }
+
+    .search-panel .panel-title {
+      background: linear-gradient(#3f5349, #26372f);
+    }
+
+    .search-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 5px;
+      padding: 10px;
+      border-bottom: 1px solid #36443d;
+      background: #101713;
+    }
+
+    .search-box label {
+      grid-column: 1 / -1;
+      color: #c6cec7;
+      font-family: var(--serif-font);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .search-box input {
+      min-width: 0;
+      height: 34px;
+      padding: 6px 8px;
+      border: 1px solid #65746b;
+      border-top-color: #2d3933;
+      border-left-color: #2d3933;
+      border-radius: 0;
+      background: #e0dfd4;
+      color: #171a17;
+      font-family: var(--mono-font);
+      font-size: 0.78rem;
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,0.42);
+    }
+
+    .old-button {
+      min-height: 30px;
+      padding: 5px 10px;
+      border: 1px solid #829087;
+      border-right-color: #27332d;
+      border-bottom-color: #27332d;
+      border-radius: 0;
+      background: linear-gradient(#52635a, #304039);
+      color: #f1ebdc;
+      font-family: var(--ui-font);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-shadow: 0 1px #111;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .old-button:hover {
+      background: #66776e;
+    }
+
+    .old-button:active {
+      border-color: #27332d #829087 #829087 #27332d;
+      background: #2c3933;
+    }
+
+    .old-button.rust {
+      border-color: #b27a62 #4b281f #4b281f #b27a62;
+      background: linear-gradient(#945840, #653523);
+    }
+
+    .search-helper {
+      margin: 0;
+      padding: 6px 10px 8px;
+      color: #77847c;
+      font-size: 0.66rem;
+    }
+
+    .search-feedback {
+      min-height: 1.15em;
+      margin: 0;
+      padding: 0 10px 9px;
+      color: #c99a80;
+      font-size: 0.68rem;
+    }
+
+    .lead-notice {
+      display: grid;
+      grid-template-columns: 6px minmax(0, 1fr);
+      border-color: #67483b;
+      background: #181713;
+    }
+
+    .lead-notice::before {
+      content: "";
+      background: #7f412f;
+    }
+
+    .lead-notice-inner {
+      padding: 10px 11px 11px;
+    }
+
+    .lead-notice h2 {
+      margin: 0 0 5px;
+      color: #d0bea5;
+      font-family: var(--serif-font);
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    .lead-notice p {
+      margin: 0 0 7px;
+      color: #98978d;
+      font-size: 0.72rem;
+    }
+
+    .text-link-button {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-bottom: 1px dotted currentColor;
+      background: transparent;
+      color: var(--link);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .text-link-button:hover {
+      color: var(--link-hover);
+    }
+
+    .feature-record {
+      border-color: #58665d;
+    }
+
+    .feature-record .panel-body {
+      padding: 0;
+    }
+
+    .record-header {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 1px solid #3d4b44;
+      background: #101713;
+    }
+
+    .record-number {
+      display: grid;
+      flex: 0 0 94px;
+      place-items: center;
+      padding: 12px 8px;
+      border-right: 1px solid #3d4b44;
+      color: #c4b797;
+      font-family: var(--mono-font);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .record-summary {
+      min-width: 0;
+      padding: 10px 11px;
+    }
+
+    .record-summary h2 {
+      margin: 0 0 3px;
+      color: #d4d6cb;
+      font-family: var(--serif-font);
+      font-size: 1.02rem;
+      font-weight: 400;
+    }
+
+    .record-meta {
+      margin: 0;
+      color: #7f8d84;
+      font-family: var(--mono-font);
+      font-size: 0.64rem;
+    }
+
+    .status-badge {
+      display: inline-block;
+      margin-left: 5px;
+      padding: 1px 4px;
+      border: 1px solid #7a4837;
+      background: #301c17;
+      color: #d39476;
+      font-size: 0.56rem;
+      vertical-align: 1px;
+    }
+
+    .feature-copy {
+      padding: 10px 11px;
+      color: #a9afa8;
+      font-size: 0.76rem;
+    }
+
+    .feature-copy p {
+      margin: 0 0 8px;
+    }
+
+    .feature-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .feature-actions .record-hint {
+      color: #707d75;
+      font-size: 0.63rem;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #9ea79f;
+      font-size: 0.69rem;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 5px 6px;
+      border-bottom: 1px dotted #39463f;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .data-table th {
+      color: #728178;
+      font-family: var(--mono-font);
+      font-size: 0.6rem;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .data-table .open-item {
+      color: #b9c9be;
+      font-weight: 700;
+    }
+
+    .date-cell {
+      white-space: nowrap;
+      color: #79867e;
+      font-family: var(--mono-font);
+    }
+
+    .status-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.68rem;
+    }
+
+    .status-table th,
+    .status-table td {
+      padding: 4px 2px;
+      border-bottom: 1px dotted #35413b;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .status-table th {
+      width: 49%;
+      color: #728078;
+      font-weight: 400;
+    }
+
+    .status-table td {
+      color: #b1b8b1;
+      font-family: var(--mono-font);
+    }
+
+    .status-table .warn {
+      color: #ca8f72;
+    }
+
+    .weather {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+    }
+
+    .weather-icon {
+      position: relative;
+      width: 50px;
+      height: 35px;
+    }
+
+    .weather-icon::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      bottom: 4px;
+      width: 35px;
+      height: 12px;
+      border: 1px solid #69776f;
+      background: #28342e;
+      box-shadow:
+        -7px -7px 0 -1px #28342e,
+        8px -10px 0 -1px #28342e;
+    }
+
+    .weather strong {
+      display: block;
+      color: #c1c5bd;
+      font-family: var(--mono-font);
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .weather span {
+      color: #78857d;
+      font-size: 0.63rem;
+    }
+
+    .counter {
+      display: inline-flex;
+      gap: 1px;
+      padding: 4px;
+      border: 1px inset #46534c;
+      background: #070908;
+    }
+
+    .counter span {
+      display: inline-grid;
+      width: 15px;
+      height: 20px;
+      place-items: center;
+      border: 1px solid #303832;
+      background: #111;
+      color: #bd6d50;
+      font-family: var(--mono-font);
+      font-size: 0.7rem;
+      text-shadow: 0 0 3px #7a2e19;
+    }
+
+    .micro-copy {
+      margin-top: 5px;
+      color: #657169;
+      font-size: 0.6rem;
+    }
+
+    .site-footer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: end;
+      padding: 12px 10px;
+      border-top: 1px solid #49564f;
+      background: #090d0b;
+      color: #667169;
+      font-size: 0.62rem;
+    }
+
+    .site-footer p {
+      margin: 0 0 3px;
+    }
+
+    .site-footer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer-badge {
+      padding: 5px 7px;
+      border: 1px solid #39443e;
+      color: #77837c;
+      font-family: var(--mono-font);
+      text-align: center;
+    }
+
+    noscript {
+      display: block;
+      padding: 0.8rem;
+      border: 1px solid #9b5a43;
+      background: #2c1914;
+      color: #e1b29e;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    dialog {
+      width: min(860px, calc(100% - 24px));
+      max-height: calc(100vh - 30px);
+      margin: auto;
+      padding: 0;
+      overflow: visible;
+      border: 0;
+      background: transparent;
+      color: var(--paper-ink);
+    }
+
+    dialog::backdrop {
+      background:
+        radial-gradient(circle at center, rgba(36, 40, 33, 0.72), rgba(0, 0, 0, 0.92));
+      backdrop-filter: blur(1px);
+    }
+
+    .dialog-frame {
+      position: relative;
+      max-height: calc(100vh - 30px);
+      overflow: auto;
+      border: 1px solid #201b14;
+      background: #181511;
+      box-shadow:
+        0 24px 70px rgba(0,0,0,0.8),
+        0 0 0 5px rgba(22, 18, 13, 0.8);
+    }
+
+    .dialog-toolbar {
+      position: sticky;
+      z-index: 4;
+      top: 0;
+      display: flex;
+      min-height: 32px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 5px 4px 9px;
+      border-bottom: 1px solid #514132;
+      background: #211c16;
+      color: #aa9b80;
+      font-family: var(--mono-font);
+      font-size: 0.65rem;
+      letter-spacing: 0.04em;
+    }
+
+    .dialog-close {
+      min-width: 27px;
+      min-height: 23px;
+      padding: 0 7px;
+      border: 1px solid #6f5a43;
+      background: #2e271e;
+      color: #d3c3a4;
+      cursor: pointer;
+    }
+
+    .dialog-close:hover {
+      background: #4b3828;
+    }
+
+    .paper {
+      position: relative;
+      min-height: 460px;
+      padding: clamp(24px, 5vw, 48px);
+      overflow: hidden;
+      background-color: var(--paper);
+      background-image:
+        radial-gradient(circle at 16% 22%, rgba(90, 51, 23, 0.10) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 76% 61%, rgba(75, 43, 19, 0.08) 0 1px, transparent 1.5px),
+        repeating-linear-gradient(2deg, rgba(62, 47, 26, 0.025) 0 1px, transparent 1px 5px),
+        linear-gradient(102deg, rgba(255,255,255,0.12), transparent 23%, rgba(72, 48, 25, 0.08) 24%, transparent 25%),
+        linear-gradient(var(--paper-light), var(--paper));
+      color: var(--paper-ink);
+      font-family: var(--serif-font);
+      box-shadow:
+        inset 0 0 80px rgba(82, 48, 22, 0.38),
+        inset 0 0 0 1px rgba(255,255,255,0.18);
+    }
+
+    .paper::before,
+    .paper::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .paper::before {
+      inset: 12px;
+      border: 1px solid rgba(75, 54, 32, 0.42);
+      box-shadow: inset 0 0 0 3px rgba(118, 87, 50, 0.08);
+    }
+
+    .paper::after {
+      top: -35px;
+      right: 11%;
+      width: 170px;
+      height: 88px;
+      border-radius: 50%;
+      background: rgba(74, 47, 24, 0.08);
+      transform: rotate(-8deg);
+      filter: blur(4px);
+    }
+
+    .paper-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .paper-mast {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 22px;
+      padding-bottom: 10px;
+      border-bottom: 3px double rgba(53, 44, 29, 0.72);
+    }
+
+    .paper-mast p {
+      margin: 0;
+      font-family: var(--mono-font);
+      font-size: 0.67rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .archive-stamp {
+      flex: 0 0 auto;
+      padding: 5px 8px;
+      border: 2px solid rgba(113, 37, 28, 0.68);
+      color: rgba(113, 37, 28, 0.8);
+      font-family: var(--mono-font);
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-align: center;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+    }
+
+    .paper h2 {
+      margin: 0 0 5px;
+      color: #25231d;
+      font-size: clamp(1.45rem, 4vw, 2.25rem);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .paper .paper-subtitle {
+      margin: 0 0 18px;
+      color: #5c503c;
+      font-family: var(--mono-font);
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .paper p {
+      font-size: 0.93rem;
+    }
+
+    .paper a,
+    .paper .paper-link {
+      color: #3d261d;
+      text-decoration-color: #765849;
+    }
+
+    .paper .hand-note {
+      margin: 20px 0 5px auto;
+      max-width: 330px;
+      padding: 7px 3px;
+      border-top: 1px solid rgba(87, 57, 35, 0.35);
+      color: #5a3528;
+      font-family: "Segoe Print", "Bradley Hand", cursive;
+      font-size: 0.9rem;
+      line-height: 1.35;
+      transform: rotate(-1deg);
+    }
+
+    .paper-result {
+      margin: 18px 0;
+      border: 1px solid rgba(67, 54, 35, 0.62);
+      background: rgba(230, 217, 181, 0.32);
+      box-shadow: 2px 3px 0 rgba(76, 54, 30, 0.13);
+    }
+
+    .paper-result-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 7px 9px;
+      border-bottom: 1px solid rgba(67, 54, 35, 0.44);
+      background: rgba(95, 74, 43, 0.10);
+      font-family: var(--mono-font);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+    }
+
+    .paper-result-body {
+      padding: 11px 12px 13px;
+    }
+
+    .paper-result h3 {
+      margin: 0 0 5px;
+      font-size: 1.05rem;
+    }
+
+    .paper-result p {
+      margin: 0 0 8px;
+      font-size: 0.82rem;
+    }
+
+    .paper-button {
+      min-height: 30px;
+      padding: 5px 9px;
+      border: 1px solid #5c4c34;
+      border-right-color: #2f291e;
+      border-bottom-color: #2f291e;
+      border-radius: 0;
+      background: #756345;
+      color: #fff7df;
+      font-family: var(--mono-font);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .paper-button:hover {
+      background: #594733;
+    }
+
+    .paper-button.secondary {
+      background: transparent;
+      color: #3d3124;
+    }
+
+    .paper-table {
+      width: 100%;
+      margin: 16px 0;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+
+    .paper-table th,
+    .paper-table td {
+      padding: 6px 7px;
+      border: 1px solid rgba(68, 54, 35, 0.48);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .paper-table th {
+      width: 30%;
+      background: rgba(85, 67, 41, 0.10);
+      font-family: var(--mono-font);
+      font-size: 0.66rem;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .attachment-list {
+      margin: 16px 0 18px;
+      padding: 0;
+      border-top: 1px solid rgba(67, 54, 35, 0.46);
+      list-style: none;
+    }
+
+    .attachment-list li {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+      padding: 7px 4px;
+      border-bottom: 1px solid rgba(67, 54, 35, 0.35);
+      font-size: 0.8rem;
+    }
+
+    .attachment-list .att-no,
+    .attachment-list .att-status {
+      font-family: var(--mono-font);
+      font-size: 0.62rem;
+    }
+
+    .attachment-list .att-status {
+      color: #665843;
+      text-transform: uppercase;
+    }
+
+    .attachment-list .missing {
+      color: var(--paper-red);
+    }
+
+    .newspaper {
+      column-count: 2;
+      column-gap: 28px;
+      column-rule: 1px solid rgba(63, 51, 34, 0.35);
+      text-align: justify;
+    }
+
+    .newspaper p {
+      margin-top: 0;
+      font-size: 0.86rem;
+    }
+
+    .dropcap::first-letter {
+      float: left;
+      margin: 4px 5px 0 0;
+      font-size: 3.2rem;
+      line-height: 0.72;
+    }
+
+    .clipping-rule {
+      margin: 18px 0 12px;
+      border: 0;
+      border-top: 3px double rgba(63, 51, 34, 0.6);
+    }
+
+    .dialog-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 20px;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 120;
+      right: 16px;
+      bottom: 16px;
+      max-width: min(360px, calc(100% - 32px));
+      padding: 9px 11px;
+      border: 1px solid #59675f;
+      background: #111814;
+      color: #c1c7c0;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.58);
+      font-size: 0.72rem;
+    }
+
+    .toast[hidden] {
+      display: none;
+    }
+
+    @media (max-width: 880px) {
+      .site-shell {
+        width: min(calc(100% - 12px), var(--content-width));
+        margin-top: 6px;
+      }
+
+      .masthead {
+        grid-template-columns: 1fr;
+      }
+
+      .lake-banner {
+        display: none;
+      }
+
+      .primary-nav {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .primary-nav a:nth-child(3) {
+        border-right: 0;
+      }
+
+      .primary-nav a:nth-child(-n+3) {
+        border-bottom: 1px solid #3e4d45;
+      }
+
+      .content-grid {
+        grid-template-columns: minmax(0, 1fr) 220px;
+      }
+
+      .main-column {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+
+      .left-column {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .right-column {
+        grid-column: 2;
+        grid-row: 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .utility-bar,
+      .status-strip {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .brand {
+        padding: 15px 12px;
+      }
+
+      .archive-mark {
+        flex-basis: 56px;
+        width: 56px;
+        height: 56px;
+      }
+
+      .archive-mark::before {
+        inset: 14px;
+      }
+
+      .archive-mark::after {
+        inset: 22px;
+      }
+
+      .primary-nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .primary-nav a:nth-child(3) {
+        border-right: 1px solid #3e4d45;
+      }
+
+      .primary-nav a:nth-child(even) {
+        border-right: 0;
+      }
+
+      .primary-nav a:nth-child(-n+4) {
+        border-bottom: 1px solid #3e4d45;
+      }
+
+      .content-grid {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .main-column {
+        order: 1;
+      }
+
+      .left-column {
+        order: 2;
+      }
+
+      .right-column {
+        order: 3;
+      }
+
+      .record-header {
+        display: block;
+      }
+
+      .record-number {
+        display: block;
+        border-right: 0;
+        border-bottom: 1px solid #3d4b44;
+        text-align: left;
+      }
+
+      .site-footer {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-badge {
+        justify-self: start;
+      }
+
+      .paper {
+        padding: 24px 18px 30px;
+      }
+
+      .paper-mast {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .archive-stamp {
+        align-self: flex-start;
+      }
+
+      .newspaper {
+        column-count: 1;
+      }
+
+      .attachment-list li {
+        grid-template-columns: 24px minmax(0, 1fr);
+      }
+
+      .attachment-list .att-status {
+        grid-column: 2;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      dialog[open] .dialog-frame {
+        animation: paper-in 180ms ease-out;
+      }
+
+      @keyframes paper-in {
+        from {
+          opacity: 0;
+          transform: translateY(8px) scale(0.99);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+    }
+  </style>
+  <style id="complete-game-styles">
+    .workspace-view {
+      min-height: 570px;
+      padding: 10px;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.008) 0 1px, transparent 1px 6px),
+        #0d1310;
+    }
+
+    .workspace-view[hidden] {
+      display: none;
+    }
+
+    .workspace-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 235px;
+      gap: 9px;
+    }
+
+    .workspace-heading {
+      margin: 0 0 8px;
+      padding: 9px 11px;
+      border: 1px solid #526159;
+      background: linear-gradient(#304039, #1b2822);
+      color: #d3d5c9;
+      font-family: var(--serif-font);
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .workspace-subtitle {
+      display: block;
+      margin-top: 2px;
+      color: #819087;
+      font-family: var(--mono-font);
+      font-size: 0.63rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .workspace-copy {
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: var(--panel-bg);
+      color: #adb4ac;
+      font-size: 0.78rem;
+    }
+
+    .workspace-copy h2,
+    .workspace-copy h3 {
+      color: #d1d4c8;
+      font-family: var(--serif-font);
+      font-weight: 400;
+    }
+
+    .workspace-copy h2 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .workspace-copy h3 {
+      margin: 18px 0 6px;
+      font-size: 0.96rem;
+    }
+
+    .workspace-copy p {
+      margin: 0 0 0.75rem;
+    }
+
+    .workspace-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .runtime-search {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 6px;
+      margin-bottom: 9px;
+      padding: 11px;
+      border: 1px solid #5a6b61;
+      background: #101713;
+    }
+
+    .runtime-search label {
+      grid-column: 1 / -1;
+      color: #d0d5cf;
+      font-family: var(--serif-font);
+      font-size: 0.95rem;
+    }
+
+    .runtime-search input {
+      min-width: 0;
+      height: 36px;
+      padding: 6px 8px;
+      border: 1px solid #65746b;
+      border-top-color: #2d3933;
+      border-left-color: #2d3933;
+      border-radius: 0;
+      background: #e0dfd4;
+      color: #171a17;
+      font-family: var(--mono-font);
+      font-size: 0.78rem;
+    }
+
+    .workspace-side .panel {
+      position: sticky;
+      top: 8px;
+    }
+
+    .history-list,
+    .document-list,
+    .theory-list,
+    .evidence-list,
+    .log-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .history-list li,
+    .document-list li,
+    .theory-list li,
+    .evidence-list li,
+    .log-list li {
+      border-bottom: 1px dotted #3b4841;
+    }
+
+    .history-list li:last-child,
+    .document-list li:last-child,
+    .theory-list li:last-child,
+    .evidence-list li:last-child,
+    .log-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .history-list button,
+    .document-list button {
+      width: 100%;
+      padding: 7px 4px;
+      border: 0;
+      background: transparent;
+      color: #aebdb4;
+      font-size: 0.72rem;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .history-list button:hover,
+    .document-list button:hover {
+      background: #202c26;
+      color: #efe4ca;
+    }
+
+    .document-row {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 7px;
+    }
+
+    .document-code {
+      color: #a9684f;
+      font-family: var(--mono-font);
+      font-size: 0.67rem;
+      font-weight: 700;
+    }
+
+    .document-title {
+      color: #c8cec8;
+      font-family: var(--serif-font);
+      font-size: 0.85rem;
+    }
+
+    .document-meta {
+      display: block;
+      margin-top: 2px;
+      color: #748178;
+      font-family: var(--mono-font);
+      font-size: 0.58rem;
+    }
+
+    .state-tag {
+      display: inline-block;
+      padding: 2px 5px;
+      border: 1px solid #536159;
+      background: #111713;
+      color: #8e9d94;
+      font-family: var(--mono-font);
+      font-size: 0.56rem;
+      text-transform: uppercase;
+    }
+
+    .state-tag.conflicted,
+    .state-tag.stub {
+      border-color: #704737;
+      color: #c4886d;
+    }
+
+    .theory-card {
+      padding: 9px 7px;
+    }
+
+    .theory-card strong {
+      display: block;
+      color: #c5cbc4;
+      font-family: var(--serif-font);
+      font-size: 0.84rem;
+      font-weight: 400;
+    }
+
+    .theory-card p {
+      margin: 4px 0 0;
+      color: #8d9991;
+      font-size: 0.68rem;
+    }
+
+    .theory-card.revised {
+      opacity: 0.68;
+    }
+
+    .theory-card.current {
+      border-left: 3px solid #9b5a41;
+      background: #1c211d;
+    }
+
+    .progress-meter {
+      height: 13px;
+      margin: 7px 0 4px;
+      border: 1px solid #526058;
+      background: #080b0a;
+    }
+
+    .progress-meter span {
+      display: block;
+      height: 100%;
+      background:
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.08) 0 4px, transparent 4px 8px),
+        #6d4938;
+    }
+
+    .investigation-dock {
+      display: grid;
+      grid-template-columns: 170px minmax(230px, 1fr) auto auto;
+      gap: 12px;
+      align-items: center;
+      padding: 7px 9px;
+      border-top: 1px solid #526159;
+      background: #0b100e;
+      color: #919c94;
+      font-size: 0.66rem;
+    }
+
+    .investigation-dock strong {
+      display: block;
+      margin-top: 1px;
+      color: #c3c8c1;
+      font-family: var(--serif-font);
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+
+    .dock-label {
+      display: block;
+      color: #647169;
+      font-family: var(--mono-font);
+      font-size: 0.54rem;
+      letter-spacing: 0.05em;
+    }
+
+    .dock-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .dock-button {
+      padding: 4px 7px;
+      border: 1px solid #506057;
+      border-right-color: #25312b;
+      border-bottom-color: #25312b;
+      border-radius: 0;
+      background: #26332d;
+      color: #c2c8c1;
+      font-size: 0.62rem;
+      cursor: pointer;
+    }
+
+    .dock-button:hover {
+      background: #3d4b44;
+    }
+
+    .save-status {
+      color: #718078;
+      font-family: var(--mono-font);
+      font-size: 0.54rem;
+      white-space: nowrap;
+    }
+
+    .search-result-list {
+      margin: 18px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .search-result-list li {
+      margin-bottom: 10px;
+      border: 1px solid rgba(67,54,35,0.62);
+      background: rgba(230,217,181,0.3);
+      box-shadow: 2px 3px 0 rgba(76,54,30,0.12);
+    }
+
+    .result-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 6px 8px;
+      border-bottom: 1px solid rgba(67,54,35,0.4);
+      background: rgba(95,74,43,0.1);
+      font-family: var(--mono-font);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+    }
+
+    .result-body {
+      padding: 10px;
+    }
+
+    .result-body h3 {
+      margin: 0 0 4px;
+      color: #2e291e;
+      font-size: 1.02rem;
+    }
+
+    .result-body p {
+      margin: 0 0 8px;
+      font-size: 0.8rem;
+    }
+
+    .paper code,
+    .paper .clue-code {
+      padding: 1px 3px;
+      border: 1px solid rgba(72,55,34,0.28);
+      background: rgba(79,55,31,0.08);
+      color: #6d271e;
+      font-family: var(--mono-font);
+      font-size: 0.88em;
+    }
+
+    .doc-header {
+      margin-bottom: 18px;
+    }
+
+    .doc-header h2 {
+      max-width: 620px;
+    }
+
+    .doc-status-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 7px 0 0;
+    }
+
+    .paper-chip {
+      padding: 2px 5px;
+      border: 1px solid rgba(74,57,35,0.48);
+      color: #574a37;
+      font-family: var(--mono-font);
+      font-size: 0.57rem;
+      text-transform: uppercase;
+    }
+
+    .document-section {
+      margin: 18px 0;
+    }
+
+    .document-section h3 {
+      margin: 0 0 7px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(67,54,35,0.36);
+      color: #2c291f;
+      font-size: 1.05rem;
+      font-weight: 400;
+    }
+
+    .document-section p {
+      margin: 0 0 0.7rem;
+      line-height: 1.58;
+    }
+
+    .document-quote {
+      margin: 14px 0;
+      padding: 9px 13px;
+      border-left: 3px double rgba(87,55,39,0.68);
+      background: rgba(104,75,40,0.08);
+      color: #3d3327;
+      font-style: italic;
+    }
+
+    .archivist-note,
+    .technical-note,
+    .clue-panel {
+      margin: 16px 0;
+      padding: 10px 12px;
+      border: 1px solid rgba(78,60,39,0.48);
+      background: rgba(114,86,48,0.08);
+    }
+
+    .archivist-note::before,
+    .technical-note::before,
+    .clue-panel::before {
+      display: block;
+      margin-bottom: 5px;
+      color: #674638;
+      font-family: var(--mono-font);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .archivist-note::before {
+      content: "PROJECT NOTE / M. HART";
+    }
+
+    .technical-note::before {
+      content: "TECHNICAL NOTE / D. MOOR";
+    }
+
+    .clue-panel::before {
+      content: "CATALOGUE DETAIL";
+    }
+
+    .scan-surface,
+    .photo-surface,
+    .diagram-surface {
+      position: relative;
+      margin: 15px auto;
+      padding: 18px;
+      border: 1px solid #4d402f;
+      background:
+        repeating-linear-gradient(3deg, rgba(74,55,31,0.035) 0 1px, transparent 1px 5px),
+        rgba(225,211,174,0.34);
+      box-shadow: 4px 5px 0 rgba(64,46,26,0.14);
+    }
+
+    .scan-surface::after,
+    .photo-surface::after {
+      content: attr(data-label);
+      position: absolute;
+      right: 8px;
+      bottom: 6px;
+      color: rgba(68,53,34,0.55);
+      font-family: var(--mono-font);
+      font-size: 0.55rem;
+    }
+
+    .photo-surface {
+      min-height: 180px;
+      background:
+        radial-gradient(circle at 70% 36%, rgba(229,222,194,0.16) 0 6%, transparent 6.5%),
+        linear-gradient(155deg, transparent 0 42%, rgba(24,29,25,0.72) 42.5% 56%, transparent 56.5%),
+        linear-gradient(205deg, transparent 0 43%, rgba(29,35,29,0.76) 43.5% 58%, transparent 58.5%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 4px),
+        #4e574f;
+      color: #eee4c9;
+      text-shadow: 0 1px #111;
+    }
+
+    .photo-caption {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      max-width: 72%;
+      font-family: var(--mono-font);
+      font-size: 0.65rem;
+    }
+
+    .version-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin: 10px 0;
+    }
+
+    .version-button {
+      padding: 5px 8px;
+      border: 1px solid #69583f;
+      background: rgba(100,76,43,0.1);
+      color: #493c2b;
+      font-family: var(--mono-font);
+      font-size: 0.64rem;
+      cursor: pointer;
+    }
+
+    .version-button[aria-pressed="true"] {
+      background: #6c5639;
+      color: #fff0cc;
+    }
+
+    .evidence-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      margin: 9px 0;
+      padding: 9px;
+      border: 1px dashed rgba(72,55,34,0.56);
+    }
+
+    .evidence-box strong {
+      display: block;
+      font-size: 0.8rem;
+    }
+
+    .evidence-box span {
+      color: #665846;
+      font-size: 0.7rem;
+    }
+
+    .related-documents {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 8px;
+    }
+
+    .related-documents button {
+      padding: 3px 6px;
+      border: 1px solid rgba(76,58,38,0.48);
+      background: transparent;
+      color: #4b3829;
+      font-family: var(--mono-font);
+      font-size: 0.62rem;
+      cursor: pointer;
+    }
+
+    .cube-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .cube-card {
+      min-height: 100px;
+      padding: 10px;
+      border: 1px solid rgba(62,49,31,0.55);
+      background: rgba(238,224,184,0.25);
+      text-align: center;
+    }
+
+    .cube-symbol {
+      width: 43px;
+      height: 43px;
+      margin: 0 auto 7px;
+      border: 2px solid #382f23;
+      background: #ded5bb;
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,0.18);
+    }
+
+    .cube-card.black .cube-symbol {
+      background: #181815;
+    }
+
+    .cube-card.blue .cube-symbol {
+      background: #56738a;
+    }
+
+    .cube-card.gold .cube-symbol {
+      background: #a98c43;
+    }
+
+    .puzzle-frame {
+      margin-top: 16px;
+      padding: 12px;
+      border: 2px double rgba(66,52,33,0.62);
+      background: rgba(222,204,161,0.22);
+    }
+
+    .puzzle-frame h3 {
+      margin: 0 0 5px;
+      font-size: 1.18rem;
+    }
+
+    .puzzle-instruction {
+      margin: 0 0 13px;
+      color: #594b38;
+      font-size: 0.82rem;
+    }
+
+    .puzzle-feedback {
+      min-height: 1.4em;
+      margin: 10px 0;
+      padding: 7px 9px;
+      border-left: 3px solid #744837;
+      background: rgba(110,66,45,0.08);
+      color: #693b2d;
+      font-size: 0.78rem;
+    }
+
+    .puzzle-feedback.success {
+      border-left-color: #4e684e;
+      color: #40503d;
+    }
+
+    .order-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .order-item {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 5px;
+      padding: 7px;
+      border: 1px solid rgba(69,54,35,0.46);
+      background: rgba(235,220,182,0.3);
+    }
+
+    .order-number {
+      font-family: var(--mono-font);
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    .order-controls {
+      display: flex;
+      gap: 3px;
+    }
+
+    .order-controls button {
+      min-width: 29px;
+      padding: 3px;
+      border: 1px solid #6b5940;
+      background: transparent;
+      color: #463a2c;
+      cursor: pointer;
+    }
+
+    .puzzle-fields {
+      display: grid;
+      gap: 8px;
+    }
+
+    .puzzle-field {
+      display: grid;
+      grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.2fr);
+      gap: 8px;
+      align-items: center;
+      padding: 7px;
+      border-bottom: 1px solid rgba(71,55,35,0.35);
+    }
+
+    .puzzle-field label,
+    .puzzle-field-heading,
+    .puzzle-field legend {
+      color: #3f3528;
+      font-size: 0.78rem;
+    }
+
+    .puzzle-field select,
+    .puzzle-field input[type="text"] {
+      width: 100%;
+      min-width: 0;
+      padding: 5px 6px;
+      border: 1px solid #736146;
+      border-radius: 0;
+      background: #e6d8b6;
+      color: #28251e;
+      font-family: var(--serif-font);
+      font-size: 0.78rem;
+    }
+
+    .checkbox-list {
+      display: grid;
+      gap: 4px;
+      margin: 8px 0;
+    }
+
+    .checkbox-list label,
+    .radio-list label {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+      padding: 5px;
+      border: 1px solid rgba(70,54,34,0.34);
+      background: rgba(231,216,178,0.18);
+      font-size: 0.76rem;
+    }
+
+    .radio-list {
+      display: grid;
+      gap: 4px;
+      margin: 8px 0;
+    }
+
+    .puzzle-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .hint-sheet {
+      margin-top: 10px;
+      padding: 8px 10px;
+      border: 1px dashed rgba(70,54,34,0.52);
+      color: #554737;
+      font-size: 0.76rem;
+    }
+
+    .report-question {
+      margin: 13px 0;
+      padding: 10px;
+      border: 1px solid rgba(70,54,34,0.5);
+      background: rgba(232,218,181,0.2);
+    }
+
+    .report-question h4 {
+      margin: 0 0 8px;
+      color: #352e23;
+      font-size: 0.92rem;
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+
+    .report-grid label {
+      display: grid;
+      gap: 3px;
+      color: #5b4b38;
+      font-family: var(--mono-font);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+    }
+
+    .report-grid select {
+      width: 100%;
+      min-width: 0;
+      padding: 5px;
+      border: 1px solid #736146;
+      border-radius: 0;
+      background: #e6d8b6;
+      color: #28251e;
+      font-family: var(--serif-font);
+      font-size: 0.72rem;
+      text-transform: none;
+    }
+
+    .setting-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px dotted #3b4841;
+    }
+
+    .setting-row:last-child {
+      border-bottom: 0;
+    }
+
+    .setting-row strong {
+      display: block;
+      color: #c5cbc4;
+      font-size: 0.78rem;
+    }
+
+    .setting-row span {
+      color: #78857d;
+      font-size: 0.66rem;
+    }
+
+    .file-input {
+      max-width: 220px;
+      color: #aeb8b0;
+      font-size: 0.65rem;
+    }
+
+    .ending-status {
+      margin: 18px 0;
+      padding: 15px;
+      border: 3px double rgba(76,54,35,0.72);
+      color: #5f211c;
+      font-family: var(--mono-font);
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+      transform: rotate(-0.4deg);
+    }
+
+    .lake-secret {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 75% 24%, rgba(226,218,176,0.16) 0 2%, transparent 2.4%),
+        linear-gradient(to bottom, #101a1a 0 43%, #050909 44% 57%, #111918 58% 100%);
+    }
+
+    .lake-secret::before {
+      content: "";
+      position: absolute;
+      inset: 44% 0 auto;
+      height: 1px;
+      background: rgba(200,204,184,0.18);
+      box-shadow:
+        0 18px rgba(200,204,184,0.08),
+        0 38px rgba(200,204,184,0.04);
+    }
+
+    .hotel-lights {
+      position: absolute;
+      top: 31%;
+      right: 13%;
+      display: flex;
+      gap: 7px;
+    }
+
+    .hotel-lights span {
+      width: 4px;
+      height: 6px;
+      background: #b89a55;
+      box-shadow: 0 0 8px rgba(184,154,85,0.52);
+    }
+
+    .elevator-button {
+      position: absolute;
+      left: 50%;
+      bottom: 38px;
+      width: 58px;
+      height: 58px;
+      border: 2px solid #424a43;
+      border-radius: 50%;
+      background: #161c18;
+      color: #7d8b81;
+      transform: translateX(-50%);
+    }
+
+    .elevator-button::after {
+      content: "▲";
+      display: grid;
+      height: 100%;
+      place-items: center;
+    }
+
+    body.high-contrast {
+      --page-bg: #000;
+      --shell-bg: #050505;
+      --panel-bg: #0d0d0d;
+      --text: #f2f2e8;
+      --text-dim: #c5c5bb;
+      --link: #d7eadf;
+      --line: #89968f;
+    }
+
+    body[data-text-scale="2"] {
+      font-size: 19px;
+    }
+
+    @media (max-width: 820px) {
+      .workspace-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .workspace-side .panel {
+        position: static;
+      }
+
+      .investigation-dock {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .save-status {
+        justify-self: start;
+      }
+
+      .cube-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .runtime-search,
+      .investigation-dock,
+      .puzzle-field,
+      .report-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .runtime-search .old-button {
+        justify-self: stretch;
+      }
+
+      .dock-actions {
+        grid-column: 1 / -1;
+      }
+
+      .document-row {
+        grid-template-columns: 40px minmax(0, 1fr);
+      }
+
+      .document-row .state-tag {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .cube-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .evidence-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#application-main">跳到主要内容</a>
+
+  <div class="site-shell">
+    <div class="utility-bar">
+      <span>ARCHIVE MIRROR 03 &nbsp;|&nbsp; LAST CAPTURE: 24 OCT 2008, 23:17</span>
+      <span class="utility-links">
+        <a href="#/about">Project information</a>
+        <a href="#/research" data-open-hint>Help</a>
+        <a href="#/settings">Text &amp; accessibility</a>
+      </span>
+    </div>
+
+    <header class="masthead">
+      <div class="brand">
+        <div class="archive-mark" aria-hidden="true"></div>
+        <div class="brand-copy">
+          <p class="brand-kicker">Rusty Lake County Library · Volunteer Archive</p>
+          <h1>Rusty Lake Local Records Project</h1>
+          <p class="brand-cn">锈湖地方档案数字化计划</p>
+        </div>
+      </div>
+      <div class="lake-banner" role="img" aria-label="低清晰度的锈湖县湖面与山影横幅"></div>
+    </header>
+
+    <div class="status-strip">
+      <span><strong>READ-ONLY NOTICE:</strong> 本项目已于 2008 年停止维护，当前页面为最后一次公开镜像。</span>
+      <span>Database: RL-LRP/03 &nbsp;·&nbsp; Integrity: 97.4%</span>
+    </div>
+
+    <nav class="primary-nav" aria-label="主要导航">
+      <a href="#/home" data-route="home" aria-current="page">Home<small>首页</small></a>
+      <a href="#/search" data-route="search">Search<small>站内搜索</small></a>
+      <a href="#/discoveries" data-route="discoveries">Discovered<small>已发现档案</small></a>
+      <a href="#/research" data-route="research">Research<small>研究记录</small></a>
+      <a href="#/logs" data-route="logs">Project Log<small>项目日志</small></a>
+      <a href="#/about" data-route="about">About<small>关于计划</small></a>
+    </nav>
+
+    <noscript>该档案镜像需要 JavaScript 执行站内检索并打开扫描材料。请启用 JavaScript 后重新载入。</noscript>
+
+    <main id="application-main" tabindex="-1" aria-label="锈湖档案调查">
+    <div id="main-content" class="content-grid" tabindex="-1">
+      <aside class="column left-column" aria-label="公开目录与检索帮助">
+        <section class="panel">
+          <h2 class="panel-title">
+            Public catalogue
+            <span class="section-code">CAT/08</span>
+          </h2>
+          <div class="panel-body">
+            <ul class="category-list">
+              <li><a href="#cases" data-placeholder="公开案件目录正在整理；请先使用站内搜索。"><span class="arrow">›</span><span>案件记录</span><span class="count">17</span></a></li>
+              <li><a href="#newspapers" data-placeholder="地方报纸目录将在后续版本开放。"><span class="arrow">›</span><span>地方报纸</span><span class="count">34</span></a></li>
+              <li><a href="#people" data-placeholder="人物索引不会展示尚未发现的姓名。"><span class="arrow">›</span><span>人物索引</span><span class="count">42</span></a></li>
+              <li><a href="#properties" data-placeholder="地产与地点目录将在后续版本开放。"><span class="arrow">›</span><span>地产与地点</span><span class="count">19</span></a></li>
+              <li><a href="#institutions" data-placeholder="机构记录目录将在后续版本开放。"><span class="arrow">›</span><span>机构记录</span><span class="count">11</span></a></li>
+              <li><a href="#images" data-placeholder="图片档案只能从相关记录首次进入。"><span class="arrow">›</span><span>图片档案</span><span class="count">63</span></a></li>
+              <li><a href="#unclassified" data-placeholder="未分类材料暂不公开浏览。"><span class="arrow">›</span><span>未分类材料</span><span class="count">08</span></a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">
+            Search guidance
+            <span class="section-code">HELP</span>
+          </h2>
+          <div class="panel-body">
+            <span class="mini-label">INDEXING NOTE</span>
+            <p>可检索姓名、年份、案件编号、地点或机构名称。</p>
+            <p>旧目录中的标点与姓名缩写可能不一致，系统会忽略大小写和常见标点。</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">
+            Volunteer desk
+            <span class="section-code">STAFF</span>
+          </h2>
+          <div class="panel-body">
+            <ul class="plain-list">
+              <li>Miriam Hart — 编目</li>
+              <li>Daniel Moor — 扫描与网页</li>
+              <li>R. Cole — 地方报纸</li>
+              <li>J. Reed — 地产记录</li>
+            </ul>
+          </div>
+        </section>
+      </aside>
+
+      <div class="column main-column">
+        <section id="search" class="panel search-panel" aria-labelledby="search-heading">
+          <h2 id="search-heading" class="panel-title">
+            Search the local archive
+            <span class="section-code">INDEX 1902–2008</span>
+          </h2>
+          <form id="archive-search" class="search-box" role="search">
+            <label for="search-input">输入案件编号、姓名、年份或档案关键词</label>
+            <input id="search-input" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="例如：CASE 23">
+            <button class="old-button" type="submit">Search archive</button>
+          </form>
+          <p class="search-helper">搜索结果来自 2008 年 10 月索引镜像。部分目录条目存在，但附件来源位置尚未确认。</p>
+          <p id="search-feedback" class="search-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="panel lead-notice">
+          <div class="lead-notice-inner">
+            <h2>项目暂停新增与推断 / Project suspended</h2>
+            <p>由于部分资料来源无法核实，且数据库中的同一文件开始出现多个互不兼容的版本，本项目暂停更新。现有页面以最后一次公开备份形式保留。</p>
+            <button class="text-link-button" type="button" data-document="D01">查看 2008 年完整停更说明 →</button>
+          </div>
+        </section>
+
+        <section class="panel feature-record" aria-labelledby="weekly-record">
+          <h2 id="weekly-record" class="panel-title">
+            Record of the week
+            <span class="section-code">WEEK 43 / 2008</span>
+          </h2>
+          <div class="panel-body">
+            <div class="record-header">
+              <div class="record-number">CASE 23</div>
+              <div class="record-summary">
+                <h2>23号未结案：Laura Vanderboom <span class="status-badge">UNSOLVED</span></h2>
+                <p class="record-meta">1971 · PRIVATE RESIDENCE · RUSTY LAKE COUNTY</p>
+              </div>
+            </div>
+            <div class="feature-copy">
+              <p>1971 年秋，一名年轻女性被发现死于住所。原始目录登记附件六件，当前公开镜像仅定位五件；项目组仍在核对案件编号与扫描批次。</p>
+              <div class="feature-actions">
+                <button class="old-button rust" type="button" data-document="D02">View public summary</button>
+                <span class="record-hint">案件状态：未结案　·　最后核对：2008-10-17</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">
+            Recently digitized
+            <span class="section-code">BATCH 074</span>
+          </h2>
+          <div class="panel-body flush">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>日期</th>
+                  <th>目录项目</th>
+                  <th>状态</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="date-cell">17 OCT</td>
+                  <td><button class="text-link-button open-item" type="button" data-document="D03">地方新闻剪报：年轻女子被发现死于住所</button></td>
+                  <td>可查看</td>
+                </tr>
+                <tr>
+                  <td class="date-cell">15 OCT</td>
+                  <td><a href="#mill-register" data-placeholder="该地产索引尚未建立公开来源位置。">北岸磨坊地产登记，1894–1972</a></td>
+                  <td>仅索引</td>
+                </tr>
+                <tr>
+                  <td class="date-cell">09 OCT</td>
+                  <td><a href="#photo-batch" data-placeholder="图片批次尚未与公开案件建立关联。">警署底片批次 RL / 未分类</a></td>
+                  <td>待核对</td>
+                </tr>
+                <tr>
+                  <td class="date-cell">02 OCT</td>
+                  <td><a href="#library-move" data-placeholder="普通地方记录不会在首页原型中展开。">县立图书馆地下库房搬迁清单</a></td>
+                  <td>已录入</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <aside class="column right-column" aria-label="网站状态与地方信息">
+        <section class="panel">
+          <h2 class="panel-title">
+            Archive status
+            <span class="section-code">LIVE</span>
+          </h2>
+          <div class="panel-body">
+            <table class="status-table">
+              <tbody>
+                <tr><th>镜像状态</th><td>READ ONLY</td></tr>
+                <tr><th>公开记录</th><td>194</td></tr>
+                <tr><th>缺失附件</th><td class="warn">11</td></tr>
+                <tr><th>版本冲突</th><td class="warn">03</td></tr>
+                <tr><th>最后更新</th><td>2008-10-24</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">
+            Local weather
+            <span class="section-code">STATIC</span>
+          </h2>
+          <div class="panel-body">
+            <div class="weather">
+              <div class="weather-icon" aria-hidden="true"></div>
+              <div>
+                <strong>7°C</strong>
+                <span>低云 · 湖面有雾<br>风向：东北</span>
+              </div>
+            </div>
+            <p class="micro-copy">记录于 24 OCT 2008 06:00。此信息不会更新。</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">
+            Current question
+            <span class="section-code">Q/01</span>
+          </h2>
+          <div class="panel-body">
+            <span class="mini-label">PROJECT REQUEST</span>
+            <p>请帮助项目组确认 23 号案的原始案件索引，以及第六份附件的来源位置。</p>
+            <p><button class="text-link-button" type="button" data-focus-search>前往站内搜索 →</button></p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">
+            Visitor counter
+            <span class="section-code">LOCAL</span>
+          </h2>
+          <div class="panel-body">
+            <div class="counter" role="img" aria-label="访客计数 0012473">
+              <span>0</span><span>0</span><span>1</span><span>2</span><span>4</span><span>7</span><span>3</span>
+            </div>
+            <p class="micro-copy">计数器为最后一次公开镜像中的静态记录。</p>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <div id="workspace-view" class="workspace-view" tabindex="-1" hidden></div>
+    </main>
+
+    <aside id="investigation-dock" class="investigation-dock" aria-label="调查进度">
+      <div>
+        <span class="dock-label">CURRENT STAGE</span>
+        <strong id="dock-stage">S0 · 最后一次公开备份</strong>
+      </div>
+      <div>
+        <span class="dock-label">CURRENT QUESTION</span>
+        <span id="dock-question">第六份附件是什么？</span>
+      </div>
+      <div class="dock-actions">
+        <button type="button" class="dock-button" data-route-button="evidence">证据 <span id="dock-evidence-count">0/4</span></button>
+        <button type="button" class="dock-button" data-open-hint>整理建议</button>
+        <button type="button" class="dock-button" data-route-button="settings">设置</button>
+      </div>
+      <span id="save-status" class="save-status" aria-live="polite">LOCAL SAVE READY</span>
+    </aside>
+
+    <footer class="site-footer">
+      <div>
+        <p>Rusty Lake County Library — Local Records Digitization Project, 2003–2008.</p>
+        <p>Project lead: Miriam Hart · Web &amp; scanning: Daniel Moor · Public mirror 03.</p>
+        <p>非官方、非商业同人网页游戏；Rusty Lake / Cube Escape 相关权利归原权利人所有。</p>
+      </div>
+      <div class="footer-badge">BEST VIEWED<br>1024 × 768</div>
+    </footer>
+  </div>
+
+  <dialog id="archive-dialog" aria-labelledby="dialog-label">
+    <div class="dialog-frame">
+      <div class="dialog-toolbar">
+        <span id="dialog-label">RUSTY LAKE ARCHIVE DOCUMENT VIEWER</span>
+        <button class="dialog-close" type="button" data-close-dialog aria-label="关闭档案窗口">×</button>
+      </div>
+      <div id="dialog-body"></div>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="text/plain" id="legacy-home-prototype-script">
+    (() => {
+      "use strict";
+
+      const searchForm = document.querySelector("#archive-search");
+      const searchInput = document.querySelector("#search-input");
+      const searchFeedback = document.querySelector("#search-feedback");
+      const dialog = document.querySelector("#archive-dialog");
+      const dialogBody = document.querySelector("#dialog-body");
+      const toast = document.querySelector("#toast");
+      let toastTimer = 0;
+
+      const normalize = (value) => value
+        .toLocaleLowerCase()
+        .replace(/[._/\\,:;'"`~!@#$%^&*()[\]{}<>?+\-=，。；：！？、·“”‘’]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      const compact = (value) => normalize(value).replace(/\s/g, "");
+
+      const queryKinds = {
+        case23: new Set(["case23", "23号案", "案件23", "rlcase23"]),
+        laura: new Set(["lauravanderboom", "vanderboomlaura", "劳拉范德布姆", "laurav"]),
+        missing: new Set(["23black", "black23"]),
+        dale: new Set(["dalevandermeer", "dvandermeer", "戴尔范德米尔"]),
+        robert: new Set(["roberthill", "bobhill", "罗伯特希尔", "鲍勃"]),
+        lake: new Set(["rustylake", "lake", "锈湖"])
+      };
+
+      const isKind = (query, kind) => queryKinds[kind].has(compact(query));
+
+      const openDialog = () => {
+        if (typeof dialog.showModal === "function") {
+          if (!dialog.open) dialog.showModal();
+        } else {
+          dialog.setAttribute("open", "");
+        }
+        requestAnimationFrame(() => {
+          const heading = dialogBody.querySelector("h2");
+          if (heading) {
+            heading.setAttribute("tabindex", "-1");
+            heading.focus();
+          }
+        });
+      };
+
+      const closeDialog = () => {
+        if (typeof dialog.close === "function") {
+          dialog.close();
+        } else {
+          dialog.removeAttribute("open");
+        }
+      };
+
+      const setPaper = (markup) => {
+        dialogBody.innerHTML = `<article class="paper"><div class="paper-content">${markup}</div></article>`;
+        wireDialogActions();
+        openDialog();
+      };
+
+      const paperMast = (code, stamp = "INDEX COPY") => `
+        <div class="paper-mast">
+          <p>Rusty Lake Local Records Project<br>${code}</p>
+          <div class="archive-stamp">${stamp}</div>
+        </div>`;
+
+      const showSearchResult = (query, kind) => {
+        const safeQuery = document.createElement("span");
+        safeQuery.textContent = query;
+
+        const headings = {
+          case23: "找到 1 条案件记录",
+          laura: "找到 1 条人物索引",
+          missing: "找到 1 条附件索引",
+          dale: "找到 1 条人物索引",
+          robert: "找到 1 条人物索引",
+          lake: "找到 4 条宽泛目录记录"
+        };
+
+        const cards = {
+          case23: `
+            <div class="paper-result">
+              <div class="paper-result-header"><span>CASE FILE</span><span>PARTIAL / PUBLIC</span></div>
+              <div class="paper-result-body">
+                <h3>23 号案完整索引</h3>
+                <p>来源：锈湖警署公开目录 · 年份：1971 · 状态：部分附件缺失</p>
+                <p>匹配字段：案件编号、警署目录编号、新闻页脚。</p>
+                <button class="paper-button" type="button" data-open-case>View index record</button>
+              </div>
+            </div>`,
+          laura: `
+            <div class="paper-result">
+              <div class="paper-result-header"><span>PERSON INDEX</span><span>INDEX ONLY</span></div>
+              <div class="paper-result-body">
+                <h3>Vanderboom, Laura</h3>
+                <p>1935–1971 · 与 CASE 23 相关。完整人物附件尚未与当前公开索引建立来源链。</p>
+                <p>请先核对案件原始编号，或添加已知档案编号缩小范围。</p>
+              </div>
+            </div>`,
+          missing: `
+            <div class="paper-result">
+              <div class="paper-result-header"><span>ATTACHMENT INDEX</span><span>SOURCE UNCONFIRMED</span></div>
+              <div class="paper-result-body">
+                <h3>23-BLACK</h3>
+                <p>目录中存在该记录，附件位置尚未确认。</p>
+                <p>原始标记“BLACK”可能表示黑白底片分类；当前材料不足以恢复其来源位置。</p>
+              </div>
+            </div>`,
+          dale: `
+            <div class="paper-result">
+              <div class="paper-result-header"><span>PERSON INDEX</span><span>RESTRICTED LINK</span></div>
+              <div class="paper-result-body">
+                <h3>Vandermeer, D.</h3>
+                <p>锈湖警署调查人员。该姓名跨越多份案件目录，当前公开索引不足以确认完整记录。</p>
+                <p>添加案件编号可能有助于缩小范围。</p>
+              </div>
+            </div>`,
+          robert: `
+            <div class="paper-result">
+              <div class="paper-result-header"><span>PERSON INDEX</span><span>INDEX ONLY</span></div>
+              <div class="paper-result-body">
+                <h3>Hill, Robert (“Bob”)</h3>
+                <p>与 1971 年一份地方新闻及警署询问记录相关。附件尚未在当前调查阶段公开整理。</p>
+              </div>
+            </div>`,
+          lake: `
+            <div class="paper-result">
+              <div class="paper-result-header"><span>PLACE INDEX</span><span>4 OF 63 RESULTS</span></div>
+              <div class="paper-result-body">
+                <h3>宽泛地名检索</h3>
+                <p>锈湖县气象记录，2008 · 锈湖北岸道路养护，1998 · 县立图书馆湖景明信片，1964 · 湖区土地测绘总表，1952</p>
+                <p>结果过多。添加人物、年份或档案编号可缩小范围。</p>
+              </div>
+            </div>`
+        };
+
+        setPaper(`
+          ${paperMast("SEARCH RETURN / 2008-10")}
+          <h2>${headings[kind]}</h2>
+          <p class="paper-subtitle">Local index search return</p>
+          <p>本次检索：<strong id="paper-query"></strong></p>
+          ${cards[kind]}
+          <p class="hand-note">目录只说明记录曾经存在，并不代表附件已经得到确认。— M.H.</p>
+        `);
+
+        const queryTarget = dialogBody.querySelector("#paper-query");
+        if (queryTarget) queryTarget.textContent = safeQuery.textContent;
+      };
+
+      const showNoResult = (query) => {
+        setPaper(`
+          ${paperMast("SEARCH RETURN / 2008-10", "NO EXACT MATCH")}
+          <h2>未找到完全匹配的公开记录</h2>
+          <p class="paper-subtitle">0 exact results in public mirror</p>
+          <p>本次检索：<strong id="paper-query"></strong></p>
+          <div class="paper-result">
+            <div class="paper-result-header"><span>CATALOGUE NOTE</span><span>QUERY RETAINED</span></div>
+            <div class="paper-result-body">
+              <p>请检查姓名拼写，或尝试加入年份、案件类型与内部编号。宽泛词语可能只返回普通地方记录。</p>
+            </div>
+          </div>
+          <p class="hand-note">先抄下文件页眉中的完整编号，不要只搜索一个常见词。— D.M.</p>
+        `);
+        const queryTarget = dialogBody.querySelector("#paper-query");
+        if (queryTarget) queryTarget.textContent = query;
+      };
+
+      const showCase = () => {
+        try {
+          localStorage.setItem("rl_case23_opened", "true");
+        } catch (error) {
+          // The prototype remains fully usable when browser storage is unavailable.
+        }
+
+        setPaper(`
+          ${paperMast("POLICE PUBLIC INDEX / RL-CASE-23", "UNSOLVED")}
+          <h2>CASE 23 — UNSOLVED</h2>
+          <p class="paper-subtitle">Public catalogue summary · entered 18 September 2004</p>
+          <table class="paper-table">
+            <tbody>
+              <tr><th>当事人</th><td>Laura Vanderboom</td></tr>
+              <tr><th>年份</th><td>1971</td></tr>
+              <tr><th>地点</th><td>锈湖县一处私人住所</td></tr>
+              <tr><th>调查人员</th><td>Detective D. Vandermeer</td></tr>
+              <tr><th>案件状态</th><td>Unsolved</td></tr>
+              <tr><th>附件数量</th><td>6 registered / 5 located</td></tr>
+            </tbody>
+          </table>
+          <h3>公开附件目录</h3>
+          <ol class="attachment-list">
+            <li><span class="att-no">01</span><span>地方新闻剪报：年轻女子被发现死于住所</span><button class="paper-button secondary" type="button" data-open-news>Open</button></li>
+            <li><span class="att-no">02</span><span>医疗公开摘要</span><span class="att-status">整理中</span></li>
+            <li><span class="att-no">03</span><span>询问记录</span><span class="att-status">整理中</span></li>
+            <li><span class="att-no">04</span><span>办案便笺</span><span class="att-status">整理中</span></li>
+            <li><span class="att-no">05</span><span>现场图像批次</span><span class="att-status">整理中</span></li>
+            <li><span class="att-no">06</span><span class="missing">23-BLACK / 原始目录标记：BLACK</span><span class="att-status missing">附件暂缺</span></li>
+          </ol>
+          <p>项目注释：“BLACK”可能表示黑白底片分类。原始目录未提供库位或移交编号。</p>
+          <p class="hand-note">六件登记，五件归档。缺少的究竟是一张照片，还是一整份记录？— M.H.</p>
+          <div class="dialog-actions">
+            <button class="paper-button" type="button" data-open-news>Open newspaper clipping</button>
+            <button class="paper-button secondary" type="button" data-close-dialog>Close record</button>
+          </div>
+        `);
+      };
+
+      const showNews = () => {
+        setPaper(`
+          ${paperMast("THE RUSTY LAKE HERALD / MICROFILM 71-10", "PUBLIC COPY")}
+          <h2>年轻女子被发现死于住所</h2>
+          <p class="paper-subtitle">Rusty Lake Herald · October 1971 · Evening edition</p>
+          <hr class="clipping-rule">
+          <div class="newspaper">
+            <p class="dropcap">锈湖县警方昨日证实，一名年轻女子在其住所内死亡。死者已被确认为 Laura Vanderboom。警方表示案件仍处于初步调查阶段，暂未公布明确死因。</p>
+            <p>邻居称，Vanderboom 女士最近结束了一段感情关系。警方正在向其前男友 Robert Hill 了解情况，但发言人强调，目前没有证据表明任何相关人员进入过现场。</p>
+            <p>最初通报称警方于晚间抵达住所；县立案件摘要所列时间则早了二十余分钟。警署尚未解释两份公开记录中的差异。</p>
+            <p>Detective D. Vandermeer 负责本案。有关部门呼吁知情者联系锈湖县警署，并在来信中注明案件编号。</p>
+          </div>
+          <hr class="clipping-rule">
+          <p><strong>Police reference: CASE 23</strong></p>
+          <p class="hand-note">时间对不上。先确认警署采用的是哪一个案件索引。— R.C.</p>
+          <div class="dialog-actions">
+            <button class="paper-button" type="button" data-fill-case-search>Copy reference to search</button>
+            <button class="paper-button secondary" type="button" data-open-case>Back to case summary</button>
+          </div>
+        `);
+      };
+
+      const showNotice = () => {
+        setPaper(`
+          ${paperMast("PROJECT MEMORANDUM / 24 OCT 2008", "FINAL NOTICE")}
+          <h2>关于暂停档案数字化计划的说明</h2>
+          <p class="paper-subtitle">Miriam Hart · Project coordinator</p>
+          <p>自 2003 年以来，志愿者已完成 194 项地方记录的基础编目。近期复核发现，部分材料无法建立可靠来源链，同一文件亦出现多个日期、裁切方式和内容互不兼容的数字版本。</p>
+          <p>在无法确认哪一份为原件的情况下，项目组将停止新增材料与关系推断。现有目录保留为只读镜像，仅供地方史研究使用。</p>
+          <p>仍在目录中但尚未定位的附件不会被删除；其标题、年代与来源字段将继续显示，直至能够确认实际库位。</p>
+          <p class="hand-note">不要替记录决定真相。把我们能证明的，和我们只是猜测的，分开保存。— M.H.</p>
+          <div class="dialog-actions">
+            <button class="paper-button secondary" type="button" data-close-dialog>Close memorandum</button>
+          </div>
+        `);
+      };
+
+      const wireDialogActions = () => {
+        dialogBody.querySelectorAll("[data-open-case]").forEach((button) => button.addEventListener("click", showCase));
+        dialogBody.querySelectorAll("[data-open-news]").forEach((button) => button.addEventListener("click", showNews));
+        dialogBody.querySelectorAll("[data-close-dialog]").forEach((button) => button.addEventListener("click", closeDialog));
+        dialogBody.querySelectorAll("[data-fill-case-search]").forEach((button) => {
+          button.addEventListener("click", () => {
+            closeDialog();
+            searchInput.value = "CASE 23";
+            searchInput.focus();
+            searchFeedback.textContent = "已从剪报页脚抄录案件编号。按 Enter 检索。";
+          });
+        });
+      };
+
+      const showToast = (message) => {
+        window.clearTimeout(toastTimer);
+        toast.textContent = message;
+        toast.hidden = false;
+        toastTimer = window.setTimeout(() => {
+          toast.hidden = true;
+        }, 3200);
+      };
+
+      const runSearch = (rawQuery) => {
+        const query = rawQuery.trim();
+        if (!query) {
+          searchFeedback.textContent = "请输入姓名、年份、地点或完整档案编号。";
+          searchInput.focus();
+          return;
+        }
+
+        let kind = "";
+        for (const candidate of Object.keys(queryKinds)) {
+          if (isKind(query, candidate)) {
+            kind = candidate;
+            break;
+          }
+        }
+
+        try {
+          const history = JSON.parse(localStorage.getItem("rl_search_history") || "[]");
+          const nextHistory = [query, ...history.filter((item) => item !== query)].slice(0, 5);
+          localStorage.setItem("rl_search_history", JSON.stringify(nextHistory));
+        } catch (error) {
+          // Search does not depend on local storage.
+        }
+
+        if (kind) {
+          searchFeedback.textContent = `已检索：“${query}”。`;
+          showSearchResult(query, kind);
+        } else {
+          searchFeedback.textContent = `“${query}”没有完全匹配的公开记录。`;
+          showNoResult(query);
+        }
+      };
+
+      searchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        runSearch(searchInput.value);
+      });
+
+      document.querySelectorAll("[data-open-case]").forEach((button) => button.addEventListener("click", showCase));
+      document.querySelectorAll("[data-open-news]").forEach((button) => button.addEventListener("click", showNews));
+      document.querySelectorAll("[data-open-notice]").forEach((button) => button.addEventListener("click", showNotice));
+      document.querySelectorAll("[data-close-dialog]").forEach((button) => button.addEventListener("click", closeDialog));
+
+      document.querySelectorAll("[data-focus-search]").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          searchInput.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+          searchInput.focus({ preventScroll: true });
+        });
+      });
+
+      document.querySelectorAll("[data-placeholder]").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          showToast(link.dataset.placeholder);
+        });
+      });
+
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) closeDialog();
+      });
+
+      dialog.addEventListener("cancel", (event) => {
+        event.preventDefault();
+        closeDialog();
+      });
+    })();
+  </script>
+  <script id="complete-game-engine">
+    (() => {
+      "use strict";
+
+      const CONTENT_VERSION = "2026.07.30.1";
+      const SAVE_KEY = "rusty-lake-case23:save:v1";
+      const BACKUP_KEY = "rusty-lake-case23:save:backup:v1";
+      const SETTINGS_KEY = "rusty-lake-case23:settings:v1";
+
+      const makeDoc = (title, date, source, catalogue, stage, summary, sections, evidence = [], related = [], puzzle = "") => ({
+        title, date, source, catalogue, stage, summary, sections, evidence, related, puzzle
+      });
+
+      const DOCS = {
+        D01: makeDoc(
+          "2008 年停止维护公告",
+          "24 OCT 2008",
+          "Rusty Lake Local Records Project",
+          "LRP-NOTICE/FINAL",
+          0,
+          "项目组最后一次公开更新。说明镜像只读、目录数量与未确认附件。",
+          [
+            ["最后一次公开更新", [
+              "由于县立图书馆地下库房关闭、扫描设备移交以及志愿者计划终止，本网站自今日起停止维护。现有页面将以只读镜像形式保留。",
+              "公开目录现记录三十份可定位材料。另有一份条目仍在旧索引中，但其来源位置从未完成核对。",
+              ">请不要把目录中的缺失理解为材料不存在。它只表示我们无法证明手中的扫描件来自哪一只盒子。"
+            ]],
+            ["项目组说明", [
+              "!Miriam Hart：档案不是故事。若同一事件存在多份版本，请记录差异，不要替它们选择一个更顺眼的答案。",
+              "~Daniel Moor：旧数据库忽略大小写和大部分标点。案件编号、姓名缩写、年份和设备号均可检索。"
+            ]]
+          ],
+          [["E1", "30 / 31 目录矛盾", "公开页称三十份可定位材料，但总索引数为三十一。"]],
+          ["D02", "D03"]
+        ),
+        D02: makeDoc(
+          "23 号案：公开摘要与附件索引",
+          "14 OCT 2008 / record date 1971",
+          "Rusty Lake Police Department / LRP",
+          "CASE-23/PUBLIC",
+          0,
+          "劳拉·范德布姆死亡案的公开摘要。检索 CASE 23 后恢复扩展索引。",
+          [
+            ["公开摘要", [
+              "1971 年秋，劳拉·范德布姆被发现死于住所。地方警署将案件标记为未解决。公开材料没有确认唯一凶手。",
+              "涉案或在记录中出现的人名：Laura Vanderboom、Robert “Bob” Hill、Detective Dale Vandermeer。",
+              "?原案件封面印有内部目录号 RL-23。附件栏写着 01—06，但公开镜像只列出五份可定位扫描件。"
+            ]],
+            ["附件目录（恢复部分）", [
+              "01 地方新闻剪报；02 尸检摘要；03 Robert Hill 询问记录；04 Dale Vandermeer 现场便笺；05 现场照片批次；06 [来源位置未确认]。",
+              "!项目组没有把 Bob Hill 记录成定罪对象。询问记录只证明他与劳拉有关，并不能单独解释现场。",
+              "~扩展索引由检索词 CASE 23 恢复。后续可直接检索人物全名或内部目录号。"
+            ]]
+          ],
+          [
+            ["E1", "六缺一附件", "附件编号到 06，公开来源却只能定位五份。"],
+            ["E2", "内部编号 RL-23", "警署目录号与网站使用的 CASE 23 并不相同。"]
+          ],
+          ["D03", "D04", "D05", "D06", "D08"]
+        ),
+        D03: makeDoc(
+          "地方新闻剪报：年轻女子被发现死于住所",
+          "15 OCT 1971",
+          "Rusty Lake Herald",
+          "NEWS/1971/10/15-A",
+          0,
+          "案件最早的公共报道。提供 CASE 23 与三名人物的初始入口。",
+          [
+            ["剪报转录", [
+              "锈湖警署昨日确认，一名年轻女子在湖区住宅内死亡。死者为 Laura Vanderboom。Detective Dale Vandermeer 负责现场调查。",
+              "警方曾询问与死者关系密切的 Robert Hill。发言人表示，询问不代表指控。",
+              ">报纸边缘的图书馆铅笔字：Police ref. CASE 23。完整附件可能仍可由旧站内检索恢复。"
+            ]],
+            ["版面异常", [
+              "同一卷缩微胶片的日期栏先写 15 OCT，后被蓝铅笔改为 17 OCT；正文中的“昨日”没有同步修改。",
+              "!这是第一个日期异常，但不足以单独推翻报道。请先寻找警署来源。"
+            ]]
+          ],
+          [
+            ["E1", "报纸边注 CASE 23", "边缘铅笔字提供了第一个可主动检索的案件关键词。"],
+            ["E2", "更改过的日期", "15 OCT 与 17 OCT 两个刊期同时留在纸面。"]
+          ],
+          ["D02"]
+        ),
+        D04: makeDoc(
+          "Laura Vanderboom 尸检与身份摘要",
+          "15 OCT 1971",
+          "Rusty Lake County Coroner",
+          "RL-23/ATT-02",
+          1,
+          "尸检摘要记录身份、发现时间与互不兼容的伤情描述。",
+          [
+            ["身份记录", [
+              "姓名：Laura Vanderboom。出生：1935。登记住址：Lake View 14。身份由私人随身物品与 Robert Hill 的陈述共同确认。",
+              "初步死亡时间范围：14 OCT 18:00—20:00。送检栏没有接收签名，冷藏柜编号为空。",
+              "?页脚的附件码为 RL-23 / ATT-02。它与报纸上的 CASE 23 指向同一案件，但来自不同目录系统。"
+            ]],
+            ["检查结论", [
+              "打字正文记载头部外伤；复写纸底稿却写“胸腔切口与大量失血”。两处都盖有同一医师印章。",
+              ">最终死因：待进一步检验。没有任何一版把 Robert Hill 记录为已确认的施害者。",
+              "!同一死亡存在不同伤情版本。此时只能把它标为版本异常，不能选定哪一版更真实。"
+            ]]
+          ],
+          [
+            ["E1", "空白接收栏", "尸检表没有遗体接收签名或冷藏柜编号。"],
+            ["E2", "两种伤情", "正文与复写底稿描述不同，却使用同一枚印章。"]
+          ],
+          ["D02", "D05", "D06", "D08"]
+        ),
+        D05: makeDoc(
+          "Robert Hill 询问记录",
+          "15 OCT 1971",
+          "Rusty Lake Police Department",
+          "RL-23/ATT-03",
+          1,
+          "Bob 的询问记录制造初始嫌疑，也留下 1972 年 White Door 的后续入口。",
+          [
+            ["询问摘录", [
+              "Hill 承认与 Laura 争吵，并称最后一次通话发生在 18:10。他在 18:40 后无法完整说明自己的行程。",
+              ">“我听见电话那端有钟声。她说门没有开，可房间里还有别人。”",
+              "记录员在“是否进入现场”一栏勾选 NO；另一页却有一句被划掉的“Robert seen near service road”。"
+            ]],
+            ["后续注记", [
+              "1972 年追记：Robert Hill 被转介至 White Door Mental Health and Fishing Facility。内部日程记录另存。",
+              "!Bob 有动机、有缺失时间，也有矛盾陈述；但这些仍不能解释封闭现场的遗体去向。",
+              "?若要查后续，人物姓名可能需要与年份组合检索：Robert Hill / 1972。"
+            ]]
+          ],
+          [
+            ["E1", "18:10 最后通话", "Bob 提供了现场时间线中的第一枚精确时间。"],
+            ["E2", "1972 White Door 转介", "询问记录后来被精神疗养机构引用。"]
+          ],
+          ["D04", "D06", "D18"]
+        ),
+        D06: makeDoc(
+          "Dale Vandermeer 现场便笺",
+          "14 OCT 1971",
+          "Detective Dale Vandermeer",
+          "RL-23/ATT-04",
+          1,
+          "戴尔的四个时间点、封锁记录与方块涂鸦。",
+          [
+            ["便笺正面", [
+              "18:20 — 接警；18:36 — 抵达；18:44 — 房间封闭；19:02 — 请求验尸官。",
+              "19:11 — 停电约四十秒。门封完整。19:18 — 房内不再有遗体；窗锁、门封与地板无拖行痕迹。",
+              "?便笺左上写有 RL-23；底部画着一个空心方块和一条指向天花板的箭头。"
+            ]],
+            ["便笺背面", [
+              "“不要让报纸先写凶手。Bob 的时间对不上，但现场也对不上。”",
+              "“附件 06？底片袋标签只有 1972 / NORTH MILL。”",
+              "!戴尔本人把人物嫌疑与现场异常分开记录。下一步应核对现场照片及保管链，而不是只继续审问 Bob。"
+            ]]
+          ],
+          [
+            ["E1", "四个现场时间", "18:20、18:36、18:44、19:18 能组成封锁时间线。"],
+            ["E2", "1972 / NORTH MILL", "缺失附件标签把 1971 年现场指向次年磨坊材料。"]
+          ],
+          ["D04", "D05", "D08", "D09"]
+        ),
+        D07: makeDoc(
+          "Laura Vanderboom：生活与地址索引",
+          "1935—1971",
+          "County Library Biographical Index",
+          "PERSON/VANDERBOOM-L",
+          1,
+          "劳拉的地址、Harvey、Bob 与姓名沿革。",
+          [
+            ["人物索引", [
+              "Laura Vanderboom，1935 年登记出生。成年后使用 Lake View 14 地址；紧急联系人曾为 Robert Hill。",
+              "兽医收据与照片背注多次出现 HARVEY。记录对象有时被归为鸟类，有时列为“同行者”。",
+              "1935 年出生卡的母系栏与一份 Vanderboom 家族历史盒共享编号前缀 VDB。"
+            ]],
+            ["编目限制", [
+              "!人物索引只证明材料使用同一姓名。它不能证明跨年代的两个人是同一身份。",
+              "?项目组在旧表中找到缩写 A. Vanderboom，但早期公开索引只有一张磨坊房产卡。"
+            ]]
+          ],
+          [
+            ["E1", "1935 出生年份", "这个年份后来与 Samsara 材料相交。"],
+            ["E2", "HARVEY 跨类别出现", "同一名字同时出现在兽医、照片和旅馆索引。"]
+          ],
+          ["D04", "D05", "D21", "D22", "D27"]
+        ),
+        D08: makeDoc(
+          "RL-23 现场照片：三版公开备份",
+          "14 OCT 1971 / backups 2005–2008",
+          "Rusty Lake Police Department",
+          "RL-23/ATT-05",
+          1,
+          "同一现场照片的三个备份版本。蓝色标记、钟面与黑色缺损并不一致。",
+          [
+            ["版本比较", [
+              "项目镜像保留三份文件名相同、校验值不同的扫描。请逐一查看版本；不同标记不可合并成一张“正确照片”。",
+              "#VERSIONS:D08",
+              "!第一版强调 18:20 的钟面；第二版在窗边出现黑色飞蛾状斑点；第三版把蓝色标记移到天花板并留下 HARVEY 边注。"
+            ]],
+            ["索引线索", [
+              "照片袋号 RL-23。纸袋封口日期为 1971，背面的扫描批次却写 1972 / NORTH MILL。",
+              "?这批照片与 Dale 便笺的四个时间点共同构成现场时间线的材料。"
+            ]]
+          ],
+          [
+            ["E1", "三版现场照片", "相同文件名拥有三组不同校验值和标记位置。"],
+            ["E2", "1972 磨坊背注", "底片袋把照片与次年的 NORTH MILL 批次相连。"]
+          ],
+          ["D06", "D09", "D11"],
+          "P2"
+        ),
+        D09: makeDoc(
+          "RL-23 现场补充报告（1971）",
+          "19 OCT 1971",
+          "Rusty Lake Police Department",
+          "RL-23/SUP-1971",
+          1,
+          "确认停电、门封完整、黑色飞蛾与“向上移动”的不可靠目击。",
+          [
+            ["补充报告", [
+              "19:11 的区域停电经电力部门确认。停电前后，现场门封编号一致，窗锁没有破坏。",
+              "两名警员都记得房间里出现黑色飞蛾，但只有一人写下“遗体似乎向天花板方向移动”。该句被主管标记为不可作为普通运输记录。",
+              "没有车辆、担架、接收人或冷藏柜记录能解释遗体离开。"
+            ]],
+            ["现场保管链审计", [
+              "?把尸检摘要、Bob 询问、Dale 便笺与现场照片放在一起，先确定接警、抵达、封锁、遗体消失的顺序。",
+              "!这个审计要回答的是“现实交接链是否存在”，不是“谁是凶手”。",
+              "#PUZZLE:P2"
+            ]]
+          ],
+          [
+            ["E1", "门封未破坏", "报告排除了有记录的普通进出方式。"],
+            ["E2", "19:11 停电", "遗体消失与短暂电力异常相邻。"]
+          ],
+          ["D04", "D05", "D06", "D08", "D10"],
+          "P2"
+        ),
+        D10: makeDoc(
+          "现场保管链审计结论",
+          "LRP review 2006",
+          "Miriam Hart / LRP",
+          "AUDIT/RL-23",
+          1,
+          "P2 后生成的正式审计：Bob 仍是相关人物，但不存在可验证的现实遗体转运链。",
+          [
+            ["审计结论", [
+              "时间线重建为：18:20 接警 → 18:36 Dale 抵达 → 18:44 现场封闭 → 19:18 确认遗体消失。",
+              "已核对警员、门封、窗锁、车辆、验尸官接收与冷藏柜记录。没有一条完整的现实交接链。",
+              ">结论：人物嫌疑与遗体去向必须分开调查。Robert Hill 的矛盾行程不足以解释封闭现场。"
+            ]],
+            ["新索引", [
+              "审计把底片袋背注单独登记为 RL-23 / 1972。该检索将返回维修包与电视静帧索引。",
+              "!旧理论“Bob 可能直接造成全部现场结果”已修正；这不是宣告 Bob 无关，而是证据范围发生变化。"
+            ]]
+          ],
+          [
+            ["E1", "无现实交接链", "所有常规保管与运输记录均缺失。"],
+            ["E2", "RL-23 / 1972", "审计把调查推进到次年的磨坊维修材料。"]
+          ],
+          ["D08", "D11"]
+        ),
+        D11: makeDoc(
+          "1972 维修包：电视静帧与边号",
+          "08 MAY 1972",
+          "North Mill maintenance packet",
+          "RL-23/SUP-1972",
+          2,
+          "电视画面出现劳拉；边号、电力区号与磨坊地产号需要交叉确认。",
+          [
+            ["静帧说明", [
+              "#PHOTO:一台旧电视停在劳拉的脸上；画面右下缺失一个黑色方块。纸边写着 M-，背面另有 138.4。",
+              "维修包日期比劳拉死亡晚七个月。机器位置栏只写 NORTH MILL，设备栏写 CW-6 / RLM-X4。",
+              "?扫描员将破损边号拆成两处录入。组合纸面上的 M- 与背注 138.4，可得到电力区域代码。"
+            ]],
+            ["项目组注释", [
+              "静帧底部时间码停在 18:20，与现场照片第一版的钟面相同。",
+              "!画面中的人物相似性很高，但单张电视静帧不能证明劳拉本人在 1972 年仍以普通方式出现。"
+            ]]
+          ],
+          [
+            ["E1", "电力区号 M-138.4", "静帧纸边与背注拼出磨坊电力区域代码。"],
+            ["E2", "设备号 RLM-X4", "维修包给出记忆提取设备的编号。"]
+          ],
+          ["D08", "D12", "D13", "D14"]
+        ),
+        D12: makeDoc(
+          "北岸磨坊房产卡",
+          "1894–1972",
+          "Rusty Lake County Property Office",
+          "PROPERTY/NM-138",
+          2,
+          "磨坊地产号、A. Vanderboom 与后来的 Mr Crow 管理记录。",
+          [
+            ["房产沿革", [
+              "地块：North Mill 138。早期所有人栏引用一份 1859 年 A. Vanderboom 登记；1894 年后改为私人信托。",
+              "管理人签名长期使用 Mr Crow。其签名字形与 1859 年 Aldous Vanderboom 的首字母存在相似，但项目组没有仅凭笔迹认定身份。",
+              "?1972 年设备检查栏：Power area M-138.4；clock controller CW-6；extractor RLM-X4。"
+            ]],
+            ["异常附件", [
+              "房产卡背面粘有一枚黑色羽毛和一句“life and death are not opposite entries”。",
+              "!可分别检索 A. Vanderboom、年份 1859 以及设备号；条件不足时，旧目录只会返回索引占位。"
+            ]]
+          ],
+          [
+            ["E1", "A. Vanderboom / 1859", "房产卡把磨坊管理史指向范德布姆兄弟记录。"],
+            ["E2", "三项同址编号", "M-138.4、CW-6、RLM-X4 都登记在 North Mill 138。"]
+          ],
+          ["D11", "D13", "D14", "D15", "D19"]
+        ),
+        D13: makeDoc(
+          "M-138.4 电力故障单",
+          "08 MAY 1972",
+          "Rusty Lake Power Cooperative",
+          "POWER/M-138.4",
+          2,
+          "异常负荷曲线证明电视、时钟与提取器在同一供电回路。",
+          [
+            ["故障单", [
+              "18:18 低负荷；18:20 CW-6 同步信号；18:21 RLM-X4 瞬时高负荷；18:24 黑色残留读数；18:26 供电恢复。",
+              "报修人：Mr Crow。地点：North Mill 138。电工拒绝进入地下机房，仅在外部保险箱更换熔丝。",
+              "?曲线上四个手写动作：object / connect / separate / store。箭头顺序因扫描装订而被打乱。"
+            ]],
+            ["跨年异常", [
+              "故障曲线的起始时间 18:20 与 1971 年现场便笺、现场照片钟面重复。",
+              "!重复时间可以建立关联，但不等于两个事件发生在同一分钟。版本与记录方式仍需区分。"
+            ]]
+          ],
+          [
+            ["E1", "RLM-X4 高负荷", "提取器在电视出现劳拉图像后启动。"],
+            ["E2", "四个流程动词", "object、connect、separate、store 是 P4 的材料之一。"]
+          ],
+          ["D11", "D12", "D14", "D15"]
+        ),
+        D14: makeDoc(
+          "CW-6 时钟校准与电视同步记录",
+          "08 MAY 1972",
+          "North Mill maintenance packet",
+          "CLOCK/CW-6",
+          2,
+          "CW-6 把 18:20、电视图像、A. Vanderboom 旧标签连在一起。",
+          [
+            ["校准记录", [
+              "CW-6 不是普通挂钟，而是电视与地下设备的同步控制器。测试画面应在 18:20 出现，对象接入后才允许启动提取。",
+              "控制器内盖有旧维修标签：A. VANDERBOOM / 1859 batch / LIFE—DEATH。",
+              "?三份独立材料分别提供图像、地产号与电力号。只有把电视静帧、磨坊房产卡、M-138.4 故障单并列，才能建立同一记录链。"
+            ]],
+            ["校验差异", [
+              "2005 备份将钟面读为 18:20；2008 OCR 一度误读成 18:28。原图最后一位有折痕。",
+              "#PUZZLE:P3"
+            ]]
+          ],
+          [
+            ["E1", "同步控制器", "CW-6 规定电视出现对象后才能启动 RLM-X4。"],
+            ["E2", "1859 LIFE—DEATH 标签", "控制器保留范德布姆旧批次标记。"]
+          ],
+          ["D11", "D12", "D13", "D15"],
+          "P3"
+        ),
+        D15: makeDoc(
+          "RLM-X4 记忆提取器维修图",
+          "08 MAY 1972",
+          "North Mill / Mr Crow",
+          "EQUIP/RLM-X4",
+          2,
+          "用图纸箭头、电力曲线和时钟说明恢复记忆提取流程。",
+          [
+            ["图纸转录", [
+              "#DIAGRAM:电视输入 → 连接座 → 分离室 → 方块储存槽。图纸原件的四个标签被剪下，扫描时顺序错置。",
+              "图例：白色方块保存稳定记忆；黑色方块保存腐化或创伤状态。蓝色端口标为“future subject”；第四色槽没有颜色名。",
+              "?根据 CW-6 说明、M-138.4 曲线与图纸箭头，还原：对象出现、接入机器、分离记忆、储存方块。"
+            ]],
+            ["操作审计", [
+              "维修备注称“1971 subject material arrived without ordinary intake form”。这与现场保管链缺口相交。",
+              "!这份材料解释一种可能的去向机制，但不会自动回答劳拉死亡的唯一原因。",
+              "#PUZZLE:P4"
+            ]]
+          ],
+          [
+            ["E1", "四步提取流程", "三个来源共同确定对象到方块的操作顺序。"],
+            ["E2", "无普通接收表", "磨坊收到的 1971 对象材料没有现实机构交接单。"]
+          ],
+          ["D13", "D14", "D16", "D18"],
+          "P4"
+        ),
+        D16: makeDoc(
+          "磨坊地下室鸟首人物照片",
+          "08 MAY 1972",
+          "North Mill maintenance packet",
+          "IMAGE/RLM-X4-06",
+          2,
+          "鸟首人物操作机器；乌鸦与 A. Vanderboom 的关系仍需历史材料证明。",
+          [
+            ["照片说明", [
+              "#PHOTO:地下室中央是一台连接电视和人体轮廓的机器；一名乌鸦头人物站在控制杆旁。",
+              "背注：Mr Crow / extraction complete / white retained / black unstable。角落盖有 NORTH MILL 138 印章。",
+              "照片袋上的旧编号为 ALD-VDB，但这一缩写没有在 1972 目录中解释。"
+            ]],
+            ["项目组判断", [
+              "!动物头部在锈湖材料中可能是面具、记忆形态、象征或身份延续。照片本身只确认“Mr Crow”标签与提取现场共存。",
+              "?若要判断 ALD-VDB，需回到房产卡所指向的 A. Vanderboom / 1859 记录。"
+            ]]
+          ],
+          [
+            ["E1", "Mr Crow 操作提取器", "照片与设备记录共同指向同一操作者。"],
+            ["E2", "ALD-VDB 编号", "鸟首人物照片保留 Aldous Vanderboom 的缩写入口。"]
+          ],
+          ["D12", "D15", "D19", "D20"]
+        ),
+        D17: makeDoc(
+          "White Door 机构介绍与收治索引",
+          "1972",
+          "White Door Mental Health and Fishing",
+          "INSTITUTION/WHITE-DOOR",
+          2,
+          "白门以日程和记忆复述治疗 Robert Hill。",
+          [
+            ["机构说明", [
+              "White Door 使用固定日程、重复访谈与图像回忆帮助住客重建记忆。公开说明没有提及磨坊或方块。",
+              "1972 年住客索引包括 Robert Hill。转介来源为 RL-23 询问记录，备注为“loss / Laura / black state”。",
+              "?姓名与年份组合比单独搜索机构更能恢复内部日程：Robert Hill 1972。"
+            ]],
+            ["边界说明", [
+              "!机构材料来自 Bob 的主观记忆。它能说明他经历了什么，不能单独成为 Laura 死亡方式的客观版本。"
+            ]]
+          ],
+          [
+            ["E1", "记忆重建疗程", "白门把 Bob 的叙述按日程重复提取。"],
+            ["E2", "black state 备注", "机构索引第一次把 Bob 的失落与黑色状态并列。"]
+          ],
+          ["D05", "D18"]
+        ),
+        D18: makeDoc(
+          "Robert Hill 1972 日程与记忆表",
+          "1972",
+          "White Door",
+          "PATIENT/RH-1972",
+          2,
+          "Bob 的日程表重复 Laura、电话、夜晚与黑色方块意象。",
+          [
+            ["日程摘录", [
+              "07:00 起床；08:00 早餐；11:00 memory training；15:00 recreation；18:00 supper；22:00 sleep。",
+              "记忆训练卡反复出现：电话、Laura 的脸、窗外黑影、无法到达的门。最后一格被整块涂黑，旁注 BLACK STATE。",
+              ">Bob：“如果我记得她死去的方式每次都不同，哪一次才算我的记忆？”"
+            ]],
+            ["编目注释", [
+              "表格最后引用 23-BLACK，但只有条目标题，没有附件来源。当前索引不可访问。",
+              "!Bob 的页面给出一种情绪真实的死亡版本，不应覆盖警署、磨坊或戴尔材料。",
+              "?检索 BLACK STATE 可查看跨档案索引；它暂时不会恢复 23-BLACK 附件。"
+            ]]
+          ],
+          [
+            ["E1", "重复而变化的死亡记忆", "Bob 的疗程卡无法固定一种 Laura 死亡画面。"],
+            ["E2", "23-BLACK 索引占位", "后期冲突档案已经存在于目录，但来源尚未恢复。"]
+          ],
+          ["D05", "D15", "D29"]
+        ),
+        D19: makeDoc(
+          "1859 年 Vanderboom 兄弟与灵药登记",
+          "1859",
+          "Vanderboom family box",
+          "VDB/1859/ALD-WIL",
+          3,
+          "William 与 Aldous 是兄弟；一人死亡并等待重生，一人存活并成为 Mr Crow。",
+          [
+            ["登记页", [
+              "William Vanderboom 与 Aldous Vanderboom，关系：兄弟。共同研究 Life and Death Elixir。",
+              "实验后登记分裂：William — death / body retained at root chamber；Aldous — life / departed under crow seal。",
+              "房产附页把 A. Vanderboom 的权益转入 North Mill 管理信托。"
+            ]],
+            ["后续身份线索", [
+              "Aldous 的签名逐年缩短为 A. VDB，最后一页只有乌鸦印记与“Mr Crow”。",
+              "William 页边写着“the seed returns through Rose / 1935”，但没有普通父子关系栏。",
+              "!“复活之根”不是普通家谱父亲位置。族谱应同时记录生物世代与仪式关系。"
+            ]]
+          ],
+          [
+            ["E1", "William / Aldous 兄弟", "1859 登记明确两人的家庭关系。"],
+            ["E2", "生与死分岔", "同一灵药使 Aldous 延续生命、William 死亡等待重生。"]
+          ],
+          ["D12", "D16", "D20", "D21"]
+        ),
+        D20: makeDoc(
+          "Life and Death Elixir 未完成编目表",
+          "1859 / LRP review 2007",
+          "Vanderboom family box",
+          "VDB/ELIXIR/L-D",
+          3,
+          "将灵药结果、生死状态与后续身份对应到 William、Aldous 和 Laura。",
+          [
+            ["残页转录", [
+              "配方标题：Elixir of Life and Death。结果不是两瓶药，而是同一实验的两种命运。",
+              "William：饮用 → death → remains beneath the tree → returns through the next prepared vessel。",
+              "Aldous：饮用 → life → leaves the family line → crow-marked custodian。"
+            ]],
+            ["编目空格", [
+              "Laura：born 1935。残页没有把她写成 William 的女儿，而写“the returned life carries a life of her own”。",
+              "?族谱、1935 Samsara 材料与本表必须同时使用，才能区分转世关系与普通亲属关系。",
+              "#PUZZLE:P6"
+            ]]
+          ],
+          [
+            ["E1", "同一灵药两种结果", "William 死亡等待重生，Aldous 存活成为守护者。"],
+            ["E2", "Laura 有独立生命", "转世关系不抹除 Laura 作为独立人物的经历。"]
+          ],
+          ["D19", "D21", "D22"],
+          "P6"
+        ),
+        D21: makeDoc(
+          "VDB-TREE：不完整 Vanderboom 族谱",
+          "1859–1935",
+          "Vanderboom family box / LRP reconstruction",
+          "VDB-TREE",
+          3,
+          "用出生、婚姻、死亡和仪式记录重建范德布姆家族。",
+          [
+            ["可核对关系", [
+              "William 与 Aldous 为兄弟。William 的遗产由 James 继承；James 与 Mary 的子女为 Samuel、Emma、Albert。",
+              "Emma 的孩子是 Frank；Samuel 与 Ida 的孩子是 Leonard；Albert 与 Ida 的血缘记录通向 Rose。",
+              "Rose 的下一代记录 Laura，出生年份 1935。William 另以“revival root”连接 Laura，不能放入普通父亲栏。"
+            ]],
+            ["重建规则", [
+              "!每个姓名的位置都可由已发现材料查询。移动端使用选择框，不要求拖拽。",
+              "?先完成普通家族线，再添加 William 的仪式性复活根。",
+              "#PUZZLE:P5"
+            ]]
+          ],
+          [
+            ["E1", "Rose → Laura / 1935", "族谱把劳拉出生连接到罗斯的下一代。"],
+            ["E2", "William revival root", "威廉与劳拉之间是复活／转世关系，不是普通父女。"]
+          ],
+          ["D19", "D20", "D22"],
+          "P5"
+        ),
+        D22: makeDoc(
+          "Rose 与 Samsara：1935 年转生材料",
+          "1935",
+          "Vanderboom family box",
+          "VDB/SAMSARA/1935",
+          3,
+          "确认 Laura 是 William 的转世，同时保留她自身的人生。",
+          [
+            ["仪式记录", [
+              "Rose 完成家族树根仪式。记录将 William 的种子、保存记忆与 1935 年新生儿 Laura 并列。",
+              "页眉使用 Samsara；页脚结论为“William returns as Laura Vanderboom”。",
+              "这是一份原作关系明确的材料，但它没有说明 Laura 的每一次死亡版本都由 William 决定。"
+            ]],
+            ["关系审计", [
+              "William → Laura：转世／前世关系；证据等级：原作明确。",
+              "Aldous → Mr Crow：身份延续；需与 1859 灵药登记和鸟首照片交叉。",
+              "#PUZZLE:P6"
+            ]]
+          ],
+          [
+            ["E1", "William returns as Laura", "Samsara 记录直接写明转世关系。"],
+            ["E2", "1935 新生儿记录", "族谱年代与 Laura 人物索引互相印证。"]
+          ],
+          ["D07", "D19", "D20", "D21"],
+          "P6"
+        ),
+        D23: makeDoc(
+          "1893 Rusty Lake Hotel 合照",
+          "1893",
+          "Rusty Lake Hotel archive",
+          "RLH-1893/IMAGE-01",
+          4,
+          "五名动物客人、Mr Owl、Mr Crow 与 Harvey 的合照。",
+          [
+            ["照片目录", [
+              "#PHOTO:旅馆餐桌前依次站着鹿、野猪、雉鸡、兔子和鸽子形象；后排可见 Mr Owl 与 Mr Crow，一只鹦鹉停在窗边。",
+              "背注列名：Mr Deer、Mr Boar、Ms Pheasant、Mr Rabbit、Mrs Pigeon；staff/assistants：Owl, Crow, Harvey。",
+              "同一底片袋后来被戴尔洞穴记录引用，理由栏写“selection pattern / future subject”。"
+            ]],
+            ["编目边界", [
+              "!动物客人与 Eilander 家族成员之间的关系不能只凭脸或面具确认，需要天堂岛名单、旅馆菜单和时间对应。",
+              "?登记号 RLH-1893 可恢复旅馆菜单与住客索引。HARVEY 也可作为跨年代可选检索词。"
+            ]]
+          ],
+          [
+            ["E1", "五名动物客人", "旅馆合照提供面具配对的一侧。"],
+            ["E2", "future subject 注记", "底片后来被用于与 Dale 有关的选择记录。"]
+          ],
+          ["D24", "D25", "D26", "D27", "D28"]
+        ),
+        D24: makeDoc(
+          "Dale Vandermeer 1939 生日惨案",
+          "18 DEC 1939",
+          "Rusty Lake Police / family file",
+          "PERSON/DALE-1939",
+          4,
+          "戴尔童年案、兔面凶手与蓝色方块记忆。",
+          [
+            ["案件摘要", [
+              "Dale Vandermeer 九岁生日当晚，家人遭到兔面人物袭击。现场记录没有确认袭击者的普通姓名。",
+              "幸存者画下一个蓝色方块、一道电梯门与兔子面具。后来的警务档案把该图与 CASE 23 便笺方块并列。",
+              ">Dale：“我先记得面具，后来才记得那是一个人。”"
+            ]],
+            ["撤回的关联", [
+              "项目组曾尝试把兔面人物直接写成 D. Eilander，随后撤回。现有材料最多支持高度相关的身份链。",
+              "?检索 D. Eilander，并与 1893 旅馆和 1796 天堂岛材料比较。"
+            ]]
+          ],
+          [
+            ["E1", "兔面人物", "戴尔的童年创伤与旅馆兔子形象相交。"],
+            ["E2", "蓝色方块", "洞穴设备后来把蓝方块归为未来主体的记忆。"]
+          ],
+          ["D23", "D25", "D26", "D28"]
+        ),
+        D25: makeDoc(
+          "Rusty Lake Hotel 登记与菜单索引",
+          "1893",
+          "Rusty Lake Hotel",
+          "RLH-1893/REGISTER",
+          4,
+          "五名客人的称谓、菜目与 D. Eilander 交叉索引。",
+          [
+            ["住客登记", [
+              "Room 1 Mr Deer；Room 2 Mr Boar；Room 3 Ms Pheasant；Room 4 Mr Rabbit；Room 5 Mrs Pigeon。",
+              "旧卡片在 Mr Rabbit 条目旁写 D. Eilander；没有展开名字。菜单采购记录由 Harvey 传递，管理栏为 Mr Owl。",
+              "登记夹中还塞有一张 1796 年 Paradise Island 家庭名单复印件。"
+            ]],
+            ["项目组比较建议", [
+              "?不要选择“百分之百同一身份”，除非两份独立材料明确给出同一姓名。这里应比较对应关系与证据等级。",
+              "!旅馆资料会给出动物称谓，天堂岛资料会给出家庭姓名。两侧缺一不可。"
+            ]]
+          ],
+          [
+            ["E1", "D. Eilander / Mr Rabbit", "登记卡建立了兔子客人与 Eilander 姓名的直接交叉。"],
+            ["E2", "1796 家庭名单", "旅馆夹把调查推进到 Paradise Island。"]
+          ],
+          ["D23", "D24", "D26", "D27"]
+        ),
+        D26: makeDoc(
+          "Paradise Island 1796：Eilander 家庭与面具",
+          "1796",
+          "Paradise Island parish / LRP comparison",
+          "PARADISE-1796/EILANDER",
+          4,
+          "Eilander 家庭、五张面具与 Jakob、Caroline、Mr Owl 的起源材料。",
+          [
+            ["家庭名单与面具", [
+              "Nicholas — deer；Gerard — boar；Elizabeth — pheasant；David — rabbit；Margaret — pigeon。",
+              "Jakob Eilander 与母亲 Caroline 的牺牲记录另页保存。后续材料把 Jakob 的新形态标作 Mr Owl。",
+              "这些对应在原作材料中具有强指向；档案项目仍把五名旅馆客人的同一身份结论标为“高度相关／强暗示”。"
+            ]],
+            ["对照表提交", [
+              "?为五名家庭成员选择对应旅馆形象，并选择统一的证据等级。兔面关系不能提交成“已由普通身份记录绝对确认”。",
+              "#PUZZLE:P7"
+            ]]
+          ],
+          [
+            ["E1", "五组姓名—面具", "Paradise 名单提供完整面具对应。"],
+            ["E2", "Jakob / Caroline → Mr Owl", "牺牲材料解释 Mr Owl 的身份来源。"]
+          ],
+          ["D23", "D24", "D25", "D28"],
+          "P7"
+        ),
+        D27: makeDoc(
+          "Harvey 跨年代行动索引",
+          "1796–1972",
+          "LRP cross-reference",
+          "PERSON/HARVEY/CROSS",
+          4,
+          "Harvey 在天堂岛、旅馆、Laura 生活记录与磨坊照片间移动。",
+          [
+            ["已确认出现", [
+              "1796 Paradise Island：受 Caroline 协助的鸟类同行者；1893 Rusty Lake Hotel：Mr Owl 的助手；1935—1971 Laura 材料：同名鸟类；1972 North Mill：照片边注 HARVEY。",
+              "项目组只确认这些材料共享姓名、鸟类形象与连续任务线索。跨年代身份属于强关联，而非普通寿命记录。",
+              "?查看 RL-23 三版照片后再检索 HARVEY，可恢复第一项可选秘密标记。"
+            ]],
+            ["与主线的关系", [
+              "!Harvey 能支持不同案件由同一管理网络连接，但不是 P8 的必需答案。忽略本页不会阻塞结案。"
+            ]]
+          ],
+          [
+            ["E1", "Harvey 跨年代", "同名鸟类形象跨越天堂岛、旅馆、劳拉与磨坊。"]
+          ],
+          ["D07", "D08", "D23", "D26"]
+        ),
+        D28: makeDoc(
+          "CAVE-4：戴尔洞穴设备草图",
+          "1972 / date uncertain",
+          "Dale Vandermeer / Rusty Lake cave",
+          "CAVE-4",
+          5,
+          "四个方块插槽、戴尔的未来主体位置与非线性日期。",
+          [
+            ["设备草图", [
+              "#DIAGRAM:四个插槽围绕一部电梯控制台：WHITE、BLACK、BLUE、[GOLD?]。中央座位标记 DALE / SUBJECT。",
+              "白槽连向 Laura 的稳定记忆；黑槽连向 23-BLACK；蓝槽连向 1939 生日案；第四色槽写“future / selection / missing”。",
+              "草图日期同时出现 1972、1971 与一个未完成的未来年份，无法简单排序。"
+            ]],
+            ["调查方向", [
+              "?将三个已知颜色一起检索：WHITE BLACK BLUE。旧分类表会把第四色列为未确认的 Golden Cube。",
+              "!材料支持“Dale 被观察、测试，可能是继任候选”，但不足以说他的命运已完全确定。"
+            ]]
+          ],
+          [
+            ["E1", "Dale / SUBJECT", "洞穴草图把调查者戴尔放在设备主体位置。"],
+            ["E2", "四方块结构", "白、黑、蓝和缺失的金色共同控制后期索引。"]
+          ],
+          ["D23", "D24", "F01", "F02", "F03", "F04"]
+        ),
+        D29: makeDoc(
+          "23-BLACK：CASE 23 多版本死亡索引",
+          "1971–1972 / backups 2005–2008",
+          "LRP conflict registry",
+          "23-BLACK",
+          5,
+          "五种互不兼容的 Laura 死亡／记忆版本并存；没有一版被指定为唯一隐藏真相。",
+          [
+            ["冲突索引", [
+              "此条目曾长期只有标题。四种方块分类被阅读后，来源链才由洞穴表、磨坊设备、白门日程与警署备份共同重建。",
+              "#VERSIONS:D29",
+              "!版本并存更适合解释为不同人物、机器或记忆状态的记录。项目组不据此指定一个“真正凶手”。"
+            ]],
+            ["共同字段", [
+              "五个版本末尾都出现同一状态：CASE 23 / STATUS REVIEW REQUIRED。",
+              "?检索 CASE 23 STATUS 将打开正式关系报告。报告要求每项结论配两份独立证据与证据等级。"
+            ]]
+          ],
+          [
+            ["E1", "五种冲突死亡版本", "警署、Bob、腐化灵魂、Dale 与磨坊各保存不同图像。"],
+            ["E2", "STATUS REVIEW REQUIRED", "所有版本共享最终报告入口。"]
+          ],
+          ["D04", "D18", "D28", "D30"]
+        ),
+        D30: makeDoc(
+          "CASE 23 最终关系调查报告",
+          "LRP reconstructed 2008",
+          "Visitor research worksheet",
+          "CASE-23/STATUS",
+          5,
+          "六项关系结论，每项都需要结论、两份独立来源与证据等级。",
+          [
+            ["提交规则", [
+              "本报告不要求选择 Laura 的唯一凶手。它检查玩家是否能区分明确关系、强暗示、记忆机制与未确定因果。",
+              "每项选择一个结论、证据 A、证据 B 和等级。两份证据不能来自同一档案。",
+              "#PUZZLE:P8"
+            ]]
+          ],
+          [
+            ["E1", "关系式调查格式", "最终谜题验证证据结构，而不是姓名记忆。"]
+          ],
+          ["D29", "D31"],
+          "P8"
+        ),
+        D31: makeDoc(
+          "CASE 24：Dale Vandermeer — Status Pending",
+          "date unresolved",
+          "Rusty Lake conflict registry",
+          "CASE-24/PENDING",
+          5,
+          "结案后的新索引。戴尔由调查者变成下一份待处理记录的主体。",
+          [
+            ["索引卡", [
+              "SUBJECT：Dale Vandermeer。STATUS：PENDING。SOURCE：CAVE-4 / ELEVATOR。",
+              "附件数量：未定。第一项只显示一枚蓝色方块；第二项是一张没有日期的电梯按钮照片。",
+              ">该记录存在于目录中，但当前公开备份未记录完整来源位置。"
+            ]],
+            ["项目停更附记", [
+              "Miriam Hart：我们修复了关系，没有修复时间。三十份材料已发现；目录仍坚持总数是三十一。",
+              "!CASE 24 是余韵，不把 Dale 的未来写成确定结局。完成三个可选秘密后，玩家可自行检索 ELEVATOR。"
+            ]]
+          ],
+          [
+            ["E1", "Dale — Status Pending", "调查者成为下一案件主体，但命运仍未定。"]
+          ],
+          ["D28", "D30", "H06"]
+        ),
+        F01: makeDoc(
+          "方块分类：WHITE",
+          "catalogue restored",
+          "RLM-X4 / CAVE-4",
+          "CUBE/WHITE",
+          5,
+          "白方块保存稳定、可复述的记忆，但稳定并不等于客观完整。",
+          [["分类注释", ["白色槽连接 Laura 的可访问记忆与磨坊保存记录。它可以被观看、重放和用于装置。", "!白色不是“真实”，只是相对稳定。"]]],
+          [["E1", "白方块：稳定记忆", "可复述、可保存，但仍受记录者限制。"]],
+          ["F02", "F03", "F04", "D29"]
+        ),
+        F02: makeDoc(
+          "方块分类：BLACK",
+          "catalogue restored",
+          "White Door / RLM-X4",
+          "CUBE/BLACK",
+          5,
+          "黑方块承载创伤、腐化、恐惧与无法稳定复述的记忆状态。",
+          [["分类注释", ["BLACK STATE 同时出现在 Bob 日程、磨坊槽位与 23-BLACK 索引。", "!黑色记录可解释冲突画面，但不能被当作自动撒谎或自动真实。"]]],
+          [["E1", "黑方块：腐化记忆", "创伤状态造成图像与叙述分裂。"]],
+          ["F01", "F03", "F04", "D29"]
+        ),
+        F03: makeDoc(
+          "方块分类：BLUE",
+          "catalogue restored",
+          "Dale 1939 / CAVE-4",
+          "CUBE/BLUE",
+          5,
+          "蓝方块对应 Dale 的童年记忆与未来主体位置。",
+          [["分类注释", ["1939 生日案中的蓝方块被洞穴设备归入 future subject。", "!它支持 Dale 被测试或选择，不证明所有未来步骤已经发生。"]]],
+          [["E1", "蓝方块：Dale 记忆", "童年创伤成为洞穴装置的输入。"]],
+          ["F01", "F02", "F04", "D29"]
+        ),
+        F04: makeDoc(
+          "方块分类：[GOLDEN / UNCONFIRMED]",
+          "catalogue partially restored",
+          "CAVE-4",
+          "CUBE/GOLD",
+          5,
+          "第四色只在草图和项目组笔记中出现，名称与功能仍未完全确认。",
+          [["分类注释", ["插槽旁可辨认 GOLDEN、future 与 selection。扫描缺损使名称无法完整恢复。", "?四页分类全部打开后，旧系统能够重建 23-BLACK 来源链。"]]],
+          [["E1", "金方块：未来／选择", "第四色关联尚未完成的未来记录。"]],
+          ["F01", "F02", "F03", "D29"]
+        ),
+        H01: makeDoc(
+          "18:20：第一版现场照片备份",
+          "backup 2005",
+          "D. Moor checksum recovery",
+          "HIDDEN/RL23/CLOCK",
+          1,
+          "被后续扫描裁掉的钟面与一行无法归档的时间注释。",
+          [["恢复图像", ["#PHOTO:房间钟面停在 18:20；玻璃反光里像有一扇不属于房间的门。", "~校验值与 D08 第一版一致，但像素边界比公开副本多 16 行。", "!隐藏页补充气氛和版本冲突，不改变 P2 的正确顺序。"]]],
+          [["E1", "多出的十六行像素", "公开扫描裁掉了钟面下方的门状反光。"]],
+          ["D08"]
+        ),
+        H02: makeDoc(
+          "黑色飞蛾扫描残片",
+          "backup 2006",
+          "D. Moor recovery",
+          "HIDDEN/RL23/MOTHS",
+          1,
+          "现场窗边黑斑的高对比扫描。",
+          [["图像残片", ["#PHOTO:窗框四周聚集黑色飞蛾；中央黑斑呈近似方形。", "~原文件名 BLACK_MOTHS_06.TIF；未找到纸质来源。", "!它与黑色状态有图像关联，但不是新必需线索。"]]],
+          [["E1", "飞蛾围成方形", "高对比版本呈现非随机的黑色缺损。"]],
+          ["D08", "D09", "F02"]
+        ),
+        H03: makeDoc(
+          "被撤回的兔面人物关联文章",
+          "12 JAN 2008",
+          "LRP draft / withdrawn",
+          "HIDDEN/EILANDER-RABBIT",
+          4,
+          "项目组撤回“David Eilander 等于兔面凶手”的绝对表述。",
+          [["撤回原因", ["初稿标题写“David Eilander identified as Dale case killer”。复核后改为：David—rabbit—Mr Rabbit—1939 rabbit figure 构成强关联链。", "缺少一份同时给出 David 普通姓名与 1939 现场身份的独立记录，因此不能标为绝对确认。", "!撤回不是否认关联，而是校正证据等级。"]]],
+          [["E1", "撤回的绝对结论", "证据支持高度相关，不支持百分之百确认。"]],
+          ["D24", "D25", "D26"]
+        ),
+        H04: makeDoc(
+          "Daniel Moor 校验值冲突日志",
+          "2005–2008",
+          "D. Moor",
+          "HIDDEN/CHECKSUM",
+          5,
+          "技术日志显示同名扫描在不同备份中持续变化。",
+          [["日志摘录", ["RL23_SCENE_01.JPG：三组哈希；VDB_TREE.GIF：两组尺寸；23_BLACK.HTM：文件存在但来源字段每次为空。", "~Daniel：我没有修改图像内容。迁移程序每次都从不同的扇区恢复同名文件。", "!这是有限的技术观察，不把网站写成有意识的存在。"]]],
+          [["E1", "同名文件不同哈希", "备份恢复持续产生互不相同的版本。"]],
+          ["D08", "D21", "D29"]
+        ),
+        H05: makeDoc(
+          "Golden Cube 编目笔记",
+          "2008",
+          "M. Hart / D. Moor",
+          "HIDDEN/CUBE-GOLD",
+          5,
+          "项目组关于第四色槽与未来选择的未完成讨论。",
+          [["未完成笔记", ["M.H.：若白是稳定、黑是腐化、蓝属于 Dale，金色也许不是记忆，而是选择的结果。", "D.M.：CAVE-4 文件把它列为 required，但没有可定位附件。", "!推测性内容使用不同标记；本页不把 Golden Cube 功能写成确定事实。"]]],
+          [["E1", "项目组推测：选择", "金色可能代表选择，但来源不足。"]],
+          ["F04", "D28"]
+        ),
+        H06: makeDoc(
+          "无标题：湖面、升降机与旅馆灯光",
+          "no date",
+          "unclassified image",
+          "HIDDEN/ELEVATOR",
+          5,
+          "完成三个可选秘密后出现的无文字余韵。",
+          [["", ["#LAKESECRET"]]],
+          [],
+          ["D31"]
+        )
+      };
+
+      const KEYWORDS = {
+        K01: { standard: "CASE 23", aliases: ["23号案", "案件23", "rl case 23"], docs: ["D02"], needs: () => true },
+        K02: { standard: "Laura Vanderboom", aliases: ["劳拉 范德布姆", "vanderboom laura", "laura v", "Laura"], docs: ["D04", "D07"], needs: s => s.searchedKeywords.includes("K01") },
+        K03: { standard: "Robert Hill", aliases: ["Bob Hill", "罗伯特 希尔", "鲍勃 希尔", "鲍勃", "Robert", "Bob", "Robert Bob Hill"], docs: ["D05"], needs: s => s.searchedKeywords.includes("K01") },
+        K04: { standard: "Dale Vandermeer", aliases: ["戴尔 范德米尔", "vandermeer dale", "dale v", "D. Vandermeer", "Detective Vandermeer"], docs: ["D06"], needs: s => s.searchedKeywords.includes("K01") },
+        K05: { standard: "RL-23", aliases: ["rl23", "rl 23"], docs: ["D08"], needs: s => s.openedDocuments.includes("D06") },
+        K06: { standard: "RL-23 1971", aliases: ["rl23 1971", "1971 rl-23", "CASE 23 1971"], docs: ["D09"], needs: s => s.openedDocuments.includes("D08") },
+        K07: { standard: "RL-23 1972", aliases: ["rl23 1972", "1972 rl-23", "CASE 23 1972"], docs: ["D11"], needs: s => s.solvedPuzzles.includes("P2") },
+        K08: { standard: "M-138.4", aliases: ["m1384", "m 138 4", "138.4"], docs: ["D13"], needs: s => s.openedDocuments.includes("D11") },
+        K09: { standard: "CW-6", aliases: ["cw6", "cw 6", "CLOCK CW-6"], docs: ["D14"], needs: s => s.openedDocuments.includes("D13") },
+        K10: { standard: "A. Vanderboom", aliases: ["a vanderboom", "vanderboom a", "阿尔道斯 范德布姆", "A VDB"], docs: ["D12"], needs: s => s.openedDocuments.includes("D14") },
+        K11: { standard: "RLM-X4", aliases: ["rlmx4", "rlm x4", "X4 MILL"], docs: ["D15", "D16"], needs: s => s.solvedPuzzles.includes("P3") },
+        K12: { standard: "White Door", aliases: ["the white door", "白门", "白门机构"], docs: ["D17"], needs: s => s.openedDocuments.includes("D05") },
+        K13: { standard: "Robert Hill 1972", aliases: ["bob hill 1972", "1972 robert hill", "罗伯特 希尔 1972", "Robert 1972", "1972 Bob", "鲍勃 1972"], docs: ["D18"], needs: s => s.openedDocuments.includes("D17") },
+        K14: { standard: "BLACK STATE", aliases: ["blackstate", "黑色状态", "STATE BLACK", "BLACK MEMORY"], docs: ["D29"], stubDocs: ["D29"], needs: s => s.openedDocuments.includes("D18") },
+        K15: { standard: "A. Vanderboom 1859", aliases: ["a vanderboom 1859", "1859 a vanderboom", "阿尔道斯 1859", "A VDB 1859", "Aldous Vanderboom 1859"], docs: ["D19"], needs: s => s.solvedPuzzles.includes("P4") && s.searchedKeywords.includes("K14") },
+        K16: { standard: "William Vanderboom", aliases: ["威廉 范德布姆", "vanderboom william", "william v", "William", "W. Vanderboom"], docs: ["D19", "D21"], stubDocs: ["D21"], needs: s => s.openedDocuments.includes("D19") },
+        K17: { standard: "Elixir Life Death", aliases: ["life and death elixir", "elixir of life and death", "生命 死亡 灵药", "Life and Death", "Life Death Elixir", "生命与死亡灵药", "生死灵药"], docs: ["D20"], needs: s => s.searchedKeywords.includes("K16") },
+        K18: { standard: "VDB-TREE", aliases: ["vdb tree", "vdbtree", "vanderboom tree", "范德布姆 族谱"], docs: ["D21"], needs: s => s.openedDocuments.includes("D20") },
+        K19: { standard: "Samsara 1935", aliases: ["1935 samsara", "轮回 1935", "samsara1935", "Rose 1935", "Rose Vanderboom 1935", "劳拉 1935"], docs: ["D22"], needs: s => s.solvedPuzzles.includes("P5") },
+        K20: { standard: "RLH-1893", aliases: ["rlh1893", "rusty lake hotel 1893", "锈湖旅馆 1893"], docs: ["D23", "D25"], needs: s => s.solvedPuzzles.includes("P6") },
+        K21: { standard: "Dale Vandermeer 1939", aliases: ["dale 1939", "1939 dale vandermeer", "戴尔 1939", "Vandermeer 1939", "D. Vandermeer 1939"], docs: ["D24"], needs: s => s.openedDocuments.includes("D23") },
+        K22: { standard: "D. Eilander", aliases: ["d eilander", "eilander d", "david eilander", "大卫 埃兰德", "D 埃兰德"], docs: ["D25", "D26"], stubDocs: ["D26"], needs: s => s.openedDocuments.includes("D25") },
+        K23: { standard: "Paradise 1796", aliases: ["paradise island 1796", "1796 paradise", "天堂岛 1796", "Paradise Eilander"], docs: ["D26"], needs: s => s.searchedKeywords.includes("K22") },
+        K24: { standard: "Harvey 1893", aliases: ["1893 harvey", "哈维 1893", "Harvey Hotel", "Harvey RLH", "哈维 旅馆"], docs: ["D27"], needs: s => s.openedDocuments.includes("D23") },
+        K25: { standard: "CAVE-4", aliases: ["cave4", "cave 4", "洞穴 4", "C-4 CAVE"], docs: ["D28"], needs: s => s.solvedPuzzles.includes("P7") },
+        K26: { standard: "WHITE BLACK BLUE", aliases: ["white blue black", "black white blue", "白 黑 蓝", "white black blue cube", "WHITE CUBE BLACK CUBE BLUE CUBE", "白方块 黑方块 蓝方块"], docs: ["F01", "F02", "F03", "F04"], needs: s => s.openedDocuments.includes("D28") },
+        K27: { standard: "23-BLACK", aliases: ["23black", "black 23", "CASE 23 BLACK", "RL-23 BLACK", "23号案 黑色附件"], docs: ["D29"], needs: s => ["F01", "F02", "F03", "F04"].every(id => s.openedDocuments.includes(id)), conflicted: true },
+        K28: { standard: "CASE 23 STATUS", aliases: ["case23 status", "status case 23", "23号案 状态", "23 STATUS REVIEW"], docs: ["D30"], needs: s => VERSIONS.D29.every(version => (s.openedDocumentVersions.D29 || []).includes(version.id)) },
+        K29: { standard: "CASE 24", aliases: ["case24", "24号案", "案件24", "Dale Case 24"], docs: ["D31"], needs: s => s.solvedPuzzles.includes("P8") }
+      };
+
+      const OPTIONAL = {
+        O01: { standard: "HARVEY", aliases: ["哈维"], docs: ["D07"], needs: s => s.openedDocuments.includes("D07") },
+        O02: { standard: "BLACK MOTHS", aliases: ["black moth", "黑色飞蛾", "黑蛾", "MOTHS"], docs: ["H02"], needs: s => s.openedDocuments.includes("D09"), secret: "secret_moths" },
+        O03: { standard: "CW-6 18:20", aliases: ["18:20 cw6", "cw6 1820"], docs: ["H01"], needs: s => s.openedDocuments.includes("D14"), secret: "secret_clock" },
+        O04: { standard: "D. MOOR CHECKSUM", aliases: ["daniel moor checksum", "d moor 校验值", "校验值冲突", "D Moor hash", "丹尼尔 校验值"], docs: ["H04"], needs: s => s.openedDocuments.includes("D29"), secret: "secret_checksum" },
+        O05: { standard: "D. EILANDER RABBIT", aliases: ["david eilander rabbit", "d eilander 兔子", "eilander rabbit", "Eilander 兔子", "Miriam Hart Rabbit"], docs: ["H03"], needs: s => s.openedDocuments.includes("D26"), secret: "secret_masks" },
+        O06: { standard: "LAURA WILLIAM", aliases: ["william laura", "劳拉 威廉"], docs: ["D22"], needs: s => s.solvedPuzzles.includes("P6") },
+        O07: { standard: "OWL CROW", aliases: ["crow owl", "猫头鹰 乌鸦", "mr owl mr crow"], docs: ["D23", "D26"], needs: s => s.openedDocuments.includes("D26") },
+        O08: { standard: "GOLDEN CUBE", aliases: ["gold cube", "金色方块", "黄金方块", "金方块", "GOLDEN"], docs: ["H05"], needs: s => s.openedDocuments.includes("F04"), secret: "secret_cubes" },
+        O09: { standard: "ELEVATOR", aliases: ["lift", "电梯", "升降机", "LAKE ELEVATOR"], docs: ["H06"], needs: s => s.solvedPuzzles.includes("P8") && ["secret_harvey", "secret_masks", "secret_cubes"].every(flag => s.secretFlags[flag]) }
+      };
+
+      const VERSIONS = {
+        D08: [
+          { id: "2005", label: "2005 BACKUP", title: "第一版：钟面", text: "钟面清楚停在 18:20。蓝色证物标记位于门旁，窗边没有黑斑。文件边缘多出十六行像素。" },
+          { id: "2006", label: "2006 BACKUP", title: "第二版：飞蛾", text: "钟面被过曝遮住。窗边出现黑色飞蛾状斑点，蓝色证物标记移到床脚。" },
+          { id: "2008", label: "2008 MIRROR", title: "第三版：天花板", text: "天花板中央出现方形缺损，蓝色标记指向上方；纸边写 HARVEY。文件名与前两版相同。" }
+        ],
+        D29: [
+          { id: "police", label: "POLICE", title: "警署版本", text: "Laura 被发现死亡；伤情与现场表格互相冲突。遗体在封锁后失去可验证去向。" },
+          { id: "bob", label: "BOB / WHITE DOOR", title: "Bob 的记忆版本", text: "电话、争吵、黑影与无法打开的门反复重排。Bob 每次复述都看到不同的死亡画面。" },
+          { id: "corrupted", label: "BLACK STATE", title: "腐化状态版本", text: "黑色飞蛾与方块吞没房间，Laura 的形象被记录为 corrupted soul；无法对应普通尸检步骤。" },
+          { id: "dale", label: "DALE / PARADOX", title: "Dale 的调查版本", text: "蓝色标记与电梯改变位置。调查者似乎既在 1971 现场，又从未来回看现场。" },
+          { id: "mill", label: "NORTH MILL", title: "磨坊提取版本", text: "对象接入 RLM-X4，白色记忆被保存，黑色状态不稳定；机器记录无法说明最初是谁造成死亡。" }
+        ]
+      };
+
+      const STAGES = [
+        { id: "S0", title: "最后一次公开备份", question: "第六份附件是什么？", test: () => true },
+        { id: "S1", title: "封闭现场", question: "遗体如何离开封闭现场？", test: s => s.searchedKeywords.includes("K01") },
+        { id: "S2", title: "北岸磨坊", question: "为什么劳拉会出现在磨坊？", test: s => s.solvedPuzzles.includes("P2") },
+        { id: "S3", title: "Vanderboom 家族", question: "A. Vanderboom 是谁？劳拉与 William 有何关系？", test: s => s.solvedPuzzles.includes("P4") && s.searchedKeywords.includes("K14") },
+        { id: "S4", title: "戴尔与动物面具", question: "戴尔为什么与旅馆记录相关？", test: s => s.solvedPuzzles.includes("P6") },
+        { id: "S5", title: "非线性因果", question: "为什么同一死亡存在多个版本？", test: s => s.solvedPuzzles.includes("P7") }
+      ];
+
+      const THEORIES = [
+        { id: "T0", title: "Bob 可能直接杀害 Laura。", note: "报纸、争吵和缺失行程使他成为初始嫌疑人。", test: () => true },
+        { id: "T1", title: "Bob 的嫌疑不能解释遗体去向。", note: "封锁后没有现实转运链；调查转向 1972 磨坊。", test: s => s.solvedPuzzles.includes("P2") },
+        { id: "T2", title: "Laura 的遗体或记忆被用于磨坊提取。", note: "电视、供电、时钟与机器构成同一记录链。", test: s => s.solvedPuzzles.includes("P4") },
+        { id: "T3", title: "Laura 是 William 的转世；Mr Crow 延续自 Aldous。", note: "族谱、Samsara 与灵药记录相互印证。", test: s => s.solvedPuzzles.includes("P6") },
+        { id: "T4", title: "Dale 也是被观察与测试的记忆主体。", note: "1939 蓝方块、旅馆底片与洞穴座位相交。", test: s => s.solvedPuzzles.includes("P7") },
+        { id: "T5", title: "冲突档案记录不同记忆状态。", note: "23-BLACK 的版本并存，不能压成一种死亡画面。", test: s => s.openedDocuments.includes("D29") },
+        { id: "T6", title: "关系可重建，但案件不适用线性因果。", note: "最终报告确认关系和证据等级，不指定唯一凶手。", test: s => s.solvedPuzzles.includes("P8") }
+      ];
+
+      const HINTS = {
+        S0: ["报纸边缘留着一个警署用的英文案件号。", "查看地方新闻剪报，寻找 CASE 与数字。", "在搜索框输入 CASE 23。"],
+        S1: ["同一案件有网站编号和警署内部编号。", "Dale 便笺左上与附件页脚出现相同的 RL 编号。", "先搜索 RL-23，再把年份 1971 加入检索。"],
+        S2: ["静帧、房产卡和故障单分别给出同一地点链的一部分。", "查 M-138.4 与 CW-6，再比较电视、地产和供电三份材料。", "完成同址关联后搜索 RLM-X4，并按对象→连接→分离→储存排序。"],
+        S3: ["A. Vanderboom 的旧记录需要年份；家谱和灵药是两条并行线。", "先检索 A. Vanderboom 1859，再查 Elixir Life Death 与 VDB-TREE。", "普通家族线完成后，把 William 放在 revival root；随后搜索 Samsara 1935。"],
+        S4: ["旅馆给动物称谓，天堂岛给普通姓名。", "从 RLH-1893 找 D. Eilander，再搜索 Paradise 1796。", "五组依次为 Nicholas/鹿、Gerard/野猪、Elizabeth/雉鸡、David/兔、Margaret/鸽；等级选高度相关。"],
+        S5: ["洞穴草图的四个槽需要逐页理解。", "搜索 WHITE BLACK BLUE，打开四页方块分类，再查 23-BLACK。", "阅读五个版本后搜索 CASE 23 STATUS；最终每项要两份不同档案。"]
+      };
+
+      const defaultState = () => ({
+        schemaVersion: 1,
+        contentVersion: CONTENT_VERSION,
+        searchedKeywords: [],
+        seenKeywords: [],
+        discoveredDocuments: ["D01", "D02", "D03"],
+        stubDocuments: [],
+        openedDocuments: [],
+        openedDocumentVersions: {},
+        solvedPuzzles: [],
+        puzzleDrafts: {},
+        pinnedEvidence: [],
+        hintLevels: {},
+        searchHistory: [],
+        secretFlags: {},
+        endingComplete: false,
+        settings: {
+          sound: false,
+          reducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+          highContrast: false,
+          autoHints: true,
+          textScale: 1
+        },
+        lastRoute: "home",
+        updatedAt: new Date().toISOString()
+      });
+
+      const safeArray = value => Array.isArray(value) ? value.filter(item => typeof item === "string") : [];
+      const safeDraftObject = (value, prefix) => {
+        if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+        return Object.fromEntries(Object.entries(value).filter(([key, entry]) =>
+          key.startsWith(prefix) && typeof entry === "string"
+        ));
+      };
+      const hydratePuzzleDrafts = raw => {
+        if (!raw || typeof raw !== "object" || Array.isArray(raw)) return {};
+        const next = {};
+        const orders = {
+          P2: ["alarm", "arrival", "sealed", "missing"],
+          P4: ["object", "connect", "separate", "store"]
+        };
+        Object.entries(orders).forEach(([id, allowed]) => {
+          const value = safeArray(raw[id]);
+          if (value.length === allowed.length && new Set(value).size === allowed.length
+            && value.every(item => allowed.includes(item))) next[id] = value;
+        });
+        const p3 = [...new Set(safeArray(raw.P3).filter(id => ["D11", "D12", "D13", "D05", "D08"].includes(id)))];
+        if (p3.length) next.P3 = p3;
+        ["P5", "P6", "P7", "P8"].forEach(id => {
+          const value = safeDraftObject(raw[id], `${id.toLowerCase()}-`);
+          if (Object.keys(value).length) next[id] = value;
+        });
+        return next;
+      };
+      const hydrateState = raw => {
+        const base = defaultState();
+        if (!raw || typeof raw !== "object") return base;
+        const validKeywordIds = new Set([...Object.keys(KEYWORDS), ...Object.keys(OPTIONAL)]);
+        const openedDocumentVersions = {};
+        if (raw.openedDocumentVersions && typeof raw.openedDocumentVersions === "object") {
+          Object.entries(raw.openedDocumentVersions).forEach(([docId, values]) => {
+            if (!VERSIONS[docId] || !Array.isArray(values)) return;
+            const validVersions = new Set(VERSIONS[docId].map(version => version.id));
+            openedDocumentVersions[docId] = [...new Set(values.filter(value => validVersions.has(value)))];
+          });
+        }
+        const next = {
+          ...base,
+          ...raw,
+          schemaVersion: base.schemaVersion,
+          contentVersion: CONTENT_VERSION,
+          searchedKeywords: safeArray(raw.searchedKeywords).filter(id => validKeywordIds.has(id)),
+          seenKeywords: safeArray(raw.seenKeywords).filter(id => validKeywordIds.has(id)),
+          discoveredDocuments: [...new Set(["D01", "D02", "D03", ...safeArray(raw.discoveredDocuments)])].filter(id => DOCS[id]),
+          stubDocuments: safeArray(raw.stubDocuments).filter(id => DOCS[id]),
+          openedDocuments: safeArray(raw.openedDocuments).filter(id => DOCS[id]),
+          solvedPuzzles: safeArray(raw.solvedPuzzles).filter(id => /^P[1-8]$/.test(id)),
+          pinnedEvidence: safeArray(raw.pinnedEvidence).filter(evidenceId => {
+            const [docId, entryId] = evidenceId.split(":");
+            return Boolean(DOCS[docId]?.evidence.some(entry => entry[0] === entryId));
+          }).slice(0, 4),
+          searchHistory: safeArray(raw.searchHistory).slice(0, 30),
+          openedDocumentVersions,
+          puzzleDrafts: hydratePuzzleDrafts(raw.puzzleDrafts),
+          hintLevels: raw.hintLevels && typeof raw.hintLevels === "object" ? raw.hintLevels : {},
+          secretFlags: raw.secretFlags && typeof raw.secretFlags === "object" ? raw.secretFlags : {},
+          settings: { ...base.settings, ...(raw.settings && typeof raw.settings === "object" ? raw.settings : {}) }
+        };
+        if (raw.contentVersion !== CONTENT_VERSION && raw.settings?.autoHints === false) {
+          next.settings.autoHints = true;
+        }
+        next.endingComplete = next.solvedPuzzles.includes("P8") || Boolean(raw.endingComplete);
+        return next;
+      };
+
+      let storageAvailable = true;
+      const loadState = () => {
+        try {
+          const settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "null");
+          const raw = JSON.parse(localStorage.getItem(SAVE_KEY) || "null");
+          const loaded = hydrateState(raw);
+          if (settings) loaded.settings = { ...loaded.settings, ...settings };
+          return loaded;
+        } catch (error) {
+          try {
+            return hydrateState(JSON.parse(localStorage.getItem(BACKUP_KEY) || "null"));
+          } catch (backupError) {
+            storageAvailable = false;
+            return defaultState();
+          }
+        }
+      };
+
+      let state = loadState();
+      let toastTimer = 0;
+      let inactivityTimer = 0;
+      let lastFocusedElement = null;
+
+      const uniquePush = (list, value) => {
+        if (!list.includes(value)) list.push(value);
+      };
+
+      const saveState = () => {
+        state.updatedAt = new Date().toISOString();
+        const status = document.querySelector("#save-status");
+        try {
+          const current = localStorage.getItem(SAVE_KEY);
+          if (current) localStorage.setItem(BACKUP_KEY, current);
+          localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+          localStorage.setItem(SETTINGS_KEY, JSON.stringify(state.settings));
+          storageAvailable = true;
+          if (status) status.textContent = "LOCAL SAVE OK";
+        } catch (error) {
+          storageAvailable = false;
+          if (status) status.textContent = "SESSION ONLY";
+        }
+      };
+
+      const escapeHTML = value => String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+      const normalize = value => String(value ?? "")
+        .normalize("NFKC")
+        .toLocaleLowerCase("zh-CN")
+        .replace(/[._/\\,:;'"`~!@#$%^&*()[\]{}<>?+\-=，。；：！？、·“”‘’]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      const compact = value => normalize(value).replace(/\s/g, "");
+      const keywordAliases = entry => [entry.standard, ...(entry.aliases || [])].map(compact);
+      const allEntries = () => [
+        ...Object.entries(KEYWORDS).map(([id, entry]) => ({ id, entry, optional: false })),
+        ...Object.entries(OPTIONAL).map(([id, entry]) => ({ id, entry, optional: true }))
+      ];
+
+      const getStage = () => [...STAGES].reverse().find(stage => stage.test(state)) || STAGES[0];
+      const currentTheoryIndex = () => THEORIES.reduce((last, theory, index) => theory.test(state) ? index : last, 0);
+
+      const showToast = message => {
+        const toast = document.querySelector("#toast");
+        window.clearTimeout(toastTimer);
+        toast.textContent = message;
+        toast.hidden = false;
+        toastTimer = window.setTimeout(() => { toast.hidden = true; }, 3400);
+      };
+
+      const applySettings = () => {
+        document.body.classList.toggle("high-contrast", Boolean(state.settings.highContrast));
+        document.body.dataset.textScale = String(state.settings.textScale || 1);
+        if (state.settings.reducedMotion) document.documentElement.style.scrollBehavior = "auto";
+        else document.documentElement.style.removeProperty("scroll-behavior");
+      };
+
+      const discoverDoc = id => {
+        if (DOCS[id]) uniquePush(state.discoveredDocuments, id);
+      };
+
+      const getDocumentState = id => {
+        if (state.stubDocuments.includes(id)) return "stub";
+        if (id === "D29") {
+          if (state.searchedKeywords.includes("K27")) return "conflicted";
+          if (state.searchedKeywords.includes("K14")) return "stub";
+        }
+        return state.discoveredDocuments.includes(id) ? "available" : "hidden";
+      };
+
+      const stateLabel = value => ({
+        available: "可查看",
+        conflicted: "存在多个版本",
+        stub: "仅有索引",
+        hidden: "来源未确认"
+      }[value] || value);
+
+      const solvePuzzle = id => {
+        uniquePush(state.solvedPuzzles, id);
+        if (id === "P1") discoverDoc("D02");
+        if (id === "P2") discoverDoc("D10");
+        if (id === "P8") {
+          state.endingComplete = true;
+        }
+        saveState();
+        updateChrome();
+      };
+
+      const updateSecretsFromDocument = id => {
+        if (id === "D08") {
+          const viewed = state.openedDocumentVersions.D08 || [];
+          if (VERSIONS.D08.every(version => viewed.includes(version.id))) state.secretFlags.secret_harvey = true;
+        }
+      };
+
+      const updateChrome = () => {
+        const stage = getStage();
+        document.querySelector("#dock-stage").textContent = `${stage.id} · ${stage.title}`;
+        document.querySelector("#dock-question").textContent = state.solvedPuzzles.includes("P8")
+          ? "CASE 24 的来源位置在哪里？"
+          : stage.question;
+        document.querySelector("#dock-evidence-count").textContent = `${state.pinnedEvidence.length}/4`;
+        document.querySelector("#save-status").textContent = storageAvailable ? "LOCAL SAVE OK" : "SESSION ONLY";
+        document.querySelectorAll("[data-route]").forEach(link => {
+          const route = (location.hash.match(/^#\/([^?]+)/) || [])[1] || "home";
+          if (link.dataset.route === route) link.setAttribute("aria-current", "page");
+          else link.removeAttribute("aria-current");
+        });
+      };
+
+      const openDialog = html => {
+        const dialog = document.querySelector("#archive-dialog");
+        const body = document.querySelector("#dialog-body");
+        const wasOpen = dialog.open || dialog.hasAttribute("open");
+        if (!wasOpen) lastFocusedElement = document.activeElement;
+        body.innerHTML = html;
+        if (!wasOpen) {
+          if (typeof dialog.showModal === "function") dialog.showModal();
+          else dialog.setAttribute("open", "");
+        }
+        document.body.style.overflow = "hidden";
+        dialog.querySelector("[data-close-dialog]")?.focus();
+      };
+
+      const closeDialog = () => {
+        const dialog = document.querySelector("#archive-dialog");
+        if (dialog.open && typeof dialog.close === "function") dialog.close();
+        else dialog.removeAttribute("open");
+        document.body.style.overflow = "";
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") lastFocusedElement.focus();
+      };
+
+      const inlineText = text => {
+        const safe = escapeHTML(text);
+        return safe.replace(/([A-Z][A-Z0-9.-]*(?:\s+[A-Z0-9.-]+)*|\b\d{4}\b)/g, match => `<code>${match}</code>`);
+      };
+
+      const renderVersions = id => {
+        const versions = VERSIONS[id] || [];
+        const viewed = state.openedDocumentVersions[id] || [];
+        const active = viewed[viewed.length - 1] || versions[0]?.id;
+        const current = versions.find(version => version.id === active) || versions[0];
+        return `
+          <div class="version-tabs" role="group" aria-label="档案版本">
+            ${versions.map(version => `
+              <button type="button" class="version-button" data-version-doc="${id}" data-version-id="${version.id}" aria-pressed="${version.id === active}">
+                ${escapeHTML(version.label)}${viewed.includes(version.id) ? " ✓" : ""}
+              </button>
+            `).join("")}
+          </div>
+          <div class="scan-surface" data-label="${escapeHTML(current?.label || "")}">
+            <h4>${escapeHTML(current?.title || "")}</h4>
+            <p>${inlineText(current?.text || "")}</p>
+          </div>
+          <p class="micro-copy">已查看 ${viewed.length}/${versions.length} 个版本。版本差异会被保留，不会自动合并。</p>
+        `;
+      };
+
+      const renderParagraph = (text, docId) => {
+        if (text.startsWith("#VERSIONS:")) return renderVersions(text.split(":")[1]);
+        if (text.startsWith("#PUZZLE:")) return renderPuzzle(text.split(":")[1], docId);
+        if (text.startsWith("#PHOTO:")) return `<div class="photo-surface" data-label="LOW-RES SCAN"><span class="photo-caption">${inlineText(text.slice(7))}</span></div>`;
+        if (text.startsWith("#DIAGRAM:")) return `<div class="diagram-surface" data-label="TECHNICAL DIAGRAM"><p>${inlineText(text.slice(9))}</p></div>`;
+        if (text === "#LAKESECRET") return `<div class="lake-secret" role="img" aria-label="无日期的湖面。远处旅馆亮着五盏灯，湖下有一枚升降机按钮。"><div class="hotel-lights" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="elevator-button" aria-hidden="true"></div></div>`;
+        if (text.startsWith("!")) return `<div class="archivist-note">${inlineText(text.slice(1))}</div>`;
+        if (text.startsWith("~")) return `<div class="technical-note">${inlineText(text.slice(1))}</div>`;
+        if (text.startsWith("?")) return `<div class="clue-panel">${inlineText(text.slice(1))}</div>`;
+        if (text.startsWith(">")) return `<blockquote class="document-quote">${inlineText(text.slice(1))}</blockquote>`;
+        return `<p>${inlineText(text)}</p>`;
+      };
+
+      const renderEvidence = (docId, entry) => {
+        const evidenceId = `${docId}:${entry[0]}`;
+        const pinned = state.pinnedEvidence.includes(evidenceId);
+        return `
+          <div class="evidence-box">
+            <div>
+              <strong>${escapeHTML(entry[1])}</strong>
+              <span>${escapeHTML(entry[2])}</span>
+            </div>
+            <button type="button" class="paper-button secondary" data-pin-evidence="${evidenceId}">
+              ${pinned ? "移出固定证据" : "固定为证据"}
+            </button>
+          </div>
+        `;
+      };
+
+      const renderDocument = id => {
+        const doc = DOCS[id];
+        if (!doc) return "";
+        const related = doc.related.filter(relatedId => state.openedDocuments.includes(relatedId)).slice(0, 5);
+        const theoryGuess = id === "H05";
+        return `
+          <article class="paper">
+            <div class="paper-content">
+              <header class="doc-header">
+                <div class="paper-mast">
+                  <p>RUSTY LAKE LOCAL RECORDS PROJECT</p>
+                  <span>${escapeHTML(doc.catalogue)}</span>
+                </div>
+                <h2>${escapeHTML(doc.title)}</h2>
+                <p class="paper-subtitle">${escapeHTML(doc.date)} · ${escapeHTML(doc.source)}</p>
+                <div class="doc-status-line">
+                  <span class="paper-chip">${id}</span>
+                  <span class="paper-chip">S${doc.stage}</span>
+                  <span class="paper-chip">${theoryGuess ? "项目组推测关联" : "公开档案"}</span>
+                </div>
+              </header>
+              ${doc.sections.map(section => `
+                <section class="document-section">
+                  ${section[0] ? `<h3>${escapeHTML(section[0])}</h3>` : ""}
+                  ${section[1].map(text => renderParagraph(text, id)).join("")}
+                </section>
+              `).join("")}
+              ${doc.evidence.length ? `
+                <section class="document-section">
+                  <h3>可固定证据</h3>
+                  ${doc.evidence.map(entry => renderEvidence(id, entry)).join("")}
+                </section>
+              ` : ""}
+              <section class="document-section">
+                <h3>相关档案</h3>
+                ${related.length ? `
+                  <div class="related-documents">
+                    ${related.map(relatedId => `<button type="button" data-open-document="${relatedId}">${relatedId} · ${escapeHTML(DOCS[relatedId].title)}</button>`).join("")}
+                  </div>
+                ` : "<p>只会列出已经打开过的相关材料。当前没有可返回的已读档案。</p>"}
+              </section>
+            </div>
+          </article>
+        `;
+      };
+
+      const openDocument = id => {
+        const doc = DOCS[id];
+        if (!doc) return;
+        const docState = getDocumentState(id);
+        if (docState === "hidden" || docState === "stub") {
+          showIndexStub(id);
+          return;
+        }
+        discoverDoc(id);
+        uniquePush(state.openedDocuments, id);
+        if (VERSIONS[id] && !(state.openedDocumentVersions[id] || []).length) {
+          state.openedDocumentVersions[id] = [VERSIONS[id][0].id];
+        }
+        updateSecretsFromDocument(id);
+        saveState();
+        openDialog(renderDocument(id));
+        updateChrome();
+        if (["F01", "F02", "F03", "F04"].every(cubeId => state.openedDocuments.includes(cubeId))) {
+          showToast("四份方块分类已核对。23-BLACK 的来源链现在可以恢复。");
+        }
+      };
+
+      const showIndexStub = id => {
+        const doc = DOCS[id];
+        openDialog(`
+          <article class="paper">
+            <div class="paper-content">
+              <div class="paper-mast"><p>CATALOGUE ENTRY ONLY</p><span>${escapeHTML(id)}</span></div>
+              <h2>${escapeHTML(doc?.title || "未确认附件")}</h2>
+              <p class="paper-subtitle">${escapeHTML(doc?.date || "DATE UNKNOWN")}</p>
+              <div class="archivist-note">目录中存在该记录，但当前发现的材料不足以恢复来源位置。它不是 404，也不会因提前猜中而跳过调查链。</div>
+              <button type="button" class="paper-button secondary" data-close-dialog>返回检索</button>
+            </div>
+          </article>
+        `);
+      };
+
+      const noiseResults = query => {
+        const q = normalize(query);
+        const broad = [
+          { title: "Lake County 水位统计", meta: "1901–1978 · municipal", summary: "普通地方记录；未建立案件关联。" },
+          { title: "Vanderboom 姓氏卡片目录", meta: "surname index · 18 entries", summary: "结果过多。添加名字首字母或年份可缩小范围。" },
+          { title: "Rusty Lake 旅游与地产剪报", meta: "public clippings · 42 entries", summary: "宽泛地点词不会直接公开未发现档案。" }
+        ];
+        if (q.includes("vanderboom")) return [broad[1]];
+        if (q.includes("lake") || q.includes("锈湖")) return [broad[0], broad[2]];
+        return [];
+      };
+
+      const searchResultCard = (id, resultState) => {
+        const doc = DOCS[id];
+        return `
+          <li>
+            <div class="result-head">
+              <span>${escapeHTML(doc.catalogue)}</span>
+              <span class="state-tag ${resultState}">${stateLabel(resultState)}</span>
+            </div>
+            <div class="result-body">
+              <h3>${escapeHTML(doc.title)}</h3>
+              <p>${escapeHTML(doc.date)} · ${escapeHTML(doc.source)}</p>
+              <p>${escapeHTML(doc.summary)}</p>
+              ${resultState === "available" || resultState === "conflicted"
+                ? `<button type="button" class="paper-button" data-open-document="${id}">查看档案</button>`
+                : `<button type="button" class="paper-button secondary" data-show-stub="${id}">查看索引说明</button>`}
+            </div>
+          </li>
+        `;
+      };
+
+      const runSearch = rawQuery => {
+        const query = String(rawQuery || "").trim();
+        const homeFeedback = document.querySelector("#search-feedback");
+        if (!query) {
+          if (homeFeedback) homeFeedback.textContent = "请输入姓名、年份、地点或完整档案编号。";
+          showToast("检索栏为空。");
+          return;
+        }
+        state.searchHistory = [query, ...state.searchHistory.filter(item => normalize(item) !== normalize(query))].slice(0, 30);
+        const key = compact(query);
+        const match = allEntries().find(item => keywordAliases(item.entry).includes(key));
+        if (!match) {
+          const noise = noiseResults(query);
+          saveState();
+          if (homeFeedback) homeFeedback.textContent = `“${query}”没有完全匹配的公开记录。`;
+          openDialog(`
+            <article class="paper">
+              <div class="paper-content">
+                <div class="paper-mast"><p>RUSTY LAKE SEARCH GATEWAY</p><span>0 EXACT</span></div>
+                <h2>检索：${escapeHTML(query)}</h2>
+                <p class="paper-subtitle">未找到完全匹配的公开记录。</p>
+                ${noise.length ? `
+                  <ul class="search-result-list">
+                    ${noise.map(item => `<li><div class="result-head"><span>${escapeHTML(item.meta)}</span><span class="state-tag">普通结果</span></div><div class="result-body"><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.summary)}</p></div></li>`).join("")}
+                  </ul>
+                ` : `<div class="archivist-note">系统没有识别完整关键词。检查编号、姓名拼写，或加入材料中出现的年份。标点和大小写不会影响检索。</div>`}
+              </div>
+            </article>
+          `);
+          renderCurrentRoute();
+          return;
+        }
+
+        const { id, entry, optional } = match;
+        uniquePush(state.seenKeywords, id);
+        const allowed = entry.needs(state);
+        if (allowed) {
+          uniquePush(state.searchedKeywords, id);
+          if (id === "K01") solvePuzzle("P1");
+          if (entry.secret) state.secretFlags[entry.secret] = true;
+          entry.docs.forEach(docId => {
+            const alreadyAvailable = state.discoveredDocuments.includes(docId)
+              && !state.stubDocuments.includes(docId);
+            discoverDoc(docId);
+            if ((entry.stubDocs || []).includes(docId)) {
+              if (!alreadyAvailable) uniquePush(state.stubDocuments, docId);
+            }
+            else state.stubDocuments = state.stubDocuments.filter(indexedId => indexedId !== docId);
+          });
+        }
+
+        const resultStateFor = docId => {
+          const globallyAvailable = state.discoveredDocuments.includes(docId)
+            && !state.stubDocuments.includes(docId);
+          if (!allowed || ((entry.stubDocs || []).includes(docId) && !globallyAvailable)) return "stub";
+          if (entry.conflicted || docId === "D29") return "conflicted";
+          return "available";
+        };
+        saveState();
+        updateChrome();
+        if (homeFeedback) homeFeedback.textContent = allowed ? `已检索：“${query}”。` : `已识别：“${query}”，但来源链尚未恢复。`;
+
+        const recognized = entry.standard.split(/\s+/).map(part => `<span class="paper-chip">${escapeHTML(part)}</span>`).join("");
+        openDialog(`
+          <article class="paper">
+            <div class="paper-content">
+              <div class="paper-mast"><p>RUSTY LAKE SEARCH GATEWAY</p><span>${entry.docs.length} RECORD${entry.docs.length > 1 ? "S" : ""}</span></div>
+              <h2>检索：${escapeHTML(query)}</h2>
+              <p class="paper-subtitle">${optional ? "可选交叉检索" : `标准检索节点 ${id}`} · 识别字段</p>
+              <div class="doc-status-line">${recognized}</div>
+              ${allowed ? "" : `<div class="archivist-note">目录承认该词，但当前公开材料不足以确认附件来源。回到已经打开的记录，寻找直接出现该词的页眉、边注或年份。</div>`}
+              ${id === "K14" ? `<div class="technical-note">23-BLACK 只有索引标题。要恢复附件，需要洞穴设备中的四种方块分类。</div>` : ""}
+              <ul class="search-result-list">
+                ${entry.docs.map(docId => searchResultCard(docId, resultStateFor(docId))).join("")}
+              </ul>
+              ${allowed && optional ? `<p class="hand-note">这条检索属于补充档案，不影响正常结案。</p>` : ""}
+            </div>
+          </article>
+        `);
+        renderCurrentRoute();
+      };
+
+      function renderPuzzle(id, docId) {
+        if (state.solvedPuzzles.includes(id)) {
+          return `<div class="puzzle-frame"><h3>${id} · 已完成</h3><p class="puzzle-feedback success">审计已写入研究记录。重复查看不会改变答案或扣除进度。</p>${puzzleResolution(id)}</div>`;
+        }
+        if (id === "P6" && (!state.solvedPuzzles.includes("P5") || !state.openedDocuments.includes("D22"))) {
+          return `<div class="puzzle-frame"><h3>P6 · 未完成编目表</h3><p class="puzzle-feedback">表格存在，但 1935 年转生来源尚未恢复。先完成 VDB-TREE，再检索并阅读 Samsara 1935。</p></div>`;
+        }
+        if (id === "P2") return renderP2();
+        if (id === "P3") return renderP3();
+        if (id === "P4") return renderP4();
+        if (id === "P5") return renderP5();
+        if (id === "P6") return renderP6();
+        if (id === "P7") return renderP7();
+        if (id === "P8") return renderP8();
+        return `<div class="puzzle-frame"><p>谜题 ${escapeHTML(id)} 尚未装配。</p></div>`;
+      }
+
+      const puzzleResolution = id => ({
+        P2: "<p>18:20 接警 → 18:36 Dale 抵达 → 18:44 现场封闭 → 19:18 遗体消失。没有现实交接链。</p>",
+        P3: "<p>电视静帧、North Mill 138 房产卡与 M-138.4 故障单属于同一记录链。</p>",
+        P4: "<p>对象出现 → 接入机器 → 分离记忆 → 储存方块。</p>",
+        P5: "<p>普通世代与 revival root 已分开记录；Laura 位于 Rose 的下一代，同时承接 William 的转世根。</p>",
+        P6: "<p>William 死亡并转生为 Laura；Aldous 延续生命并成为 Mr Crow；Laura 仍拥有独立人生。</p>",
+        P7: "<p>五组面具关系被标为高度相关／强暗示，没有升级成普通身份绝对确认。</p>",
+        P8: `
+          <div class="ending-status">CASE STATUS：NOT APPLICABLE TO LINEAR CAUSALITY<br>不适用线性因果</div>
+          <div class="archivist-note">警署结论：案件仍未解决，未确认唯一凶手，也没有普通遗体交接链。</div>
+          <div class="archivist-note">档案项目结论：冲突版本更适合作为不同记忆状态并存；关系可核验，线性因果不可还原。</div>
+          <div class="clue-panel">访客关系重建：六项关系均具有两份独立来源，并按“原作明确”或“高度相关”区分。</div>
+          <p>2008 年停更说明重新出现：已发现 30，索引总数 31。</p>
+          <p>报告末页只有一行新目录字样：<code>CASE 24</code>。请回到搜索框自行检索。</p>
+        `
+      }[id] || "");
+
+      const renderP2 = () => {
+        const required = ["D04", "D05", "D06", "D08"];
+        const ready = required.filter(id => state.openedDocuments.includes(id));
+        const items = state.puzzleDrafts.P2 || ["missing", "alarm", "sealed", "arrival"];
+        const labels = { alarm: "接警（18:20）", arrival: "Dale 抵达（18:36）", sealed: "现场封闭（18:44）", missing: "确认遗体消失（19:18）" };
+        return `
+          <div class="puzzle-frame" data-puzzle="P2">
+            <h3>P2 · 现场保管链审计</h3>
+            <p class="puzzle-instruction">已核对材料 ${ready.length}/4。使用上下按钮重建四个事件的先后顺序。</p>
+            ${ready.length < 4 ? `<div class="puzzle-feedback">还需打开：${required.filter(id => !ready.includes(id)).map(id => `${id} ${DOCS[id].title}`).join("、")}。</div>` : ""}
+            <ol class="order-list">
+              ${items.map((item, index) => `<li class="order-item"><span class="order-number">${index + 1}</span><span>${labels[item]}</span><span class="order-controls"><button type="button" data-order-up="P2:${index}" aria-label="上移 ${labels[item]}">↑</button><button type="button" data-order-down="P2:${index}" aria-label="下移 ${labels[item]}">↓</button></span></li>`).join("")}
+            </ol>
+            <div class="puzzle-feedback" data-puzzle-feedback="P2" aria-live="polite"></div>
+            <div class="puzzle-actions"><button type="button" class="paper-button" data-submit-puzzle="P2" ${ready.length < 4 ? "disabled" : ""}>提交审计</button><button type="button" class="paper-button secondary" data-puzzle-hint="P2">查看项目组整理建议</button></div>
+          </div>
+        `;
+      };
+
+      const renderP3 = () => {
+        const choices = [
+          ["D11", "电视静帧边号"],
+          ["D12", "North Mill 138 房产卡"],
+          ["D13", "M-138.4 电力故障单"],
+          ["D05", "Bob 询问记录"],
+          ["D08", "现场照片袋"]
+        ];
+        const selected = Array.isArray(state.puzzleDrafts.P3) ? state.puzzleDrafts.P3 : [];
+        const ready = ["D11", "D12", "D13", "D14"].every(id => state.openedDocuments.includes(id));
+        return `
+          <div class="puzzle-frame" data-puzzle="P3">
+            <h3>P3 · 磨坊同址关联</h3>
+            <p class="puzzle-instruction">选择三份材料，证明图像、地产号与供电区域属于同一记录链。</p>
+            <div class="checkbox-list">${choices.map(([id, label]) => `<label><input type="checkbox" name="p3-source" value="${id}" ${selected.includes(id) ? "checked" : ""}> ${id} · ${label}</label>`).join("")}</div>
+            <div class="puzzle-feedback" data-puzzle-feedback="P3" aria-live="polite">${ready ? "" : "先打开 D11—D14，才能提交来源关联。"}</div>
+            <div class="puzzle-actions"><button type="button" class="paper-button" data-submit-puzzle="P3" ${ready ? "" : "disabled"}>建立关联</button><button type="button" class="paper-button secondary" data-puzzle-hint="P3">查看项目组整理建议</button></div>
+          </div>
+        `;
+      };
+
+      const renderP4 = () => {
+        const items = state.puzzleDrafts.P4 || ["store", "object", "separate", "connect"];
+        const labels = { object: "对象在同步画面中出现", connect: "将对象接入机器", separate: "分离稳定与腐化记忆", store: "把结果储存为方块" };
+        return `
+          <div class="puzzle-frame" data-puzzle="P4">
+            <h3>P4 · RLM-X4 操作流程</h3>
+            <p class="puzzle-instruction">根据 CW-6、M-138.4 与维修图的箭头恢复启动顺序。</p>
+            <ol class="order-list">${items.map((item, index) => `<li class="order-item"><span class="order-number">${index + 1}</span><span>${labels[item]}</span><span class="order-controls"><button type="button" data-order-up="P4:${index}" aria-label="上移 ${labels[item]}">↑</button><button type="button" data-order-down="P4:${index}" aria-label="下移 ${labels[item]}">↓</button></span></li>`).join("")}</ol>
+            <div class="puzzle-feedback" data-puzzle-feedback="P4" aria-live="polite"></div>
+            <div class="puzzle-actions"><button type="button" class="paper-button" data-submit-puzzle="P4">提交维修顺序</button><button type="button" class="paper-button secondary" data-puzzle-hint="P4">查看项目组整理建议</button></div>
+          </div>
+        `;
+      };
+
+      const select = (name, options, selectedValue = "", ariaLabel = "") => `
+        <select id="${name}" name="${name}" ${ariaLabel ? `aria-label="${escapeHTML(ariaLabel)}"` : ""}>
+          <option value="">— 选择 —</option>
+          ${options.map(([value, label]) => `<option value="${value}" ${selectedValue === value ? "selected" : ""}>${label}</option>`).join("")}
+        </select>
+      `;
+
+      const renderP5 = () => {
+        const draft = state.puzzleDrafts.P5 || {};
+        const people = [["william", "William"], ["aldous", "Aldous"], ["james", "James"], ["mary", "Mary"], ["samuel", "Samuel"], ["emma", "Emma"], ["albert", "Albert"], ["frank", "Frank"], ["ida", "Ida"], ["leonard", "Leonard"], ["rose", "Rose"], ["laura", "Laura"]];
+        const fields = [
+          ["brothers", "William 的兄弟", "aldous"],
+          ["heir", "继承 William 财产的人", "james"],
+          ["emma_child", "Emma 的孩子", "frank"],
+          ["samuel_child", "Samuel 与 Ida 的孩子", "leonard"],
+          ["rose_parent", "血缘记录通向 Rose 的父亲", "albert"],
+          ["rose_next", "Rose 的下一代（1935）", "laura"],
+          ["revival", "William 的 revival root 指向", "laura"]
+        ];
+        return `
+          <div class="puzzle-frame" data-puzzle="P5">
+            <h3>P5 · VDB-TREE 族谱重建</h3>
+            <p class="puzzle-instruction">普通血缘字段与 revival root 分开填写。</p>
+            <div class="puzzle-fields">${fields.map(([name, label]) => {
+              const fieldName = `p5-${name}`;
+              return `<div class="puzzle-field"><label for="${fieldName}">${label}</label>${select(fieldName, people, draft[fieldName] || "")}</div>`;
+            }).join("")}</div>
+            <div class="puzzle-feedback" data-puzzle-feedback="P5" aria-live="polite"></div>
+            <div class="puzzle-actions"><button type="button" class="paper-button" data-submit-puzzle="P5">提交族谱</button><button type="button" class="paper-button secondary" data-puzzle-hint="P5">查看项目组整理建议</button></div>
+          </div>
+        `;
+      };
+
+      const renderP6 = () => {
+        const draft = state.puzzleDrafts.P6 || {};
+        const rows = [
+          ["william", "William", [["death", "死亡／等待重生"], ["life", "存活／永生"]], [["laura", "转生为 Laura"], ["crow", "成为 Mr Crow"]]],
+          ["aldous", "Aldous", [["life", "存活／永生"], ["death", "死亡／等待重生"]], [["crow", "成为 Mr Crow"], ["laura", "转生为 Laura"]]],
+          ["laura", "Laura", [["born", "1935 年出生"], ["manufactured", "由机器制造"]], [["own", "William 转世且有独立人生"], ["copy", "William 的无差别复制"]]]
+        ];
+        return `
+          <div class="puzzle-frame" data-puzzle="P6">
+            <h3>P6 · 灵药结果编目</h3>
+            <p class="puzzle-instruction">为三名人物分别选择状态与后续身份／解释。</p>
+            <div class="puzzle-fields">${rows.map(([id, label, states, outcomes]) => {
+              const stateName = `p6-${id}-state`;
+              const outcomeName = `p6-${id}-outcome`;
+              return `<div class="puzzle-field"><span class="puzzle-field-heading">${label}</span><div>${select(stateName, states, draft[stateName] || "", `${label} 状态`)} ${select(outcomeName, outcomes, draft[outcomeName] || "", `${label} 后续身份或解释`)}</div></div>`;
+            }).join("")}</div>
+            <div class="puzzle-feedback" data-puzzle-feedback="P6" aria-live="polite"></div>
+            <div class="puzzle-actions"><button type="button" class="paper-button" data-submit-puzzle="P6">提交编目表</button><button type="button" class="paper-button secondary" data-puzzle-hint="P6">查看项目组整理建议</button></div>
+          </div>
+        `;
+      };
+
+      const renderP7 = () => {
+        const draft = state.puzzleDrafts.P7 || {};
+        const masks = [["deer", "Mr Deer"], ["boar", "Mr Boar"], ["pheasant", "Ms Pheasant"], ["rabbit", "Mr Rabbit"], ["pigeon", "Mrs Pigeon"]];
+        const people = [["nicholas", "Nicholas"], ["gerard", "Gerard"], ["elizabeth", "Elizabeth"], ["david", "David"], ["margaret", "Margaret"]];
+        const required = ["D23", "D24", "D25", "D26", "D27"];
+        const ready = required.every(id => state.openedDocuments.includes(id));
+        return `
+          <div class="puzzle-frame" data-puzzle="P7">
+            <h3>P7 · 面具与人物关系审计</h3>
+            <p class="puzzle-instruction">为五名旅馆客人选择 Paradise 家庭成员，并给出统一证据等级。</p>
+            <div class="puzzle-fields">${masks.map(([id, label]) => {
+              const fieldName = `p7-${id}`;
+              return `<div class="puzzle-field"><label for="${fieldName}">${label}</label>${select(fieldName, people, draft[fieldName] || "")}</div>`;
+            }).join("")}<div class="puzzle-field"><label for="p7-level">证据等级</label>${select("p7-level", [["confirmed", "确认同一身份"], ["strong", "高度相关／强暗示"], ["visual", "仅图像相似"], ["none", "无法关联"]], draft["p7-level"] || "")}</div></div>
+            <div class="puzzle-feedback" data-puzzle-feedback="P7" aria-live="polite">${ready ? "" : `材料未齐：还需打开 ${required.filter(id => !state.openedDocuments.includes(id)).join("、")}。`}</div>
+            <div class="puzzle-actions"><button type="button" class="paper-button" data-submit-puzzle="P7" ${ready ? "" : "disabled"}>提交关系审计</button><button type="button" class="paper-button secondary" data-puzzle-hint="P7">查看项目组整理建议</button></div>
+          </div>
+        `;
+      };
+
+      const REPORT_ANSWERS = [
+        { id: "laura", title: "1. Laura 的前世", conclusion: "william", level: "explicit", evidence: ["D19", "D21", "D22"], choices: [["william", "William Vanderboom"], ["rose", "Rose Vanderboom"], ["bob", "Robert Hill"]] },
+        { id: "crow", title: "2. Mr Crow 的前身", conclusion: "aldous", level: "explicit", evidence: ["D16", "D19", "D20"], choices: [["aldous", "Aldous Vanderboom"], ["william", "William Vanderboom"], ["harvey", "Harvey"]] },
+        { id: "owl", title: "3. Mr Owl 的来源", conclusion: "jakob", level: "explicit", evidence: ["D23", "D26"], choices: [["jakob", "Jakob 与 Caroline 的牺牲链"], ["nicholas", "Nicholas Eilander"], ["crow", "Mr Crow 的另一形态"]] },
+        { id: "rabbit", title: "4. 兔面人物关系", conclusion: "david", level: "strong", evidence: ["D24", "D25", "D26", "H03"], choices: [["david", "David Eilander—Mr Rabbit—1939 兔面链"], ["confirmedkiller", "已确认 David 是唯一凶手"], ["unrelated", "与 Eilander 家族无关"]] },
+        { id: "mill", title: "5. Laura 的遗体／记忆在磨坊的用途", conclusion: "extract", level: "explicit", evidence: ["D13", "D14", "D15", "D16"], choices: [["extract", "提取并储存白／黑记忆"], ["hospital", "普通医院转运"], ["film", "只拍摄电视节目"]] },
+        { id: "dale", title: "6. Dale 与洞穴设备的关系", conclusion: "subject", level: "strong", evidence: ["D23", "D24", "D28", "F03", "F04"], choices: [["subject", "被观察、测试，可能是继任候选"], ["owner", "已确认成为装置所有人"], ["unrelated", "只是普通调查者"]] }
+      ];
+
+      const renderP8 = () => {
+        const draft = state.puzzleDrafts.P8 || {};
+        const evidenceOptions = state.openedDocuments
+          .filter(id => DOCS[id] && id !== "D30")
+          .map(id => [id, `${id} · ${DOCS[id].title}`]);
+        return `
+          <div class="puzzle-frame" data-puzzle="P8">
+            <h3>P8 · 正式关系调查表</h3>
+            <p class="puzzle-instruction">六项都必须选择结论、两份不同档案和证据等级。</p>
+            ${REPORT_ANSWERS.map(item => `
+              <section class="report-question">
+                <h4>${item.title}</h4>
+                <div class="report-grid">
+                  <label>关系结论${select(`p8-${item.id}-conclusion`, item.choices, draft[`p8-${item.id}-conclusion`] || "")}</label>
+                  <label>证据等级${select(`p8-${item.id}-level`, [["explicit", "原作明确"], ["strong", "高度相关／强暗示"], ["speculative", "项目组推测"], ["unknown", "无法判断"]], draft[`p8-${item.id}-level`] || "")}</label>
+                  <label>证据 A${select(`p8-${item.id}-a`, evidenceOptions, draft[`p8-${item.id}-a`] || "")}</label>
+                  <label>证据 B${select(`p8-${item.id}-b`, evidenceOptions, draft[`p8-${item.id}-b`] || "")}</label>
+                </div>
+              </section>
+            `).join("")}
+            <div class="puzzle-feedback" data-puzzle-feedback="P8" aria-live="polite"></div>
+            <div class="puzzle-actions"><button type="button" class="paper-button" data-submit-puzzle="P8">提交最终报告</button><button type="button" class="paper-button secondary" data-puzzle-hint="P8">查看项目组整理建议</button></div>
+          </div>
+        `;
+      };
+
+      const setPuzzleFeedback = (id, message, success = false) => {
+        const target = document.querySelector(`[data-puzzle-feedback="${id}"]`);
+        if (!target) return;
+        target.textContent = message;
+        target.classList.toggle("success", success);
+        target.scrollIntoView({ block: "nearest" });
+      };
+
+      const submitPuzzle = id => {
+        if (id === "P2") {
+          const expected = ["alarm", "arrival", "sealed", "missing"];
+          const value = state.puzzleDrafts.P2 || ["missing", "alarm", "sealed", "arrival"];
+          if (value.join("|") !== expected.join("|")) return setPuzzleFeedback(id, "时间点都来自正确材料，但顺序不符。先确定现场何时被正式封闭，再判断遗体消失发生在此前还是此后。");
+          solvePuzzle(id);
+          discoverDoc("D10");
+          saveState();
+          showToast("审计通过：已生成 D10 保管链结论。");
+          openDocument("D10");
+          return;
+        }
+        if (id === "P3") {
+          const checked = [...document.querySelectorAll('input[name="p3-source"]:checked')].map(input => input.value).sort();
+          const expected = ["D11", "D12", "D13"];
+          if (checked.length !== 3) return setPuzzleFeedback(id, "需要恰好三份材料：一份图像、一份地产记录、一份供电记录。");
+          if (checked.join("|") !== expected.join("|")) return setPuzzleFeedback(id, "所选材料可能与案件有关，但不足以同时证明图像、地产号与供电区域属于同一地点。");
+          solvePuzzle(id);
+          setPuzzleFeedback(id, "关联成立：North Mill 138、M-138.4 与电视静帧属于同一记录链。RLM-X4 现可恢复。", true);
+          return;
+        }
+        if (id === "P4") {
+          const expected = ["object", "connect", "separate", "store"];
+          const value = state.puzzleDrafts.P4 || [];
+          if (value.join("|") !== expected.join("|")) {
+            const sameTail = value.indexOf("separate") < value.indexOf("store");
+            return setPuzzleFeedback(id, sameTail ? "后半段关系正确，但启动顺序有误：对象必须先出现，机器才能接入。" : "流程步骤都有关联，但分离必须发生在储存之前。");
+          }
+          solvePuzzle(id);
+          setPuzzleFeedback(id, "维修流程恢复。1859 年 A. Vanderboom 来源链现可检索。", true);
+          showToast(state.searchedKeywords.includes("K14") ? "调查阶段更新：磨坊机制指向 Vanderboom 家族。" : "磨坊线已完成；白门记忆分支仍待核对。");
+          return;
+        }
+        if (id === "P5") {
+          const expected = { brothers: "aldous", heir: "james", emma_child: "frank", samuel_child: "leonard", rose_parent: "albert", rose_next: "laura", revival: "laura" };
+          const wrong = Object.entries(expected).filter(([name, value]) => document.querySelector(`[name="p5-${name}"]`)?.value !== value);
+          if (wrong.length) {
+            const revivalWrong = wrong.some(([name]) => name === "revival");
+            return setPuzzleFeedback(id, revivalWrong ? "普通世代可能已接近正确，但 revival root 不是父亲栏。它应连接 William 等待复活的对象。" : `有 ${wrong.length} 个世代字段不符。回看 D19 与 D21 的出生、继承和子女记录。`);
+          }
+          solvePuzzle(id);
+          setPuzzleFeedback(id, "族谱重建完成：Samsara 1935 的来源位置现可恢复。", true);
+          return;
+        }
+        if (id === "P6") {
+          const expected = {
+            "p6-william-state": "death", "p6-william-outcome": "laura",
+            "p6-aldous-state": "life", "p6-aldous-outcome": "crow",
+            "p6-laura-state": "born", "p6-laura-outcome": "own"
+          };
+          const wrong = Object.entries(expected).filter(([name, value]) => document.querySelector(`[name="${name}"]`)?.value !== value);
+          if (wrong.length) {
+            if (wrong.some(([name]) => name.includes("laura"))) return setPuzzleFeedback(id, "William 与 Laura 的转世关系可能正确，但 Laura 不是机器复制品；1935 出生记录说明她有独立人生。");
+            return setPuzzleFeedback(id, "两兄弟的灵药结果发生了交换错误：一人死亡等待重生，一人延续生命并使用乌鸦身份。");
+          }
+          solvePuzzle(id);
+          setPuzzleFeedback(id, "编目完成。1893 旅馆索引 RLH-1893 现可恢复。", true);
+          showToast("理论已修正：家族关系延伸至旅馆与戴尔。");
+          return;
+        }
+        if (id === "P7") {
+          const expected = { deer: "nicholas", boar: "gerard", pheasant: "elizabeth", rabbit: "david", pigeon: "margaret" };
+          const wrong = Object.entries(expected).filter(([name, value]) => document.querySelector(`[name="p7-${name}"]`)?.value !== value);
+          const level = document.querySelector('[name="p7-level"]')?.value;
+          if (wrong.length) return setPuzzleFeedback(id, `${wrong.length} 组人物与面具不符。旅馆提供动物称谓，Paradise 1796 提供同顺序的家庭名单。`);
+          if (level === "confirmed") return setPuzzleFeedback(id, "人物配对正确，但证据等级过高。材料强烈关联这些身份，仍缺少普通身份记录的绝对确认。");
+          if (level !== "strong") return setPuzzleFeedback(id, "配对已具备两类独立来源，不应只标为图像相似；选择“高度相关／强暗示”。");
+          solvePuzzle(id);
+          setPuzzleFeedback(id, "关系审计通过。CAVE-4 现可检索。", true);
+          return;
+        }
+        if (id === "P8") {
+          const errors = [];
+          for (const item of REPORT_ANSWERS) {
+            const conclusion = document.querySelector(`[name="p8-${item.id}-conclusion"]`)?.value;
+            const level = document.querySelector(`[name="p8-${item.id}-level"]`)?.value;
+            const a = document.querySelector(`[name="p8-${item.id}-a"]`)?.value;
+            const b = document.querySelector(`[name="p8-${item.id}-b"]`)?.value;
+            if (!conclusion || !level || !a || !b) { errors.push(`${item.title}：字段未填完整`); continue; }
+            if (a === b) { errors.push(`${item.title}：需要两份不同来源`); continue; }
+            if (conclusion !== item.conclusion) { errors.push(`${item.title}：关系结论不符`); continue; }
+            if (level !== item.level) { errors.push(`${item.title}：证据等级不符`); continue; }
+            if (!item.evidence.includes(a) || !item.evidence.includes(b)) errors.push(`${item.title}：至少一份材料与该结论无直接关系`);
+          }
+          if (errors.length) return setPuzzleFeedback(id, `${errors[0]}。其余字段不会被清空；修正后可再次提交。`);
+          solvePuzzle(id);
+          document.querySelector("#dialog-body").innerHTML = renderDocument("D30");
+          showToast("最终报告完成。目录总数仍为 30 / 31。");
+        }
+      };
+
+      const renderHintForPuzzle = id => {
+        const specific = {
+          P2: ["按时间比较四份文件。", "Dale 便笺给出接警、抵达与封锁；补充报告给出遗体消失。", "顺序是接警 → 抵达 → 封锁 → 遗体消失。"],
+          P3: ["需要三个不同记录类别。", "电视静帧、房产卡、电力单共享 North Mill / 138。", "选择 D11、D12、D13。"],
+          P4: ["图纸箭头与电力曲线共同决定顺序。", "电视先显示对象，之后才有 RLM-X4 高负荷。", "对象出现 → 接入机器 → 分离记忆 → 储存方块。"],
+          P5: ["先做普通家族线，再做仪式根。", "D21 正文逐条给出兄弟、继承人与子女。", "Aldous；James；Frank；Leonard；Albert；Laura；revival root 仍指 Laura。"],
+          P6: ["同一灵药产生两种命运。", "William 的页写 death/return；Aldous 的页写 life/crow。", "William→死亡→Laura；Aldous→永生→Crow；Laura→1935 出生且有独立人生。"],
+          P7: ["两份名单的顺序相互对应。", "Nicholas 鹿、Gerard 野猪、Elizabeth 雉鸡、David 兔、Margaret 鸽。", "全部配对后，证据等级选择“高度相关／强暗示”。"],
+          P8: ["每项需要关系、两份不同档案、等级。", "明确关系用 explicit；兔面和 Dale 用 strong。", "优先使用每项正文直接出现关系的两份材料；不要用同一档案两次。"]
+        };
+        const levels = specific[id] || ["比较已经打开的材料。"];
+        const current = Math.min((state.hintLevels[id] || 0) + 1, levels.length);
+        state.hintLevels[id] = current;
+        saveState();
+        const frame = document.querySelector(`[data-puzzle="${id}"]`);
+        frame?.querySelector(".hint-sheet")?.remove();
+        frame?.insertAdjacentHTML("beforeend", `<div class="hint-sheet"><strong>整理建议 ${current}/${levels.length}</strong><br>${escapeHTML(levels[current - 1])}</div>`);
+      };
+
+      const renderHomeOrWorkspace = route => {
+        const home = document.querySelector("#main-content");
+        const workspace = document.querySelector("#workspace-view");
+        const isHome = route === "home";
+        home.hidden = !isHome;
+        workspace.hidden = isHome;
+        if (isHome) {
+          document.querySelector("#main-content").focus({ preventScroll: true });
+          return;
+        }
+        workspace.innerHTML = renderRoute(route);
+        workspace.focus({ preventScroll: true });
+      };
+
+      const routeSearch = () => `
+        <div class="workspace-layout">
+          <section>
+            <h1 class="workspace-heading">站内搜索<span class="workspace-subtitle">Search gateway / primary investigation tool</span></h1>
+            <form class="runtime-search" data-runtime-search role="search">
+              <label for="runtime-search-input">输入案件编号、人物、年份、地点、机构或档案分类词</label>
+              <input id="runtime-search-input" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="例如：CASE 23">
+              <button type="submit" class="old-button rust">Search archive</button>
+            </form>
+            <div class="workspace-copy">
+              <h2>检索规则</h2>
+              <p>系统忽略大小写、常见标点与姓名顺序。宽泛地点词只返回普通目录噪声；完整姓名、年份与档案编号更有效。</p>
+              <p>提前猜中后期关键词时，系统会承认索引存在，但不会绕过来源链。</p>
+            </div>
+          </section>
+          <aside class="workspace-side">
+            <section class="panel"><h2 class="panel-title">Recent searches<span class="section-code">${state.searchHistory.length}</span></h2><div class="panel-body">${state.searchHistory.length ? `<ul class="history-list">${state.searchHistory.slice(0, 10).map(query => `<li><button type="button" data-repeat-search="${escapeHTML(query)}">${escapeHTML(query)}</button></li>`).join("")}</ul>` : "<p>尚无检索记录。</p>"}</div></section>
+          </aside>
+        </div>
+      `;
+
+      const routeDiscoveries = () => {
+        const docs = state.discoveredDocuments.filter(id => DOCS[id]);
+        return `
+          <h1 class="workspace-heading">已发现档案<span class="workspace-subtitle">Only records you have already located appear here</span></h1>
+          <div class="workspace-copy">
+            <div class="progress-meter" aria-label="核心档案发现进度"><span style="width:${Math.min(100, docs.filter(id => /^D/.test(id)).length / 31 * 100)}%"></span></div>
+            <p>已发现 ${docs.filter(id => /^D/.test(id)).length}/31 份核心档案；已读 ${state.openedDocuments.filter(id => /^D/.test(id)).length} 份。这里不会泄露未发现标题。</p>
+            <ul class="document-list">${docs.map(id => {
+              const doc = DOCS[id];
+              const docState = getDocumentState(id);
+              return `<li><button type="button" class="document-row" data-open-document="${id}"><span class="document-code">${id}</span><span class="document-title">${escapeHTML(doc.title)}<span class="document-meta">${escapeHTML(doc.date)} · ${state.openedDocuments.includes(id) ? "已读" : "未读"}</span></span><span class="state-tag ${docState}">${stateLabel(docState)}</span></button></li>`;
+            }).join("")}</ul>
+          </div>
+        `;
+      };
+
+      const routeResearch = () => {
+        const current = currentTheoryIndex();
+        return `
+          <div class="workspace-layout">
+            <section>
+              <h1 class="workspace-heading">研究记录<span class="workspace-subtitle">Theory revisions are retained, not erased</span></h1>
+              <div class="workspace-copy">
+                <h2>理论变化记录</h2>
+                <ul class="theory-list">${THEORIES.slice(0, current + 1).map((theory, index) => `<li class="theory-card ${index === current ? "current" : "revised"}"><strong>${theory.id} · ${escapeHTML(theory.title)}</strong><p>${escapeHTML(theory.note)}${index < current ? "（已修正／并入后续理论）" : ""}</p></li>`).join("")}</ul>
+              </div>
+            </section>
+            <aside class="workspace-side"><section class="panel"><h2 class="panel-title">Current question<span class="section-code">${getStage().id}</span></h2><div class="panel-body"><p>${escapeHTML(getStage().question)}</p><button type="button" class="dock-button" data-open-hint>查看项目组整理建议</button></div></section></aside>
+          </div>
+        `;
+      };
+
+      const routeEvidence = () => `
+        <h1 class="workspace-heading">固定证据<span class="workspace-subtitle">Maximum four items / visitor research folder</span></h1>
+        <div class="workspace-copy">
+          <p>最多同时固定四份材料。固定不会解锁页面，也不会因为移除而丢失进度。</p>
+          ${state.pinnedEvidence.length ? `<ul class="evidence-list">${state.pinnedEvidence.map(evidenceId => {
+            const [docId, entryId] = evidenceId.split(":");
+            const entry = DOCS[docId]?.evidence.find(item => item[0] === entryId);
+            return `<li class="document-row"><span class="document-code">${docId}</span><span class="document-title">${escapeHTML(entry?.[1] || evidenceId)}<span class="document-meta">${escapeHTML(entry?.[2] || "")}</span></span><button type="button" class="dock-button" data-pin-evidence="${evidenceId}">移除</button></li>`;
+          }).join("")}</ul>` : "<p>尚未固定证据。打开档案后可在“可固定证据”区添加。</p>"}
+        </div>
+      `;
+
+      const routeLogs = () => {
+        const currentStage = Number(getStage().id.slice(1));
+        const logs = [
+          ["2003-04-11", "项目启动。优先数字化警署、地方报纸与地产卡。"],
+          ["2005-09-02", "Daniel 发现 RL-23 同名现场照片存在多个校验值。"],
+          ["2006-02-18", "Miriam 建议把人物嫌疑与现场保管链分开编目。"],
+          ["2007-06-30", "Vanderboom 家族盒的普通世代与仪式关系分别建表。"],
+          ["2008-01-12", "撤回兔面人物绝对身份文章，改用证据等级。"],
+          ["2008-10-24", "项目停止维护。公开记录 30，索引总数 31。"]
+        ];
+        return `
+          <h1 class="workspace-heading">项目日志<span class="workspace-subtitle">Finite observations by ordinary archivists</span></h1>
+          <div class="workspace-copy"><ul class="log-list">${logs.filter((_, index) => index <= currentStage).map(([date, text]) => `<li class="theory-card"><strong>${date}</strong><p>${escapeHTML(text)}</p></li>`).join("")}</ul></div>
+        `;
+      };
+
+      const routeAbout = () => `
+        <h1 class="workspace-heading">关于本镜像<span class="workspace-subtitle">Rusty Lake Local Records Project, 2003–2008</span></h1>
+        <div class="workspace-copy">
+          <h2>项目范围</h2>
+          <p>县立图书馆志愿者 Miriam Hart 负责编目，Daniel Moor 负责扫描与网页。项目组没有超自然全知视角，只能记录来源、校验值、版本差异与有限推测。</p>
+          <h3>玩家位置</h3>
+          <p>你是匿名外部调查者。网站不会识别、追踪或“选择”你；所有变化都来自你建立的本地关系索引。</p>
+          <h3>同人声明</h3>
+          <p>本作是非官方、非商业 Rusty Lake / Cube Escape 同人网页游戏，相关角色与世界观权利归原权利人所有。</p>
+        </div>
+      `;
+
+      const routeSettings = () => `
+        <h1 class="workspace-heading">本地设置与存档<span class="workspace-subtitle">No account · no server · browser storage only</span></h1>
+        <div class="workspace-copy">
+          <div class="setting-row"><div><strong>高对比度</strong><span>增强文字与边框对比。</span></div><input type="checkbox" data-setting="highContrast" aria-label="高对比度" ${state.settings.highContrast ? "checked" : ""}></div>
+          <div class="setting-row"><div><strong>减少动态</strong><span>关闭平滑滚动与非必要动效。</span></div><input type="checkbox" data-setting="reducedMotion" aria-label="减少动态" ${state.settings.reducedMotion ? "checked" : ""}></div>
+          <div class="setting-row"><div><strong>较大文字</strong><span>把全站基准字号放大。</span></div><input type="checkbox" data-setting="textScale" aria-label="较大文字" ${state.settings.textScale === 2 ? "checked" : ""}></div>
+          <div class="setting-row"><div><strong>停滞提示</strong><span>90 秒无操作后自动显示下一层整理建议。</span></div><input type="checkbox" data-setting="autoHints" aria-label="停滞自动提示" ${state.settings.autoHints ? "checked" : ""}></div>
+          <div class="setting-row"><div><strong>导出存档</strong><span>下载 JSON，可在另一浏览器恢复。</span></div><button type="button" class="dock-button" data-export-save>导出</button></div>
+          <div class="setting-row"><div><strong>导入存档</strong><span>只接受本游戏的 JSON 状态。</span></div><input class="file-input" type="file" accept="application/json" aria-label="导入存档文件" data-import-save></div>
+          <div class="setting-row"><div><strong>重新开始</strong><span>清空本游戏存档；页面设置会恢复默认。</span></div><button type="button" class="dock-button" data-reset-save>清空进度</button></div>
+          <p>${storageAvailable ? "自动存档可用。每次检索、阅读、固定证据与解谜后都会保存。" : "浏览器阻止了本地存储；当前进度只在本标签页有效。请使用导出存档保留进度。"}</p>
+        </div>
+      `;
+
+      const renderRoute = route => ({
+        search: routeSearch,
+        discoveries: routeDiscoveries,
+        research: routeResearch,
+        evidence: routeEvidence,
+        logs: routeLogs,
+        about: routeAbout,
+        settings: routeSettings
+      }[route] || routeSearch)();
+
+      const getRoute = () => (location.hash.match(/^#\/([^?]+)/) || [])[1] || "home";
+      const renderCurrentRoute = () => {
+        const route = getRoute();
+        state.lastRoute = route;
+        renderHomeOrWorkspace(route);
+        updateChrome();
+      };
+
+      const showStageHint = () => {
+        const stage = getStage();
+        const levels = HINTS[stage.id] || HINTS.S0;
+        const current = Math.min((state.hintLevels[stage.id] || 0) + 1, levels.length);
+        state.hintLevels[stage.id] = current;
+        saveState();
+        openDialog(`
+          <article class="paper">
+            <div class="paper-content">
+              <div class="paper-mast"><p>PROJECT ORGANIZING NOTE</p><span>${stage.id} / ${current}</span></div>
+              <h2>当前问题：${escapeHTML(stage.question)}</h2>
+              <p class="paper-subtitle">整理建议 ${current}/${levels.length}</p>
+              <div class="archivist-note">${escapeHTML(levels[current - 1])}</div>
+              <p>再次打开“整理建议”会显示更具体的一层。使用提示不会扣除进度。</p>
+            </div>
+          </article>
+        `);
+      };
+
+      const scheduleAutoHint = (delay = 90000) => {
+        window.clearTimeout(inactivityTimer);
+        if (!state.settings.autoHints || document.hidden) return;
+        inactivityTimer = window.setTimeout(() => {
+          const dialog = document.querySelector("#archive-dialog");
+          if (dialog?.open || dialog?.hasAttribute("open")) {
+            scheduleAutoHint(30000);
+            return;
+          }
+          showStageHint();
+        }, delay);
+      };
+
+      const moveOrderItem = (puzzleId, index, direction) => {
+        const defaults = puzzleId === "P2" ? ["missing", "alarm", "sealed", "arrival"] : ["store", "object", "separate", "connect"];
+        const list = [...(state.puzzleDrafts[puzzleId] || defaults)];
+        const target = index + direction;
+        if (target < 0 || target >= list.length) return;
+        [list[index], list[target]] = [list[target], list[index]];
+        state.puzzleDrafts[puzzleId] = list;
+        saveState();
+        const docId = puzzleId === "P2" ? "D09" : "D15";
+        document.querySelector("#dialog-body").innerHTML = renderDocument(docId);
+      };
+
+      const toggleEvidence = evidenceId => {
+        if (state.pinnedEvidence.includes(evidenceId)) {
+          state.pinnedEvidence = state.pinnedEvidence.filter(id => id !== evidenceId);
+          showToast("已移出固定证据。");
+        } else if (state.pinnedEvidence.length >= 4) {
+          showToast("最多固定四份证据。请先移除一份。");
+          return;
+        } else {
+          state.pinnedEvidence.push(evidenceId);
+          showToast("已固定到访客研究夹。");
+        }
+        saveState();
+        updateChrome();
+        if (document.querySelector("#archive-dialog")?.open) {
+          const docId = evidenceId.split(":")[0];
+          document.querySelector("#dialog-body").innerHTML = renderDocument(docId);
+        } else renderCurrentRoute();
+      };
+
+      const viewVersion = (docId, versionId) => {
+        state.openedDocumentVersions[docId] ||= [];
+        uniquePush(state.openedDocumentVersions[docId], versionId);
+        const viewed = state.openedDocumentVersions[docId];
+        state.openedDocumentVersions[docId] = [...viewed.filter(id => id !== versionId), versionId];
+        updateSecretsFromDocument(docId);
+        saveState();
+        document.querySelector("#dialog-body").innerHTML = renderDocument(docId);
+      };
+
+      const exportSave = () => {
+        const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "rusty-lake-case23-save.json";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      };
+
+      const importSave = file => {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          try {
+            const parsed = JSON.parse(String(reader.result));
+            if (!parsed || typeof parsed !== "object" || !("schemaVersion" in parsed)) throw new Error("invalid");
+            state = hydrateState(parsed);
+            saveState();
+            applySettings();
+            renderCurrentRoute();
+            showToast("存档导入成功。");
+          } catch (error) {
+            showToast("无法导入：文件不是有效的 CASE 23 存档。");
+          }
+        });
+        reader.readAsText(file);
+      };
+
+      const resetSave = () => {
+        if (!window.confirm("确认清空《锈湖档案：23号案》的全部本地进度？此操作无法撤销，建议先导出存档。")) return;
+        try {
+          localStorage.removeItem(SAVE_KEY);
+          localStorage.removeItem(BACKUP_KEY);
+          localStorage.removeItem(SETTINGS_KEY);
+        } catch (error) {
+          // The in-memory reset still works.
+        }
+        state = defaultState();
+        saveState();
+        applySettings();
+        location.hash = "#/home";
+        renderCurrentRoute();
+        showToast("调查进度已清空。");
+      };
+
+      document.addEventListener("submit", event => {
+        const form = event.target.closest("#archive-search, [data-runtime-search]");
+        if (!form) return;
+        event.preventDefault();
+        const input = form.querySelector('input[name="q"]');
+        runSearch(input?.value || "");
+      });
+
+      document.addEventListener("click", event => {
+        const target = event.target.closest("button, a");
+        if (!target) return;
+        if (target.matches("[data-close-dialog]")) { closeDialog(); return; }
+        if (target.dataset.document) { openDocument(target.dataset.document); return; }
+        if (target.dataset.openDocument) { openDocument(target.dataset.openDocument); return; }
+        if (target.dataset.showStub) { showIndexStub(target.dataset.showStub); return; }
+        if (target.dataset.repeatSearch != null) { runSearch(target.dataset.repeatSearch); return; }
+        if (target.dataset.pinEvidence) { toggleEvidence(target.dataset.pinEvidence); return; }
+        if (target.dataset.versionDoc) { viewVersion(target.dataset.versionDoc, target.dataset.versionId); return; }
+        if (target.dataset.submitPuzzle) { submitPuzzle(target.dataset.submitPuzzle); return; }
+        if (target.dataset.puzzleHint) { renderHintForPuzzle(target.dataset.puzzleHint); return; }
+        if (target.dataset.orderUp) {
+          const [id, index] = target.dataset.orderUp.split(":");
+          moveOrderItem(id, Number(index), -1);
+          return;
+        }
+        if (target.dataset.orderDown) {
+          const [id, index] = target.dataset.orderDown.split(":");
+          moveOrderItem(id, Number(index), 1);
+          return;
+        }
+        if (target.matches("[data-open-hint]")) { showStageHint(); return; }
+        if (target.dataset.routeButton) { location.hash = `#/${target.dataset.routeButton}`; return; }
+        if (target.matches("[data-focus-search]")) {
+          event.preventDefault();
+          location.hash = "#/search";
+          window.setTimeout(() => document.querySelector("#runtime-search-input")?.focus(), 0);
+          return;
+        }
+        if (target.matches("[data-placeholder]")) {
+          event.preventDefault();
+          showToast(target.dataset.placeholder);
+          return;
+        }
+        if (target.matches("[data-export-save]")) { exportSave(); return; }
+        if (target.matches("[data-reset-save]")) { resetSave(); }
+      });
+
+      document.addEventListener("change", event => {
+        const target = event.target;
+        if (target.matches('input[name="p3-source"]')) {
+          state.puzzleDrafts.P3 = [...document.querySelectorAll('input[name="p3-source"]:checked')]
+            .map(input => input.value);
+          saveState();
+        }
+        const puzzleField = target.name?.match(/^p([5-8])-/);
+        if (puzzleField) {
+          const puzzleId = `P${puzzleField[1]}`;
+          const previous = state.puzzleDrafts[puzzleId];
+          state.puzzleDrafts[puzzleId] = {
+            ...(previous && typeof previous === "object" && !Array.isArray(previous) ? previous : {}),
+            [target.name]: target.value
+          };
+          saveState();
+        }
+        if (target.matches("[data-setting]")) {
+          const key = target.dataset.setting;
+          state.settings[key] = key === "textScale" ? (target.checked ? 2 : 1) : target.checked;
+          saveState();
+          applySettings();
+          scheduleAutoHint();
+        }
+        if (target.matches("[data-import-save]")) importSave(target.files?.[0]);
+      });
+
+      const dialog = document.querySelector("#archive-dialog");
+      dialog.addEventListener("click", event => {
+        if (event.target === dialog) closeDialog();
+      });
+      dialog.addEventListener("cancel", event => {
+        event.preventDefault();
+        closeDialog();
+      });
+
+      document.addEventListener("pointerdown", () => scheduleAutoHint(), true);
+      document.addEventListener("keydown", () => scheduleAutoHint(), true);
+      document.addEventListener("scroll", () => scheduleAutoHint(), true);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) scheduleAutoHint();
+        else window.clearTimeout(inactivityTimer);
+      });
+      window.addEventListener("hashchange", renderCurrentRoute);
+      if (!location.hash.startsWith("#/")) location.hash = `#/${state.lastRoute || "home"}`;
+      applySettings();
+      renderCurrentRoute();
+      saveState();
+      scheduleAutoHint();
+
+      window.RL_CASE23_DIAGNOSTICS = Object.freeze({
+        contentVersion: CONTENT_VERSION,
+        counts: {
+          coreDocuments: Object.keys(DOCS).filter(id => /^D\d+$/.test(id)).length,
+          auxiliaryDocuments: Object.keys(DOCS).filter(id => /^F\d+$/.test(id)).length,
+          hiddenDocuments: Object.keys(DOCS).filter(id => /^H\d+$/.test(id)).length,
+          mainKeywords: Object.keys(KEYWORDS).length,
+          optionalKeywords: Object.keys(OPTIONAL).length,
+          puzzles: 8
+        },
+        snapshot: () => JSON.parse(JSON.stringify(state)),
+        validate: () => {
+          const errors = [];
+          const expectIds = (prefix, count, source) => {
+            for (let index = 1; index <= count; index += 1) {
+              const id = `${prefix}${String(index).padStart(2, "0")}`;
+              if (!source[id]) errors.push(`缺少 ${id}`);
+            }
+          };
+          expectIds("D", 31, DOCS);
+          expectIds("F", 4, DOCS);
+          expectIds("H", 6, DOCS);
+          expectIds("K", 29, KEYWORDS);
+          expectIds("O", 9, OPTIONAL);
+          Object.entries(DOCS).forEach(([id, doc]) => {
+            doc.related.forEach(relatedId => {
+              if (!DOCS[relatedId]) errors.push(`${id} 关联不存在的 ${relatedId}`);
+            });
+            if (doc.puzzle && !/^P[1-8]$/.test(doc.puzzle)) errors.push(`${id} 使用未知谜题 ${doc.puzzle}`);
+          });
+          const aliasOwners = new Map();
+          allEntries().forEach(({ id, entry }) => {
+            entry.docs.forEach(docId => {
+              if (!DOCS[docId]) errors.push(`${id} 返回不存在的 ${docId}`);
+            });
+            (entry.stubDocs || []).forEach(docId => {
+              if (!entry.docs.includes(docId)) errors.push(`${id} 把未返回的 ${docId} 标为索引占位`);
+            });
+            keywordAliases(entry).forEach(alias => {
+              if (!alias) errors.push(`${id} 包含空别名`);
+              const owner = aliasOwners.get(alias);
+              if (owner && owner !== id) errors.push(`${id} 与 ${owner} 的别名冲突：${alias}`);
+              aliasOwners.set(alias, id);
+            });
+          });
+          return { ok: errors.length === 0, errors };
+        },
+        reset: () => { state = defaultState(); saveState(); renderCurrentRoute(); scheduleAutoHint(); },
+        search: runSearch,
+        open: openDocument
+      });
+    })();
+  </script>
+</body>
+</html>
